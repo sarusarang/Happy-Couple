@@ -74,10 +74,10 @@ function Footer() {
                 </div>
 
 
-                <p style={{ textAlign: 'justify' }}><i className="fas fa-home me-3"></i>RKP,3/569G,Parammal Road,Ramanatukara,Kozhikode  <br />- 673 634</p>
+                <p style={{ textAlign: 'justify' , fontSize:'15px' }}><i className="fas fa-home me-3"></i>RKP,3/569G,Parammal <br /> Road,Ramanatukara,Kozhikode  <br />- 673 634</p>
 
 
-                <a href='' className='foot-link'>
+                <a href='' className='foot-link' style={{fontSize:'15px'}}>
 
                   <i className="fas fa-envelope me-3 mb-4"></i>
                   info@happycouplesolution.in.com
@@ -85,7 +85,7 @@ function Footer() {
                 </a>
 
 
-                <a href="" className='foot-link'> <i className="fas fa-phone me-3"></i>+91 9020200100 </a>
+                <a href="" className='foot-link'  style={{fontSize:'15px'}} > <i className="fas fa-phone me-3"></i>+91 9020200100 </a>
 
 
               </div>

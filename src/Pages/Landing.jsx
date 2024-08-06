@@ -1,5 +1,6 @@
 import React from 'react'
 import Slider from '../Components/Slider'
+import Hero from '../Components/Hero'
 
 function Landing() {
 
@@ -15,14 +16,18 @@ function Landing() {
 
 
         {/* Slider */}
-        <div className='p-2'>
+        <div className='p-4'>
 
           <Slider />
 
         </div>
 
 
-        <div style={{height:'300px'}}>
+
+        {/* Hero  */}
+        <div className=''>
+
+          <Hero />
 
         </div>
 
