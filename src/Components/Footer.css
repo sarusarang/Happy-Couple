@@ -1,0 +1,26 @@
+footer{
+
+    background-color: #2a2a2a;
+    padding: 2rem;
+
+}
+
+.foot-logo{
+
+    width: 65%;
+    margin-bottom: 1rem;
+
+}
+
+.foot-link{
+
+    text-decoration: none;
+    color: #fff !important;
+
+}
+
+.foot-link:hover{
+
+    color: #ccc !important;
+
+}

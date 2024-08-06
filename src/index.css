@@ -10,6 +10,20 @@
 }
 
 
+/* Scroll bar  */
+body::-webkit-scrollbar {
+  display: none;
+
+}
+
+
+html {
+
+  scroll-behavior: smooth;
+}
+
+
+
 
 /* Header */
 
@@ -115,7 +129,6 @@
 /* Responsive */
 
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
-
 
   .navigation a {
 
@@ -259,7 +272,7 @@
     align-items: center;
     margin-top: 1rem;
     background-color: #fffefe;
-  
+
   }
 
 
