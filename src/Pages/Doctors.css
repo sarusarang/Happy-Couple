@@ -1,0 +1,434 @@
+/* Doctors */
+.doc-head h3 {
+
+    font-weight: 600;
+    color: #2a2a2a;
+
+}
+
+.doc-head p {
+
+    margin-bottom: 0rem;
+    color: #a1a1a1;
+    font-style: italic;
+    font-weight: 460;
+    font-size: 14px;
+
+}
+
+.doc-2 h4 {
+
+    font-size: 22px;
+    font-weight: 500;
+
+}
+
+
+.spec-logo {
+
+    width: 12%;
+
+}
+
+.spec-logo p {
+
+    font-weight: 400;
+    font-size: 14px;
+
+}
+
+.doc-img {
+
+    width: 20%;
+}
+
+
+.doctor-container {
+
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+
+    .d-c-top {
+        display: flex;
+        width: 100%;
+    }
+
+    .doctor-image img {
+        width: 100%;
+        padding: 0;
+    }
+
+    .online-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+    }
+
+    .doctor-info {
+
+        margin-top: 3rem;
+    }
+
+    .doctor-info h3 {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .doctor-info h4 {
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .online-btn button {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0d4218;
+        color: white;
+        font-weight: 600;
+        border-radius: 2rem;
+        margin-top: 10px;
+    }
+
+    .btn-chatnow {
+        outline: 1.5px solid #0a611c;
+        color: #0a611c;
+        font-weight: 600;
+    }
+
+    .btn-chatnow:hover {
+        background-color: #0a611c;
+        color: white;
+    }
+
+    .btn-doc-info {
+        outline: 1.5px solid #0a5561;
+        color: #0a5561;
+        font-weight: 600;
+
+    }
+
+    .btn-doc-info:hover {
+        background-color: #0a5561;
+        color: white;
+    }
+
+    .chat {
+        padding-right: 5px;
+    }
+
+    .info {
+        padding-left: 5px;
+    }
+
+    .doctor-image img {
+
+        margin-top: 1rem;
+
+    }
+
+    .doctor-info p {
+
+        margin-bottom: 0.3rem;
+
+    }
+}
+
+
+
+
+
+/* Responsive */
+@media only screen and (min-width: 991px) and (max-width: 1200px) {
+
+
+
+    .spec-logo {
+
+        width: 13%;
+
+    }
+
+    .spec-logo p {
+
+        font-weight: 400;
+        font-size: 14px;
+
+    }
+
+
+    .doctor-image img {
+
+        margin-top: 2rem !important;
+
+    }
+
+    .doctor-info p {
+
+        margin-bottom: 0.3rem !important;
+
+    }
+
+
+
+
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+
+
+    .spec-logo {
+
+        width: 17%;
+
+    }
+
+    .spec-logo p {
+
+        font-weight: 400;
+        font-size: 14px;
+
+    }
+
+    .doctor-image img {
+
+        margin-top: 2rem !important;
+
+    }
+
+
+    .online-btn button {
+
+        font-size: small !important;
+
+    }
+
+
+
+    .doctor-info h3 {
+        font-size: 17px !important;
+        font-weight: 600 !important;
+    }
+
+    .doctor-info h4 {
+        font-size: 14px !important;
+        font-weight: 400 !important;
+    }
+
+    .doctor-info p {
+
+        font-size: 14px !important;
+        margin-bottom: 0.2rem !important;
+
+    }
+
+
+    .col-md-8 {
+
+        width: 92.666667% !important;
+
+    }
+
+}
+
+
+
+
+
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+
+
+
+    .spec-logo {
+
+        width: 26%;
+
+    }
+
+    .spec-logo p {
+
+        font-weight: 400;
+        font-size: 14px;
+
+    }
+
+
+
+
+    .doctor-image img {
+
+        margin-top: 2.5rem !important;
+
+    }
+
+
+    .online-btn button {
+
+        font-size: 8px !important;
+
+    }
+
+
+
+    .doctor-info h3 {
+        font-size: 17px !important;
+        font-weight: 600 !important;
+    }
+
+    .doctor-info h4 {
+        font-size: 14px !important;
+        font-weight: 400 !important;
+    }
+
+    .doctor-info p {
+
+        font-size: 14px !important;
+        margin-bottom: 0rem !important;
+
+
+    }
+
+
+    .col-md-8 {
+
+        width: 92.666667% !important;
+
+    }
+
+
+}
+
+
+
+@media only screen and (min-width: 481px) and (max-width: 600px) {
+
+
+
+    .spec-logo {
+
+        width: 25%;
+
+    }
+
+    .spec-logo p {
+
+        font-weight: 400;
+        font-size: 14px;
+
+    }
+
+
+    .doctor-image img {
+
+        margin-top: 2.5rem !important;
+
+    }
+
+
+    .online-btn button {
+
+        font-size: 8px !important;
+
+    }
+
+
+
+    .doctor-info h3 {
+        font-size: 17px !important;
+        font-weight: 600 !important;
+    }
+
+    .doctor-info h4 {
+        font-size: 14px !important;
+        font-weight: 400 !important;
+    }
+
+    .doctor-info p {
+
+        font-size: 14px !important;
+        margin-bottom: 0rem !important;
+
+    }
+
+
+    .col-md-8 {
+
+        width: 92.666667% !important;
+
+    }
+
+
+}
+
+
+@media only screen and (max-width: 481px) {
+
+
+
+    .spec-logo {
+
+        width: 39%;
+
+    }
+
+    .spec-logo p {
+
+        font-weight: 400;
+        font-size: 14px;
+
+    }
+
+
+    .doctor-info{
+
+        margin-top: 2rem !important;
+
+    }
+
+    .doctor-image img {
+
+        margin-top: 1rem !important;
+
+    }
+
+
+    .online-btn button {
+
+        font-size: 8px !important;
+
+    }
+
+
+
+    .doctor-info h3 {
+        font-size: 14px !important;
+        font-weight: 600 !important;
+    }
+
+    .doctor-info h4 {
+        font-size: 12px !important;
+        font-weight: 400 !important;
+    }
+
+    .doctor-info p {
+
+        font-size: 10px !important;
+        margin-bottom: 0;
+
+    }
+
+
+    .col-md-8 {
+
+        width: 90.666667% !important;
+
+    }
+
+
+}

@@ -64,7 +64,7 @@ function Footer() {
 
 
               {/* About */}
-              <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 foot-res">
 
 
                 <div className='foot-logo'>
@@ -74,18 +74,26 @@ function Footer() {
                 </div>
 
 
-                <p style={{ textAlign: 'justify' , fontSize:'15px' }}><i className="fas fa-home me-3"></i>RKP,3/569G,Parammal <br /> Road,Ramanatukara,Kozhikode  <br />- 673 634</p>
+                <p style={{ fontSize: '15px' }}><i className="fas fa-home me-3"></i>RKP,3/569G,Parammal Road,Ramanatukara,Kozhikode <br />- 673 634</p>
 
 
-                <a href='' className='foot-link' style={{fontSize:'15px'}}>
+                <p className='text-center'>
 
-                  <i className="fas fa-envelope me-3 mb-4"></i>
-                  info@happycouplesolution.in.com
+                  <a href='mailto:info@happycouplesolution.in.com' className='foot-link' style={{ fontSize: '15px' }} target='_blank'>
 
-                </a>
+                    <i className="fas fa-envelope me-3 mb-4"></i>
+                    info@happycouplesolution.in.com
+
+                  </a>
+
+                </p>
 
 
-                <a href="" className='foot-link'  style={{fontSize:'15px'}} > <i className="fas fa-phone me-3"></i>+91 9020200100 </a>
+                <p className='w-100'>
+
+                  <a href="https://wa.me/+91 9020200100" className='foot-link' target='_blank' style={{ fontSize: '15px' }} > <i className="fas fa-phone me-3"></i>+91 9020200100</a>
+
+                </p>
 
 
               </div>

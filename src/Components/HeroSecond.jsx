@@ -1,8 +1,24 @@
 import React from 'react'
+import { useState } from 'react';
 import './HeroSecond.css'
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 function HeroSecond() {
 
+
+    // Modal 1
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
+    // Modal 2
+    const [show2, setShow2] = useState(false);
+
+    const handleClose2 = () => setShow2(false);
+    const handleShow2 = () => setShow2(true);
 
     return (
 
@@ -34,7 +50,7 @@ function HeroSecond() {
                         <div className='row'>
 
 
-                            <div className='col-md-6 hero2-margin'>
+                            <div className='col-md-6 hero2-margin' onClick={handleShow}>
 
                                 <div className=' hero2-logo'>
 
@@ -48,7 +64,7 @@ function HeroSecond() {
 
 
 
-                            <div className='col-md-6'>
+                            <div className='col-md-6' >
 
                                 <img src="/263x263-01.jpg" className='img-fluid' alt="img" />
 
@@ -64,7 +80,7 @@ function HeroSecond() {
 
 
 
-                            <div className='col-md-6 mt-4'>
+                            <div className='col-md-6 mt-4 hover' onClick={handleShow}>
 
                                 <div className='hero2-logo'>
 
@@ -83,13 +99,67 @@ function HeroSecond() {
 
 
 
+                <Modal
+                    show={show}
+                    onHide={handleClose}
+                    backdrop="static"
+                    keyboard={false}
+                >
+
+
+
+                    <Modal.Header closeButton>
+
+                        <div className='modal-logo'>
+
+                            <img src="/ErectaidLog-01.png" className='img-fluid' alt="" />
+
+                        </div>
+
+                    </Modal.Header>
+
+
+
+
+                    <Modal.Body>
+
+                        <p style={{fontSize:'14px',textAlign:'justify'}}>A revolutionary vacuum device designed to address erectile dysfunction. Combining advanced
+                            technology with ease of use, enhances blood flow safely and effectively, promoting natural and
+                            sustained erections. Discreet, non-invasive,
+                            and user-friendly, it's a game-changer in sexual health and confidence restoration.</p>
+
+
+
+                        <div className='modal-logo'>
+
+
+                            <img src="/263x263-01.jpg" className='img-fluid' alt="" />
+
+                        </div>
+
+                    </Modal.Body>
+
+
+
+
+                    <Modal.Footer>
+
+                        <button className='btn btn-closed' onClick={handleClose}>Close</button>
+
+                       <button className='btn btn-buy'>Buy Now</button>
+
+
+                    </Modal.Footer>
+
+
+                </Modal>
+
+
 
             </section>
 
 
         </>
-
-
 
     )
 

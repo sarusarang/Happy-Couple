@@ -130,6 +130,12 @@ html {
 
 
 
+
+
+
+
+
+
 /* Responsive */
 
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
@@ -150,8 +156,13 @@ html {
 
   .navigation a {
 
-    margin-right: 0.2rem !important;
-    font-size: 13px !important;
+    margin-right: 1rem !important;
+    font-size: 12px !important;
+
+  }
+  .contain{
+
+    padding-left: 5rem !important;
 
   }
 

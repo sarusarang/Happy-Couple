@@ -47,7 +47,7 @@ function Header() {
               <Link to={'/'} >AI Consultant</Link>
 
 
-              <Link to={'/'} >Talk to Doctor</Link>
+              <Link to={'/doctors'} >Talk to Doctor</Link>
 
 
               <div className='dropdown'>
@@ -88,7 +88,7 @@ function Header() {
 
               <Link to={'/'} ><i class="fa-solid fa-magnifying-glass"></i></Link>
 
-              <Link to={'/'} ><i class="fa-solid fa-cart-shopping"></i></Link>
+              <Link to={'/cart'} ><i class="fa-solid fa-cart-shopping"></i></Link>
 
               <Link to={'/auth'} ><i class="fa-solid fa-user"></i></Link>
 
