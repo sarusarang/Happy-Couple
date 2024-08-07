@@ -41,11 +41,13 @@ function Header() {
             <Nav className="me-auto navigation">
 
 
-              <Nav.Link href="#home">Home</Nav.Link>
+              <Link to={'/'} >Home</Link>
 
-              <Nav.Link href="#link">AI Consultant</Nav.Link>
 
-              <Nav.Link href="#link">Talk to Doctor</Nav.Link>
+              <Link to={'/'} >AI Consultant</Link>
+
+
+              <Link to={'/'} >Talk to Doctor</Link>
 
 
               <div className='dropdown'>
@@ -55,8 +57,8 @@ function Header() {
 
                 <div className='dropdown-content'>
 
-                  <Link className='drop-link'>Performance</Link>
-                  <Link className='drop-link'>Stress Management</Link>
+                  <Link  to={'/'}  className='drop-link d-block'>Performance</Link>
+                  <Link  to={'/'} className='drop-link d-block'>Stress Management</Link>
 
                 </div>
 
@@ -64,7 +66,8 @@ function Header() {
               </div>
 
 
-              <Nav.Link href="#link">Products</Nav.Link>
+              <Link to={'/allproducts'} >Products</Link>
+
 
 
               <div className='dropdown'>
@@ -74,8 +77,8 @@ function Header() {
 
                 <div className='dropdown-content'>
 
-                  <Link className='drop-link'>About Us</Link>
-                  <Link className='drop-link'>Contact Us</Link>
+                  <Link to={'/'} className='drop-link d-block'>About Us</Link>
+                  <Link  to={'/'} className='drop-link d-block'>Contact Us</Link>
 
                 </div>
 
@@ -83,15 +86,11 @@ function Header() {
               </div>
 
 
+              <Link to={'/'} ><i class="fa-solid fa-magnifying-glass"></i></Link>
 
-              <Nav.Link href="#link"><i class="fa-solid fa-magnifying-glass"></i></Nav.Link>
+              <Link to={'/'} ><i class="fa-solid fa-cart-shopping"></i></Link>
 
-
-              <Nav.Link href="#link"><i class="fa-solid fa-cart-shopping"></i></Nav.Link>
-
-              <Nav.Link href="#link"><i class="fa-solid fa-user"></i></Nav.Link>
-
-
+              <Link to={'/auth'} ><i class="fa-solid fa-user"></i></Link>
 
 
             </Nav>
