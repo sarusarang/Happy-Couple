@@ -8,6 +8,7 @@ import Auth from './Pages/Auth'
 import AllProducts from "./Pages/AllProducts"
 import Doctors from "./Pages/Doctors"
 import Cart from "./Pages/Cart"
+import SingleProducts from "./Pages/SingleProducts"
 
 function App() {
 
@@ -69,6 +70,8 @@ function App() {
         <Route path="/ai" element={<Doctors />}> </Route>
 
         <Route path="/cart" element={<Cart />}> </Route>
+
+        <Route path="/pro" element={<SingleProducts />}> </Route>
 
       </Routes>
 

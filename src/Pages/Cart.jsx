@@ -6,17 +6,13 @@ import { Link } from 'react-router-dom'
 function Cart() {
 
 
-
-
-
     return (
-
 
 
         <>
 
 
-            <section className="mt-4 p-5 mb-5">
+            <section className="mt-4  mb-5 Cart-paddin">
 
 
                 <div className="container">
@@ -31,7 +27,7 @@ function Cart() {
                             <div className="card border shadow-0">
 
 
-                                <div className="m-4 p-5">
+                                <div className="m-4 Cart-padding">
 
 
                                     <h4 className="card-title mb-4">Your shopping cart</h4>
@@ -56,6 +52,7 @@ function Cart() {
 
 
                                                 </div>
+
                                             </div>
 
 
@@ -156,7 +153,7 @@ function Cart() {
 
                                         <Link to={'/'}>
 
-                                            <a href="#" className="btn btn-success w-100 border mt-2"> Back to shop </a>
+                                            <a href="#" className="btn btn-success w-100 border mt-2"> Check Out </a>
 
                                         </Link>
 
@@ -176,13 +173,9 @@ function Cart() {
 
                     </div>
 
-
                 </div>
 
-
             </section>
-
-
 
 
         </>
