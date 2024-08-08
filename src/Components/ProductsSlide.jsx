@@ -2,9 +2,12 @@ import React from 'react'
 import './ProductsSlide.css'
 import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css"
+import { useNavigate } from 'react-router-dom'
 
 function ProductsSlide() {
 
+
+    const Navigate = useNavigate()
 
     const responsive = {
 
@@ -53,7 +56,7 @@ function ProductsSlide() {
                                         <div className="el-wrapper">
 
 
-                                            <div className="box-up">
+                                            <div className="box-up" onClick={()=>{Navigate('/pro')}} >
 
                                                 <img className="img-fluid img" src="/LYGIN_M.jpg" alt="img" style={{ height: '100%' }} />
 
@@ -116,7 +119,7 @@ function ProductsSlide() {
                                         <div className="el-wrapper">
 
 
-                                            <div className="box-up">
+                                            <div className="box-up" onClick={()=>{Navigate('/pro')}}>
 
                                                 <img className="img-fluid img" src="/LYGIN_M.jpg" alt="img" style={{ height: '100%' }} />
 
@@ -182,7 +185,7 @@ function ProductsSlide() {
                                         <div className="el-wrapper">
 
 
-                                            <div className="box-up">
+                                            <div className="box-up" onClick={()=>{Navigate('/pro')}}>
 
                                                 <img className="img-fluid img" src="/LYGIN_M.jpg" alt="img" style={{ height: '100%' }} />
 
@@ -247,7 +250,7 @@ function ProductsSlide() {
                                         <div className="el-wrapper">
 
 
-                                            <div className="box-up">
+                                            <div className="box-up" onClick={()=>{Navigate('/pro')}}>
 
                                                 <img className="img-fluid img" src="/LYGIN_M.jpg" alt="img" style={{ height: '100%' }} />
 
@@ -311,7 +314,7 @@ function ProductsSlide() {
                                         <div className="el-wrapper">
 
 
-                                            <div className="box-up">
+                                            <div className="box-up" onClick={()=>{Navigate('/pro')}}>
 
                                                 <img className="img-fluid img" src="/LYGIN_M.jpg" alt="img" style={{ height: '100%' }} />
 

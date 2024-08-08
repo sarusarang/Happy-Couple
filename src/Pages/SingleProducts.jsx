@@ -285,7 +285,7 @@ function SingleProducts() {
 
                                     <div className="card-body bg-white">
 
-                                        <h5 className="card-title text-dark">Similar Products</h5>
+                                        <h5 className="card-title text-dark">Related Products</h5>
 
                                         <div className="d-flex mb-3">
 
