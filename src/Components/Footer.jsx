@@ -143,28 +143,28 @@ function Footer() {
         {/* Socail Media Links */}
         <section class="d-flex justify-content-center pb-3">
 
-          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+          <a data-mdb-ripple-init class="btn m-1" href="#!" role="button" style={{ borderRadius: '5rem' }}
           ><i class="fab fa-facebook-f text-white"></i
           ></a>
 
 
-          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+          <a data-mdb-ripple-init class="btn m-1" href="#!" role="button" style={{ borderRadius: '5rem' }}
           ><i class="fa-brands fa-x-twitter text-white"></i></a>
 
-          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+          <a data-mdb-ripple-init class="btn  m-1" href="#!" role="button" style={{ borderRadius: '5rem' }}
           ><i class="fab fa-instagram text-white"></i
           ></a>
 
 
-          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+          <a data-mdb-ripple-init class="btn  m-1" href="#!" role="button" style={{ borderRadius: '5rem' }}
           ><i class="fab fa-linkedin-in text-white"></i
           ></a>
 
 
-          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+          <a data-mdb-ripple-init class="btn m-1" href="#!" role="button" style={{ borderRadius: '5rem' }}
           ><i class="fa-brands fa-youtube text-white"></i></a>
 
-          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+          <a data-mdb-ripple-init class="btn  m-1" href="#!" role="button" style={{ borderRadius: '5rem' }}
           ><i class="fa-brands fa-pinterest text-white"></i></a>
 
 

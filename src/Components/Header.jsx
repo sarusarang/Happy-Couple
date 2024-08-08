@@ -77,7 +77,7 @@ function Header() {
 
                 <div className='dropdown-content'>
 
-                  <Link to={'/'} className='drop-link d-block'>About Us</Link>
+                  <Link to={'/about'} className='drop-link d-block'>About Us</Link>
                   <Link  to={'/'} className='drop-link d-block'>Contact Us</Link>
 
                 </div>
