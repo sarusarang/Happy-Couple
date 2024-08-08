@@ -1,9 +1,19 @@
 import React from 'react'
+import { useEffect } from 'react'
 import '../Components/ProductsSlide.css'
 
 function AllProducts() {
 
 
+    useEffect(() => {
+
+
+        // TO MOUNT ON THE TOP LEVEL 
+        window.scrollTo(0, 0);
+
+
+
+    }, []);
 
 
 

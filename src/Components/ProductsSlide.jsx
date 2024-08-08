@@ -39,9 +39,7 @@ function ProductsSlide() {
             <section className='product-slide'>
 
 
-                <div className='container p-5'>
-
-                    <h3 className='text-center'>Products</h3>
+                <div className='container p-5 pt-0'>
 
 
                     <Carousel responsive={responsive}>

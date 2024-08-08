@@ -1,14 +1,32 @@
 import React from 'react'
-import { useState } from 'react';
-import "mdb-react-ui-kit/dist/css/mdb.min.css";
-import { MDBTabs, MDBTabsItem, MDBTabsLink, MDBTabsContent, MDBTabsPane } from "mdb-react-ui-kit";
+import { useState, useEffect } from 'react'
+import "mdb-react-ui-kit/dist/css/mdb.min.css"
+import { MDBTabs, MDBTabsItem, MDBTabsLink } from "mdb-react-ui-kit"
+import ProductsSlide from '../Components/ProductsSlide'
 
 function SingleProducts() {
 
 
+
+
+    useEffect(() => {
+
+
+        // TO MOUNT ON THE TOP LEVEL 
+        window.scrollTo(0, 0);
+
+
+
+    }, []);
+
+
+
+    // To handle Spec Tabs
     const [activeItem, setActiveItem] = useState('tab1')
 
 
+
+    // To handle Spec Tabs
     const handleTabClick = (value) => {
 
         if (value === activeItem) {
@@ -19,8 +37,11 @@ function SingleProducts() {
         setActiveItem(value);
     }
 
-    
-    
+
+
+
+
+
 
     return (
 
@@ -94,7 +115,7 @@ function SingleProducts() {
 
                                 {/* Price */}
                                 <div className="mb-3">
-                                    <span className="h5">$75.00</span>
+                                    <span className="h5">₹75.00</span>
                                     <span className="text-muted">/per box</span>
                                 </div>
 
@@ -102,7 +123,6 @@ function SingleProducts() {
                                 <p style={{ fontWeight: '600' }}>
                                     For Concerned of : <br />
                                     Initial ED I Premature Ejaculation I Low Drive I Consistent Performance I
-
                                 </p>
 
                                 {/* Description */}
@@ -193,7 +213,7 @@ function SingleProducts() {
 
 
 
-            <section className="bg-light border-top py-4">
+            <section className="bg-light border-top py-4 pb-5 mb-5 pt-5" style={{ borderBottom: '3px dotted #eee' }}>
 
 
                 <div className="container">
@@ -204,9 +224,9 @@ function SingleProducts() {
                         {/* SPECS */}
                         <div className="col-lg-8 mb-4">
 
-                            <div>
+                            <div className='border rounded-2 shadow px-3 py-2 bg-white'>
 
-                                <MDBTabs pills className="mb-3">
+                                <MDBTabs pills className="mb-3 p-3">
 
                                     <MDBTabsItem>
                                         <MDBTabsLink onClick={() => handleTabClick('tab1')} active={activeItem === 'tab1'}>
@@ -216,21 +236,21 @@ function SingleProducts() {
 
                                     <MDBTabsItem>
                                         <MDBTabsLink onClick={() => handleTabClick('tab2')} active={activeItem === 'tab2'}>
-                                        How to Use
+                                            How to Use
                                         </MDBTabsLink>
                                     </MDBTabsItem>
 
 
                                     <MDBTabsItem>
                                         <MDBTabsLink onClick={() => handleTabClick('tab3')} active={activeItem === 'tab3'}>
-                                        Customer Reviews
+                                            Customer Reviews
                                         </MDBTabsLink>
                                     </MDBTabsItem>
 
 
                                     <MDBTabsItem>
                                         <MDBTabsLink onClick={() => handleTabClick('tab4')} active={activeItem === 'tab4'}>
-                                        FAQs
+                                            FAQs
                                         </MDBTabsLink>
                                     </MDBTabsItem>
 
@@ -238,37 +258,172 @@ function SingleProducts() {
                                 </MDBTabs>
 
 
-                                <MDBTabsContent>
+
+                                {
+
+                                    activeItem == "tab1" &&
+
+                                    <div className='key-benfits pb-5'>
+
+                                        <ul>
+
+                                            <li>Supports Erectile Function: L-arginine helps increase blood flow, enhancing erectile response.</li>
+                                            <li>Enhances Vitality and Stamina: Ginseng and Ashwagandha provide increased energy and stamina,
+                                                improving overall sexual performance.</li>
+
+                                            <li>Boosts Testosterone Levels: Shilajit and Zinc are known to naturally boost testosterone levels, crucial for
+                                                sexual health.</li>
+
+                                            <li>Improves Mood and Reduces Stress: Ashwagandha is a powerful adaptogen that helps reduce stress and improve mood,
+                                                factors important in sexual health.</li>
+
+                                            <li>Antioxidant Protection: Lycopene and Vitamin D3 offer antioxidant benefits, protecting cells from damage.</li>
+
+                                        </ul>
+
+                                    </div>
+
+                                }
 
 
-                                    <MDBTabsPane show = {activeItem == 'tab1'}> 
-
-                                        <p>With supporting text below as a natural lead-in to additional content...</p>
-
-                                    </MDBTabsPane>
 
 
-                                    <MDBTabsPane show={activeItem === 'tab2'}>
 
-                                        <p>Tab content or sample information now...</p>
+                                {
 
-                                    </MDBTabsPane>
+                                    activeItem == "tab2" &&
 
+                                    <div className='howto-use pb-5 ps-3 pe-3'>
 
-                                    <MDBTabsPane show={activeItem === 'tab3'}>
+                                        <ul>
 
-                                        <p>Another tab content or sample information now...</p>
-
-                                    </MDBTabsPane>
+                                            <li>Dosage: Take one capsule daily or as directed by your healthcare provider.</li>
 
 
-                                    <MDBTabsPane show={activeItem === 'tab4'}>
+                                            <li>Best Time to Take: For optimal results, consume on an empty stomach in the morning or before bedtime.</li>
 
-                                        <p>Some other tab content or sample information now...</p>
 
-                                    </MDBTabsPane>
 
-                                </MDBTabsContent>
+                                            <li>Course Duration: Consistent use for at least 3 to 6 months is recommended for best results.Precautions.</li>
+
+
+
+                                            <li>Consult your healthcare provider before beginning any supplement regimen.</li>
+
+
+                                            <li>Lygin M is intended for use by men aged 18 and ulder.</li>
+
+
+                                            <li>Ensure compatibility with other medications if you are currently under treatment for other conditions.</li>
+
+                                        </ul>
+
+                                    </div>
+
+                                }
+
+
+
+
+
+
+
+                                {
+
+                                    activeItem == "tab3" &&
+
+                                    <div className='pb-5 ps-3 pe-3'>
+
+
+                                        <div className='mb-4 customer-review'>
+
+                                            <span class="fa fa-star " style={{ color: '#FFD43B' }}></span>
+                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
+                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
+                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
+                                            <span class="fa fa-star fa-star-half-stroke" style={{ color: '#FFD43B' }}></span>
+
+                                            <p>started using Lygin M before moving to stronger medications. Not only did my condition improve,
+                                                but I also feel more energetic throughout the day!" - Jason M.</p>
+
+                                        </div>
+
+
+
+                                        <div className='mb-4 customer-review'>
+
+                                            <span class="fa fa-star " style={{ color: '#FFD43B' }}></span>
+                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
+                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
+                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
+                                            <span class="fa fa-star fa-star-half-stroke" style={{ color: '#FFD43B' }}></span>
+
+                                            <p>Great product with natural ingredients. I appreciate the holistic approach to treating ED." - Kevin T.</p>
+
+                                        </div>
+
+
+
+                                        <div className='mb-4 customer-review'>
+
+                                            <span class="fa fa-star " style={{ color: '#FFD43B' }}></span>
+                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
+                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
+                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
+                                            <span class="fa fa-star fa-star-half-stroke" style={{ color: '#FFD43B' }}></span>
+
+                                            <p>Noticed significant improvements in both my sexual health and overall well-being. Highly recommend Lygin M!" - Sam D.</p>
+
+                                        </div>
+
+
+                                    </div>
+
+                                }
+
+
+
+
+                                {
+
+                                    activeItem == "tab4" &&
+
+                                    <div className='FAQ pb-5 ps-3 pe-3'>
+
+                                        <ul>
+
+                                            <li>Who should use Lygin M?
+
+                                                <p className='mt-2'>- Men looking for a natural and effective approach to enhance erectile function and overall sexual health.</p>
+
+                                            </li>
+
+
+                                            <li>Can Lygin M be used alongside other ED medications?
+
+                                                <p className='mt-2'>- Yes, Lygin M can be used as an adjunct to other treatments, but please consult your healthcare provider
+                                                    for advice tailored to your specific needs.</p>
+
+                                            </li>
+
+
+                                            <li>Is a prescription required for Lygin M?
+
+                                                <p className='mt-2'>- No, Lygin M does not require a prescription; however, consulting a healthcare provider before starting any
+                                                    new supplement is recommended.</p>
+
+                                            </li>
+
+
+
+                                        </ul>
+
+                                    </div>
+
+                                }
+
+
+
 
                             </div>
 
@@ -279,36 +434,62 @@ function SingleProducts() {
                         {/* Similar Products */}
                         <div className="col-lg-4">
 
-                            <div className="px-0  rounded-2 shadow">
+                            <div className="px-0 rounded-2 shadow">
 
                                 <div className="card">
 
                                     <div className="card-body bg-white">
 
-                                        <h5 className="card-title text-dark">Related Products</h5>
+                                        <h5 className="card-title text-dark mb-4">Recommended Products</h5>
+
 
                                         <div className="d-flex mb-3">
 
                                             <a href="#" className="me-3">
-                                                <img src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/8.webp" style={{ minWidth: '96px', height: '96px' }} className="img-md img-thumbnail" />
+                                                <img src="/LYGIN_M.jpg" style={{ minWidth: '96px', height: '96px' }} className="img-md" />
                                             </a>
 
 
                                             <div className="info">
                                                 <a href="#" className="nav-link mb-1">
-                                                    Rucksack Backpack Large <br />
-                                                    Line Mounts
+                                                    Lygin-M 30<br />
+                                                    Tables
+
                                                 </a>
-                                                <strong className="text-dark"> $38.90</strong>
+                                                <strong className="text-dark"> ₹38.90</strong>
                                             </div>
 
 
                                         </div>
 
 
-                                       
-                    
 
+                                        <div className='d-flex justify-content-center mb-5 mt-4'>
+
+                                            <i class="fa-solid fa-plus fa-2xl"></i>
+
+                                        </div>
+
+
+                                        <div className="d-flex mb-3">
+
+                                            <a href="#" className="me-3">
+                                                <img src="/LYGIN_M.jpg" style={{ minWidth: '96px', height: '96px' }} className="img-md" />
+                                            </a>
+
+
+                                            <div className="info">
+                                                <a href="#" className="nav-link mb-1">
+                                                    Lygin-M 30<br />
+                                                    Tables
+                                                </a>
+                                                <strong className="text-dark"> ₹38.90</strong>
+                                            </div>
+
+
+                                        </div>
+
+                                        <button className='btn btn-addcart shadow w-100 mt-4'>Add to Cart</button>
 
                                     </div>
 
@@ -320,8 +501,22 @@ function SingleProducts() {
                 </div>
 
 
+            </section>
 
 
+
+            {/* Products */}
+            <section className='pb-5'>
+
+
+
+                <div>
+
+                    <h3 className='text-center mb-0' style={{ fontWeight: '600' }}>Products</h3>
+
+                    <ProductsSlide />
+
+                </div>
 
 
             </section>

@@ -1,9 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 
 
 
 function Cart() {
+
+    useEffect(() => {
+        
+
+        // TO MOUNT ON THE TOP LEVEL 
+        window.scrollTo(0, 0);
+
+
+    }, []);
+
 
 
     return (
@@ -153,7 +164,7 @@ function Cart() {
 
                                         <Link to={'/'}>
 
-                                            <a href="#" className="btn btn-success w-100 border mt-2"> Check Out </a>
+                                            <a href="#" className="btn btn-success w-100 shadow-0  mt-2"> Check Out </a>
 
                                         </Link>
 

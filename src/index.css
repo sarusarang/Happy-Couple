@@ -1,4 +1,3 @@
-
 * {
 
   padding: 0px;
@@ -35,6 +34,11 @@ html {
 
 }
 
+.navbar-light .navbar-toggler-icon {
+
+  background-image: url('https://icons.veryicon.com/png/o/miscellaneous/conventional-use/hamburg-menu-2.png')
+}
+
 .contain {
 
   padding-left: 8rem !important;
@@ -47,6 +51,11 @@ html {
   background-color: #fff;
   padding: 1.5rem 1rem 1.5rem 1rem !important;
 
+}
+
+.navbar {
+
+  box-shadow: none !important;
 }
 
 
@@ -129,7 +138,7 @@ html {
 
 }
 
-
+/* Cart */
 .Cart-padding {
 
   padding: 3rem;
@@ -153,7 +162,6 @@ html {
 
 .btn-addcart {
 
-
   background-color: #fff !important;
   padding: 1rem 3rem 1rem 3rem !important;
   font-size: large !important;
@@ -163,6 +171,52 @@ html {
 
 }
 
+.key-benfits {
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+}
+
+
+.key-benfits li {
+
+  font-size: medium;
+  font-weight: 400;
+  text-align: justify;
+  margin-bottom: 0.8rem;
+
+
+}
+
+.howto-use li {
+
+  font-size: medium;
+  font-weight: 400;
+  text-align: justify;
+  margin-bottom: 0.8rem;
+  list-style: decimal;
+
+
+}
+
+
+.FAQ li {
+
+  font-size: medium;
+  font-weight: 400;
+  text-align: justify;
+  margin-bottom: 1rem;
+  list-style: decimal;
+
+}
+
+
+.nav-pills .nav-link.active,
+.nav-pills .show .nav-link {
+  color: var(--bs-nav-pills-link-active-color) !important;
+  background-color: rgb(102, 29, 171) !important;
+}
 
 
 
@@ -442,6 +496,7 @@ html {
 @media only screen and (max-width: 481px) {
 
 
+  /* Header */
   .nav-logo {
 
     width: 45% !important;
@@ -516,12 +571,98 @@ html {
 
   }
 
+
+  /* Cart */
   .Cart-padding {
 
     padding: 0rem !important;
 
 
   }
+
+
+  /* Single products */
+
+  .container,
+  .container-fluid,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+
+    width: 90% !important;
+
+  }
+
+
+  .btn-buynow {
+
+
+    padding: 0.5rem 2rem 0.5rem 2rem !important;
+    font-size: small !important;
+    font-weight: 600 !important;
+
+
+  }
+
+
+  .btn-addcart {
+
+    background-color: #fff !important;
+    padding: 0.5rem !important;
+    font-size: small !important;
+    font-weight: 600 !important;
+
+  }
+
+  .key-benfits {
+
+    padding-left: 0rem !important;
+
+  }
+
+  .key-benfits li {
+
+    font-weight: 300;
+    font-size: smaller;
+    text-align: start;
+
+  }
+
+  .howto-use li {
+
+    font-weight: 300;
+    font-size: smaller;
+    text-align: start;
+
+  }
+
+  .customer-review p {
+
+    font-weight: 300;
+    font-size: smaller;
+    text-align: start;
+
+  }
+
+  .customer-review i {
+
+
+    font-size: smaller !important;
+
+
+  }
+
+  .FAQ li {
+
+    font-weight: 300;
+    font-size: smaller;
+    text-align: start;
+
+  }
+
+
 
 
 }

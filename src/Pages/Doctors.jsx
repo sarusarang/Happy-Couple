@@ -1,7 +1,24 @@
 import React from 'react'
 import './Doctors.css'
+import { useEffect } from 'react';
 
 function Doctors() {
+
+
+
+
+    useEffect(() => {
+
+        
+        // TO MOUNT ON THE TOP LEVEL 
+        window.scrollTo(0, 0);
+
+
+    }, []);
+
+
+
+
 
 
     return (
