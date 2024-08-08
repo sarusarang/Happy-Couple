@@ -10,6 +10,7 @@ import Doctors from "./Pages/Doctors"
 import Cart from "./Pages/Cart"
 import SingleProducts from "./Pages/SingleProducts"
 import AboutUs from "./Pages/AboutUs"
+import ContactUs from "./Pages/ContactUs"
 
 function App() {
 
@@ -75,6 +76,8 @@ function App() {
         <Route path="/pro" element={<SingleProducts />}> </Route>
 
         <Route path="/about" element={<AboutUs />}> </Route>
+
+        <Route path="/contact" element={<ContactUs />}> </Route>
 
       </Routes>
 

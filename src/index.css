@@ -155,7 +155,7 @@ html {
   font-size: large !important;
   font-weight: 700 !important;
   color: #fff !important;
-  border-radius: 0 !important;
+  border-radius: 0.8rem !important;
 
 }
 
@@ -167,7 +167,7 @@ html {
   font-size: large !important;
   font-weight: 700 !important;
   color: rgb(102, 29, 171) !important;
-  border-radius: 0 !important;
+  border-radius: 0.8rem !important;
 
 }
 
