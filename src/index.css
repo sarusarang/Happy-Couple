@@ -12,14 +12,16 @@
 
 /* Scroll bar  */
 body::-webkit-scrollbar {
-  display: none;
+
+  display: none
 
 }
 
 
 html {
 
-  scroll-behavior: smooth;
+  scroll-behavior: smooth
+
 }
 
 
@@ -138,6 +140,74 @@ html {
 
 }
 
+
+/* Search */
+.suggest li {
+
+
+  font-size: 14px;
+  list-style: none;
+  border: 2px solid rgb(60, 159, 192);
+  border-radius: 2rem;
+  font-weight: 600;
+  color: rgb(60, 159, 192);
+  padding: 0.5rem 0.2rem 0.5rem 0.5rem;
+  width: 75%;
+  text-align: center;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+
+}
+
+.modal-content {
+
+  border-radius: 2rem !important;
+
+
+
+}
+
+/* Scroll bar  */
+.scrollable::-webkit-scrollbar {
+
+  display: none
+
+}
+
+.scrollable {
+
+  overflow: auto;
+  width: 100%;
+  height: 200px;
+
+}
+
+.btn-cart {
+
+  font-size: small !important;
+  margin-left: 1rem !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  background-color: black !important;
+
+}
+
+.suggest li:hover {
+
+  background-color: rgb(60, 159, 192);
+  color: #fff;
+
+}
+
+.suggest ul {
+
+  padding: 0;
+
+}
+
+
+
 /* Cart */
 .Cart-padding {
 
@@ -218,6 +288,11 @@ html {
   background-color: rgb(102, 29, 171) !important;
 }
 
+.head-modal {
+
+  background-color: transparent !important;
+
+}
 
 
 /* Responsive */

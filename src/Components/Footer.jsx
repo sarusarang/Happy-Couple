@@ -91,7 +91,7 @@ function Footer() {
 
                 <p className='w-100'>
 
-                  <a href="https://wa.me/+91 9020200100" className='foot-link' target='_blank' style={{ fontSize: '15px' }} > <i className="fas fa-phone me-3"></i>+91 9020200100</a>
+                  <a href={`https://wa.me/+919020200100?text=${encodeURIComponent('Hi')}`} className='foot-link' target='_blank' style={{ fontSize: '15px' }} > <i className="fas fa-phone me-3"></i>+91 9020200100</a>
 
                 </p>
 
@@ -131,13 +131,26 @@ function Footer() {
 
         <div class="text-center p-4 pb-0" style={{ color: '#ccc' }}>
 
+
           <p> Copyright © 2024 happycouplesolution. All Rights Reserved. </p>
 
           <p>Powered by <a href="" className='foot-link'>exmedia.in</a></p>
 
-          <p><a href="" className='foot-link'>Privacy & Policy, Terms & Conditions</a></p>
+
+          <div className='d-flex justify-content-center'>
+
+            <p><Link className='nav-link foot-link me-3' to={'/pirvacy'}> Privacy & Policy</Link></p>
+
+            <p><Link className='nav-link foot-link me-3' to={'/terms'}>Terms & Conditions</Link></p>
+
+            <p><Link className='nav-link foot-link me-3' to={'/refund'}>Refund Policy</Link></p>
+
+          </div>
+
 
         </div>
+
+
 
 
         {/* Socail Media Links */}

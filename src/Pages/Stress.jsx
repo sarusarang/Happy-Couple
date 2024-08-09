@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Carousel from 'react-bootstrap/Carousel'
 import Card from 'react-bootstrap/Card'
 import './Stress.css'
@@ -126,7 +126,13 @@ function Stress() {
 
                                     <Card.Body>
 
-                                        <Card.Title>Now You Can Talk With Doctor <i class="fa-solid fa-circle-arrow-right"></i></Card.Title>
+                                        <Link className='nav-link' to={'/doctors'}>
+
+                                            <Card.Title>Now You Can Talk With Doctor <i class="fa-solid fa-circle-arrow-right"></i></Card.Title>
+
+                                        </Link>
+
+
 
                                     </Card.Body>
 
@@ -146,7 +152,11 @@ function Stress() {
 
                                     <Card.Body className='text-center' style={{ paddingBottom: '2.5rem' }}>
 
-                                        <Card.Title>Assess Myself <i class="fa-solid fa-circle-arrow-right"></i></Card.Title>
+                                        <Link to={'/doctors'} className='nav-link'>
+
+                                            <Card.Title>Assess Myself <i class="fa-solid fa-circle-arrow-right"></i></Card.Title>
+
+                                        </Link>
 
                                     </Card.Body>
 

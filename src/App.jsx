@@ -12,6 +12,9 @@ import SingleProducts from "./Pages/SingleProducts"
 import AboutUs from "./Pages/AboutUs"
 import ContactUs from "./Pages/ContactUs"
 import Stress from "./Pages/Stress"
+import PrivacyPolicy from "./Pages/PrivacyPolicy"
+import Terms from './Pages/Terms'
+import Refund from "./Pages/Refund"
 
 function App() {
 
@@ -28,7 +31,7 @@ function App() {
 
     const hidecheck = () => {
 
-      if (location.pathname == '/auth' || location.pathname == '/ai') {
+      if (location.pathname == '/auth' || location.pathname == '/ai' || location.pathname == '/terms' || location.pathname == '/refund' || location.pathname == '/pirvacy') {
 
 
         sethide(true)
@@ -83,6 +86,13 @@ function App() {
         <Route path="/stress" element={<Stress />}> </Route>
 
         <Route path="/performance" element={<Stress />}> </Route>
+
+        <Route path="/pirvacy" element={<PrivacyPolicy />}> </Route>
+
+        <Route path="/terms" element={<Terms />}> </Route>
+
+        <Route path="/refund" element={<Refund />}> </Route>
+
 
       </Routes>
 

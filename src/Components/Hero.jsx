@@ -1,6 +1,7 @@
 import React from 'react'
 import './Hero.css'
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 function Hero() {
 
@@ -37,7 +38,12 @@ function Hero() {
 
                                 <Card.Body>
 
-                                    <Card.Title>Now You Can Talk With Doctor <i class="fa-solid fa-circle-arrow-right"></i></Card.Title>
+                                    <Link to={'/doctors'} className='nav-link'>
+
+                                        <Card.Title>Now You Can Talk With Doctor <i class="fa-solid fa-circle-arrow-right"></i></Card.Title>
+
+                                    </Link>
+
 
                                 </Card.Body>
 
@@ -55,9 +61,15 @@ function Hero() {
                                 <Card.Img variant="top" src="/assess_myself2.png" />
 
 
-                                <Card.Body className='text-center' style={{paddingBottom:'2.5rem'}}>
+                                <Card.Body className='text-center' style={{ paddingBottom: '2.5rem' }}>
 
-                                    <Card.Title>Assess Myself <i class="fa-solid fa-circle-arrow-right"></i></Card.Title>
+                                    <Link to={'/ai'} className='nav-link'>
+
+                                        <Card.Title>Assess Myself <i class="fa-solid fa-circle-arrow-right"></i></Card.Title>
+
+                                    </Link>
+
+
 
                                 </Card.Body>
 
