@@ -91,7 +91,7 @@ function Footer() {
 
                 <p className='w-100'>
 
-                  <a href={`https://wa.me/+919020200100?text=${encodeURIComponent('Hi')}`} className='foot-link' target='_blank' style={{ fontSize: '15px' }} > <i className="fas fa-phone me-3"></i>+91 9020200100</a>
+                  <a href={`https://wa.me/+919020200100?text=Hi`} className='foot-link' target='_blank' style={{ fontSize: '15px' }} > <i className="fas fa-phone me-3"></i>+91 9020200100</a>
 
                 </p>
 

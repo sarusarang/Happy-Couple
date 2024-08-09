@@ -107,7 +107,9 @@ function Header() {
               </div>
 
 
-              <Link  onClick={handleShow}><i class="fa-solid fa-magnifying-glass"></i></Link>
+              <Link onClick={handleShow}><i class="fa-solid fa-magnifying-glass"></i></Link>
+
+              {/* <Link to={'/'} ><i class="fa-solid fa-bag-shopping"></i></Link> */}
 
               <Link to={'/cart'} ><i class="fa-solid fa-cart-shopping"></i></Link>
 

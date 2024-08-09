@@ -4,6 +4,7 @@ import Slider from '../Components/Slider'
 import Hero from '../Components/Hero'
 import ProductsSlide from '../Components/ProductsSlide'
 import HeroSecond from '../Components/HeroSecond'
+import WhatsApp from '../Components/WhatsApp'
 
 function Landing() {
 
@@ -27,7 +28,7 @@ function Landing() {
     <>
 
 
-      <section className='w-100'>
+      <section className='w-100 Landing'>
 
 
         {/* Slider */}
@@ -67,6 +68,14 @@ function Landing() {
         <div className=''>
 
           <HeroSecond />
+
+        </div>
+
+
+        {/* WhatsApp Logo */}
+        <div className='Whats-app'>
+
+          <WhatsApp />
 
         </div>
 
