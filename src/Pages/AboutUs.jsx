@@ -42,8 +42,6 @@ function AboutUs() {
 
                         <h2>About Us</h2>
 
-
-
                         <p>Medicapharma, with 15 years of experience in the pharmaceutical industry, specializes in providing effective
                             solutions for sexual health issues. Our mission is to support individuals and couples in overcoming these challenges
                             and enhancing their quality of life and relationships. Our dedicated team of experts ensures that our products are safe,
@@ -60,22 +58,22 @@ function AboutUs() {
 
                         <div className='about-social pt-4'>
 
-                            <a href="" className='btn-about btn'><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.facebook.com/happycouplesolution/" target='_blank' className='btn-about btn'><i class="fa-brands fa-facebook-f"></i></a>
 
-                            <a href="" className='btn-about btn'><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.instagram.com/happycouplesolution/" target='_blank' className='btn-about btn'><i class="fa-brands fa-instagram"></i></a>
 
-                            <a href="" className='btn-about btn'><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="https://x.com/happycouplesolu" className='btn-about btn' target='_blank'><i class="fa-brands fa-x-twitter"></i></a>
 
-                            <a href="" className='btn-about btn'><i class="fa-brands fa-pinterest"></i></a>
-
+                            <a href="https://in.pinterest.com/happycouplesolution/" target='_blank' className='btn-about btn'><i class="fa-brands fa-pinterest"></i></a>
 
                         </div>
 
 
                     </div>
 
-                </div>
 
+
+                </div>
 
 
 
@@ -117,10 +115,6 @@ function AboutUs() {
 
 
                 </div>
-
-
-
-
 
             </section>
 

@@ -57,8 +57,8 @@ function Header() {
 
                 <div className='dropdown-content'>
 
-                  <Link  to={'/'}  className='drop-link d-block'>Performance</Link>
-                  <Link  to={'/'} className='drop-link d-block'>Stress Management</Link>
+                  <Link  to={'/performance'}  className='drop-link d-block'>Performance</Link>
+                  <Link  to={'/stress'} className='drop-link d-block'>Stress Management</Link>
 
                 </div>
 

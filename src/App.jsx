@@ -11,6 +11,7 @@ import Cart from "./Pages/Cart"
 import SingleProducts from "./Pages/SingleProducts"
 import AboutUs from "./Pages/AboutUs"
 import ContactUs from "./Pages/ContactUs"
+import Stress from "./Pages/Stress"
 
 function App() {
 
@@ -78,6 +79,10 @@ function App() {
         <Route path="/about" element={<AboutUs />}> </Route>
 
         <Route path="/contact" element={<ContactUs />}> </Route>
+
+        <Route path="/stress" element={<Stress />}> </Route>
+
+        <Route path="/performance" element={<Stress />}> </Route>
 
       </Routes>
 

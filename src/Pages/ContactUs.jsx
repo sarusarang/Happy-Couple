@@ -23,6 +23,8 @@ function ContactUs() {
 
             <section className='contact container'>
 
+
+
                 <div className='Contact-hero row'>
 
                     <h2 className='text-center'>Contact Us</h2>
@@ -32,6 +34,7 @@ function ContactUs() {
 
 
                 <div className='contact-form row  mt-5'>
+
 
                     {/* Contact Deatils */}
                     <div className='col-md-6 get-in'>
@@ -71,7 +74,6 @@ function ContactUs() {
                     {/* Contact Form */}
                     <div className='col-md-6 margin-get'>
 
-
                         <h3>Get In Touch</h3>
 
                         <form onSubmit={(e) => { e.preventDefault() }} className='pt-3'>
@@ -95,7 +97,6 @@ function ContactUs() {
 
 
                         </form>
-
 
 
                     </div>
