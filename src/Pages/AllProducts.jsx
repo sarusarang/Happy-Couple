@@ -89,8 +89,8 @@ function AllProducts() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
+                        </div>
 
                     </div>
 
@@ -137,15 +137,20 @@ function AllProducts() {
                                                 <div className="a-size"> <span style={{ fontWeight: '600', color: 'blue' }}>FOR :</span> <span className="size" style={{ fontSize: '0.8rem' }}> Increase blood flow, enhancing erectile response. <br />
                                                     <span style={{ fontWeight: '600', color: 'blue' }}> WITH :</span>   Lycopene and Vitamin D3</span></div>
 
+
                                             </div>
 
                                         </div>
 
+
+
                                         <div className="box-down">
+
 
                                             <div className="h-bg">
                                                 <div className="h-bg-inner"></div>
                                             </div>
+
 
                                             <a className="cart">
                                                 <span className="price">Just ₹500</span>
@@ -156,6 +161,9 @@ function AllProducts() {
                                             </a>
 
                                         </div>
+
+
+
                                     </div>
                                 </div>
                             </div>

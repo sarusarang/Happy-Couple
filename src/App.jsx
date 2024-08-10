@@ -15,6 +15,7 @@ import Stress from "./Pages/Stress"
 import PrivacyPolicy from "./Pages/PrivacyPolicy"
 import Terms from './Pages/Terms'
 import Refund from "./Pages/Refund"
+import Buy from "./Pages/Buy"
 
 function App() {
 
@@ -31,7 +32,7 @@ function App() {
 
     const hidecheck = () => {
 
-      if (location.pathname == '/auth' || location.pathname == '/ai' || location.pathname == '/terms' || location.pathname == '/refund' || location.pathname == '/pirvacy') {
+      if (location.pathname == '/auth' || location.pathname == '/ai' || location.pathname == '/terms' || location.pathname == '/refund' || location.pathname == '/pirvacy' || location.pathname == '/buy' ) {
 
 
         sethide(true)
@@ -92,6 +93,8 @@ function App() {
         <Route path="/terms" element={<Terms />}> </Route>
 
         <Route path="/refund" element={<Refund />}> </Route>
+
+        <Route path="/buy" element={<Buy />}> </Route>
 
 
       </Routes>

@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 function Cart() {
 
     useEffect(() => {
-        
+
 
         // TO MOUNT ON THE TOP LEVEL 
         window.scrollTo(0, 0);
@@ -135,9 +135,12 @@ function Cart() {
                         <div className="col-lg-3">
 
 
-                            <div className="card border" >
+                            <div className="card border-2 shadow" >
 
                                 <div className="card-body bg-white">
+
+
+                                    <h5 className='text-center mb-4'>Order Summary</h5>
 
 
                                     <div className="d-flex justify-content-between">
@@ -146,23 +149,34 @@ function Cart() {
                                     </div>
 
                                     <div className="d-flex justify-content-between">
+
                                         <p className="mb-2">Total Price:</p>
+
                                         <p className="mb-2 text-success">₹500</p>
+
+                                    </div>
+
+                                    <div className="d-flex justify-content-between">
+                                        <p className="mb-2">Shipping Fee:</p>
+                                        <p className="mb-2 text-success fw-bold">Free</p>
                                     </div>
 
 
                                     <hr />
 
                                     <div className="d-flex justify-content-between">
-                                        <p className="mb-2">Total price:</p>
+
+
+
+                                        <p className="mb-2 fw-bold">Sub Total:</p>
                                         <p className="mb-2 fw-bold">₹500</p>
                                     </div>
 
                                     <div className="mt-3">
 
-                                        <a href="#" className="btn btn-success w-100 shadow-0 mb-2"> Make Purchase </a>
 
-                                        <Link to={'/'}>
+
+                                        <Link to={'/buy'}>
 
                                             <a href="#" className="btn btn-success w-100 shadow-0  mt-2"> Check Out </a>
 
