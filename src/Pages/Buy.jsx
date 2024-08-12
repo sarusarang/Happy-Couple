@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 import './Buy.css'
@@ -38,7 +37,7 @@ function Buy() {
 
                             <h4>Address</h4>
 
-                            <div className="card">
+                            <div className="card" style={{padding:'1rem'}}>
 
                                 <address >
                                     Delivery to <span className='fw-bold'>Kannur 670622</span> <br />
@@ -230,10 +229,6 @@ function Buy() {
                             </div>
 
                         }
-
-
-
-
 
 
 

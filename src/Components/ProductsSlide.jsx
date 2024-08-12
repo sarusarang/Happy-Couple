@@ -1,14 +1,69 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './ProductsSlide.css'
 import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css"
 import { useNavigate } from 'react-router-dom'
+import { GetAllProducts } from '../Services/AllApi'
+import { Skeleton } from '@mui/material'
 
 function ProductsSlide() {
 
 
     const Navigate = useNavigate()
 
+    // To Store all Products
+    const [ProductsData, SetProductsData] = useState([])
+
+    // To set Loading State
+    const [Loading, SetLoading] = useState(true)
+
+
+
+    // Get ALL products 
+    useEffect(() => {
+
+
+        const AllProducts = async () => {
+
+            try {
+
+                const Res = await GetAllProducts()
+
+                if (Res.status == 200) {
+
+                    SetProductsData(Res.data)
+                    SetLoading(false)
+
+
+                }
+                else {
+
+                    SetLoading(true)
+
+                }
+
+            }
+            catch (err) {
+
+
+
+                console.log(err);
+                SetLoading(true)
+
+
+            }
+
+
+        }
+
+        AllProducts()
+
+    }, [])
+
+    
+
+
+    // Slider Responsive
     const responsive = {
 
         superLargeDesktop: {
@@ -29,6 +84,7 @@ function ProductsSlide() {
             items: 1
         }
     }
+    
 
 
     return (
@@ -45,329 +101,123 @@ function ProductsSlide() {
                     <Carousel responsive={responsive}>
 
 
-                        <div>
+                        {
 
-                            <div className="container page-wrapper">
-
-                                <div className="page-inner">
-                                    <div className="row">
-                                        <div className="el-wrapper">
+                            Loading ?
 
 
-                                            <div className="box-up" onClick={()=>{Navigate('/pro')}} >
 
-                                                <img className="img-fluid img" src="/LYGIN_M.jpg" alt="img" style={{ height: '100%' }} />
+                                Array.from({ length: 3 }).map((item) => (
 
-                                                <div className="img-info">
 
-                                                    <div className="info-inner">
+                                    <div className='me-3 mt-3'>
 
-                                                        <span className="p-name"></span>
-                                                        <span className="p-company">LYGIN M</span>
+                                        <Skeleton sx={{ height: 190 }} animation="wave" variant="rectangular" />
 
-                                                        <div className='p-company'>
+                                        <Skeleton animation="wave" height={20} style={{ marginBottom: 6, marginTop: '1rem' }} />
 
-                                                            <span class="fa fa-star " style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star fa-star-half-stroke" style={{ color: '#FFD43B' }}></span>
+                                        <Skeleton animation="wave" height={20} width="80%" />
+
+                                    </div>
+
+                                ))
+
+
+
+                                :
+
+
+                                ProductsData.length > 0 ?
+
+
+                                    ProductsData.map((item) => (
+
+
+                                        <div>
+
+                                            <div className="container page-wrapper">
+
+                                                <div className="page-inner">
+
+
+                                                    <div className="row">
+
+
+                                                        <div className="el-wrapper">
+
+
+                                                            <div className="box-up" onClick={() => { Navigate(`/pro/${item.id}`) }} >
+
+                                                                <img className="img-fluid img" src={item.image} alt="img" style={{ height: '100%' }} />
+
+                                                                <div className="img-info">
+
+                                                                    <div className="info-inner">
+
+                                                                        <span className="p-name"></span>
+                                                                        <span className="p-company">{item.name}</span>
+
+                                                                        <div className='p-company'>
+
+                                                                            <span class="fa fa-star " style={{ color: '#FFD43B' }}></span>
+                                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
+                                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
+                                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
+                                                                            <span class="fa fa-star fa-star-half-stroke" style={{ color: '#FFD43B' }}></span>
+
+                                                                        </div>
+
+                                                                    </div>
+
+
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div className="box-down">
+
+                                                                <div className="h-bg">
+                                                                    <div className="h-bg-inner"></div>
+                                                                </div>
+
+                                                                <a className="cart">
+
+                                                                    <span className="price">Just ₹{item.price}</span>
+
+                                                                    <span className="add-to-cart" >
+
+                                                                        <span className="txt">Add in cart</span>
+
+
+                                                                    </span>
+
+                                                                </a>
+
+                                                            </div>
 
                                                         </div>
-
                                                     </div>
-
-
-
                                                 </div>
 
                                             </div>
 
-                                            <div className="box-down">
 
-                                                <div className="h-bg">
-                                                    <div className="h-bg-inner"></div>
-                                                </div>
-
-                                                <a className="cart">
-                                                    <span className="price">Just ₹500</span>
-
-                                                    <span className="add-to-cart" >
-                                                        <span className="txt">Add in cart</span>
-                                                    </span>
-                                                </a>
-
-                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
 
 
-                        </div>
+                                    ))
 
+                                    :
 
+                                    <h3 className='text-center p-5'>No Products Found</h3>
 
-                        <div>
 
-                            <div className="container page-wrapper">
-
-                                <div className="page-inner">
-                                    <div className="row">
-                                        <div className="el-wrapper">
-
-
-                                            <div className="box-up" onClick={()=>{Navigate('/pro')}}>
-
-                                                <img className="img-fluid img" src="/LYGIN_M.jpg" alt="img" style={{ height: '100%' }} />
-
-                                                <div className="img-info">
-
-                                                    <div className="info-inner">
-
-                                                        <span className="p-name"></span>
-                                                        <span className="p-company">LYGIN M</span>
-
-
-                                                        <div className='p-company'>
-
-                                                            <span class="fa fa-star " style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star fa-star-half-stroke" style={{ color: '#FFD43B' }}></span>
-
-                                                        </div>
-
-
-                                                    </div>
-
-
-
-                                                </div>
-
-                                            </div>
-
-                                            <div className="box-down">
-
-                                                <div className="h-bg">
-                                                    <div className="h-bg-inner"></div>
-                                                </div>
-
-                                                <a className="cart">
-                                                    <span className="price">Just ₹500</span>
-
-                                                    <span className="add-to-cart" >
-                                                        <span className="txt">Add in cart</span>
-                                                    </span>
-                                                </a>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-
-
-
-                        <div>
-
-                            <div className="container page-wrapper">
-
-                                <div className="page-inner">
-                                    <div className="row">
-                                        <div className="el-wrapper">
-
-
-                                            <div className="box-up" onClick={()=>{Navigate('/pro')}}>
-
-                                                <img className="img-fluid img" src="/LYGIN_M.jpg" alt="img" style={{ height: '100%' }} />
-
-                                                <div className="img-info">
-
-                                                    <div className="info-inner">
-
-                                                        <span className="p-name"></span>
-                                                        <span className="p-company">LYGIN M</span>
-
-
-                                                        <div className='p-company'>
-
-                                                            <span class="fa fa-star " style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star fa-star-half-stroke" style={{ color: '#FFD43B' }}></span>
-
-                                                        </div>
-
-
-                                                    </div>
-
-
-                                                </div>
-
-                                            </div>
-
-                                            <div className="box-down">
-
-                                                <div className="h-bg">
-                                                    <div className="h-bg-inner"></div>
-                                                </div>
-
-                                                <a className="cart">
-                                                    <span className="price">Just ₹500</span>
-
-                                                    <span className="add-to-cart" >
-                                                        <span className="txt">Add in cart</span>
-                                                    </span>
-                                                </a>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-
-
-
-                        <div>
-
-                            <div className="container page-wrapper">
-
-                                <div className="page-inner">
-                                    <div className="row">
-                                        <div className="el-wrapper">
-
-
-                                            <div className="box-up" onClick={()=>{Navigate('/pro')}}>
-
-                                                <img className="img-fluid img" src="/LYGIN_M.jpg" alt="img" style={{ height: '100%' }} />
-
-                                                <div className="img-info">
-
-                                                    <div className="info-inner">
-
-
-                                                        <span className="p-name"></span>
-                                                        <span className="p-company">LYGIN M</span>
-
-                                                        <div className='p-company'>
-
-                                                            <span class="fa fa-star " style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star fa-star-half-stroke" style={{ color: '#FFD43B' }}></span>
-
-                                                        </div>
-
-
-                                                    </div>
-
-
-                                                </div>
-
-                                            </div>
-
-                                            <div className="box-down">
-
-                                                <div className="h-bg">
-                                                    <div className="h-bg-inner"></div>
-                                                </div>
-
-                                                <a className="cart">
-                                                    <span className="price">Just ₹500</span>
-
-                                                    <span className="add-to-cart" >
-                                                        <span className="txt">Add in cart</span>
-                                                    </span>
-                                                </a>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-
-
-                        <div>
-
-                            <div className="container page-wrapper">
-
-                                <div className="page-inner">
-                                    <div className="row">
-                                        <div className="el-wrapper">
-
-
-                                            <div className="box-up" onClick={()=>{Navigate('/pro')}}>
-
-                                                <img className="img-fluid img" src="/LYGIN_M.jpg" alt="img" style={{ height: '100%' }} />
-
-                                                <div className="img-info">
-
-                                                    <div className="info-inner">
-
-                                                        <span className="p-name"></span>
-                                                        <span className="p-company">LYGIN M</span>
-
-
-                                                        <div className='p-company'>
-
-                                                            <span class="fa fa-star " style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star" style={{ color: '#FFD43B' }}></span>
-                                                            <span class="fa fa-star fa-star-half-stroke" style={{ color: '#FFD43B' }}></span>
-
-                                                        </div>
-
-
-                                                    </div>
-
-
-                                                </div>
-
-                                            </div>
-
-                                            <div className="box-down">
-
-                                                <div className="h-bg">
-                                                    <div className="h-bg-inner"></div>
-                                                </div>
-
-                                                <a className="cart">
-                                                    <span className="price">Just ₹500</span>
-
-                                                    <span className="add-to-cart" >
-                                                        <span className="txt">Add in cart</span>
-                                                    </span>
-                                                </a>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
+                        }
 
 
                     </Carousel>
+
 
                 </div>
 
