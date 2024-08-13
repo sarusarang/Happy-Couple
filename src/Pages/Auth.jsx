@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import './Auth.css'
+import { toast } from 'sonner'
+import { Register } from '../Services/AllApi'
 
 function Auth() {
 
@@ -8,6 +10,87 @@ function Auth() {
 
   // TO check Login and Register Status
   const [LoginStatus, setLoginStatus] = useState(true)
+
+
+  // Login Data
+  const [LoginData, setLoginData] = useState({
+
+    email: "", password: "", password2: "", username: "",
+
+  })
+
+
+
+
+  // Handle Login
+  const HandleRegister = async () => {
+
+
+    try {
+
+
+      const { email, password, password2, username } = LoginData
+
+
+
+      if (!username || !email || !password || !password2) {
+
+        toast.warning("Empty Feilds...!")
+
+      }
+      else {
+
+
+
+        const reqheader = {
+
+          "Content-Type": "multipart/form-data"
+
+        }
+
+
+        const formdata = new FormData
+        formdata.append("email", email)
+        formdata.append("username", username)
+        formdata.append("password", password)
+        formdata.append("password2", password2)
+
+
+        const res = await Register(formdata ,reqheader)
+
+
+        if (res.status >= 200 && res.status <=300 ) {
+
+          toast.success("Login Success...!")
+          console.log(res);
+
+        }
+        else {
+
+          toast.error(res.response.data.username || res.response.data.password)
+         
+
+        }
+
+
+      }
+
+
+
+    }
+    catch (err) {
+
+      console.log(err);
+
+
+
+    }
+
+
+  }
+
+
+  console.log(LoginData);
 
 
 
@@ -53,15 +136,15 @@ function Auth() {
 
                   <h1>Login</h1>
 
-                  <input type="email" className='form-control' placeholder='Enter your Email' /> <br />
+                  <input type="email" onChange={(e) => { setLoginData({ ...LoginData, email: e.target.value }) }} className='form-control' placeholder='Enter your Email' /> <br />
 
-                  <input type="password" className='form-control' placeholder='Enter Your Password' />
+                  <input type="password" onChange={(e) => { setLoginData({ ...LoginData, password: e.target.value }) }} className='form-control' placeholder='Enter Your Password' />
 
                   <button type='submit' className='btn-login w-100 mt-3'>Login</button>
 
                   <button class="google-login-btn mt-3 w-100">
-                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo" class="google-icon"/>
-                      Login with Google
+                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo" class="google-icon" />
+                    Login with Google
                   </button>
 
                   <p className='text-center mt-3'>Don't have an account ? <a className='dont' onClick={() => { setLoginStatus(false) }}>Register</a></p>
@@ -77,13 +160,15 @@ function Auth() {
 
                   <h1>Sign Up</h1>
 
-                  <input type="text" className='form-control' placeholder='Enter your Name' /> <br />
+                  <input type="text" value={LoginData.name} onChange={(e) => { setLoginData({ ...LoginData, username: e.target.value }) }} className='form-control' placeholder='Enter your username' /> <br />
 
-                  <input type="email" className='form-control' placeholder='Enter your Email' /> <br />
+                  <input type="email" onChange={(e) => { setLoginData({ ...LoginData, email: e.target.value }) }} className='form-control' placeholder='Enter your Email' /> <br />
 
-                  <input type="password" className='form-control' placeholder='Enter Your Password' />
+                  <input type="password" onChange={(e) => { setLoginData({ ...LoginData, password: e.target.value }) }} className='form-control' placeholder='Enter Your Password' />
 
-                  <button type='submit' className='btn-login w-100 mt-3'>Register</button>
+                  <input type="password" onChange={(e) => { setLoginData({ ...LoginData, password2: e.target.value }) }} className='form-control mt-3' placeholder=' Re-Enter Password' />
+
+                  <button type='submit' className='btn-login w-100 mt-3' onClick={HandleRegister}>Register</button>
 
                   <p className='text-center mt-3'>Already Registerd ? <a className='dont' onClick={() => { setLoginStatus(true) }}>Login</a></p>
 

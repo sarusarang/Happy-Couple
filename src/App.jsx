@@ -1,6 +1,7 @@
 import React from "react"
 import { useState, useEffect } from "react"
 import { Routes, Route, useLocation } from "react-router-dom"
+import { Toaster } from 'sonner'
 import Landing from "./Pages/Landing"
 import Header from "./Components/Header"
 import Footer from "./Components/Footer"
@@ -16,6 +17,7 @@ import PrivacyPolicy from "./Pages/PrivacyPolicy"
 import Terms from './Pages/Terms'
 import Refund from "./Pages/Refund"
 import Buy from "./Pages/Buy"
+import Bot from "./Pages/Bot"
 
 function App() {
 
@@ -32,7 +34,7 @@ function App() {
 
     const hidecheck = () => {
 
-      if (location.pathname == '/auth' || location.pathname == '/ai' || location.pathname == '/terms' || location.pathname == '/refund' || location.pathname == '/pirvacy' || location.pathname == '/buy' ) {
+      if (location.pathname == '/auth' || location.pathname == '/ai' || location.pathname == '/terms' || location.pathname == '/refund' || location.pathname == '/pirvacy' || location.pathname == '/buy') {
 
 
         sethide(true)
@@ -74,7 +76,7 @@ function App() {
 
         <Route path="/doctors" element={<Doctors />}> </Route>
 
-        <Route path="/ai" element={<Doctors />}> </Route>
+        <Route path="/ai" element={<Bot />}> </Route>
 
         <Route path="/cart" element={<Cart />}> </Route>
 
@@ -98,6 +100,9 @@ function App() {
 
 
       </Routes>
+
+
+      <Toaster richColors position="top-center"/>
 
 
       {!Hide && <Footer />}

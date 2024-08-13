@@ -66,7 +66,7 @@ function Header() {
               <Link to={'/'} >Home</Link>
 
 
-              <Link to={'/'} >AI Consultant</Link>
+              <Link to={'/ai'} >AI Consultant</Link>
 
 
               <Link to={'/doctors'} >Talk to Doctor</Link>

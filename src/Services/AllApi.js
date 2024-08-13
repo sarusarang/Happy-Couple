@@ -11,3 +11,12 @@ export const GetAllProducts = async()=>{
 
 
 }
+
+
+// User Register
+export const Register = async(data,headers)=>{
+     
+
+    return  CommonApi("POST",`${base_url}/api/register/`,data,headers)
+
+}

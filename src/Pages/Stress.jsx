@@ -152,7 +152,7 @@ function Stress() {
 
                                     <Card.Body className='text-center' style={{ paddingBottom: '2.5rem' }}>
 
-                                        <Link to={'/doctors'} className='nav-link'>
+                                        <Link to={'/ai'} className='nav-link'>
 
                                             <Card.Title>Assess Myself <i class="fa-solid fa-circle-arrow-right"></i></Card.Title>
 
