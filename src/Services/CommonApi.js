@@ -11,12 +11,8 @@ export const CommonApi = async(reqmethod,apiurl,reqbody,headers)=>{
         data:reqbody,
         header : headers ? headers : {'Content-Type': 'application/json' }
 
-       
-        
-         
     }
 
-    console.log(headers);
 
     return await axios(config).then((res)=>{return res}).catch((err)=>{return err})
 

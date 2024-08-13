@@ -2,10 +2,16 @@ import React from 'react'
 import { useState } from 'react'
 import './Auth.css'
 import { toast } from 'sonner'
-import { Register } from '../Services/AllApi'
+import { Register, Login } from '../Services/AllApi'
+import { useNavigate } from 'react-router-dom'
 
 function Auth() {
 
+
+
+
+  // Navigate
+  const Navigate = useNavigate()
 
 
   // TO check Login and Register Status
@@ -22,7 +28,7 @@ function Auth() {
 
 
 
-  // Handle Login
+  // Handle Regiter
   const HandleRegister = async () => {
 
 
@@ -56,19 +62,20 @@ function Auth() {
         formdata.append("password2", password2)
 
 
-        const res = await Register(formdata ,reqheader)
+        const res = await Register(formdata, reqheader)
 
 
-        if (res.status >= 200 && res.status <=300 ) {
+        if (res.status >= 200 && res.status <= 300) {
 
-          toast.success("Login Success...!")
-          console.log(res);
+          toast.success("Registertion Success...!")
+          setLoginStatus(true)
+
 
         }
         else {
 
           toast.error(res.response.data.username || res.response.data.password)
-         
+
 
         }
 
@@ -81,8 +88,7 @@ function Auth() {
     catch (err) {
 
       console.log(err);
-
-
+      toast.error("Login Error")
 
     }
 
@@ -90,7 +96,71 @@ function Auth() {
   }
 
 
-  console.log(LoginData);
+  // Handle Login
+  const HandleLogin = async () => {
+
+
+    try {
+
+
+      const { password, username } = LoginData
+
+
+      if (!username || !password) {
+
+        toast.warning("Empty Feilds...!")
+
+      }
+      else {
+
+
+        const reqheader = {
+
+          "Content-Type": "multipart/form-data"
+
+        }
+
+
+        const formdata = new FormData
+        formdata.append("username", username)
+        formdata.append("password", password)
+
+
+        const res = await Login(formdata, reqheader)
+
+
+        if (res.status >= 200 && res.status <= 300) {
+
+          toast.success("Login Success...!")
+          sessionStorage.setItem("token", res.data.access)
+
+          setTimeout(() => {
+
+            Navigate('/')
+
+          }, 1000);
+
+        }
+        else {
+
+          toast.error("Invaild Username Or Password")
+          console.log(res)
+
+        }
+
+
+      }
+
+    }
+    catch (err) {
+
+      console.log(err);
+      toast.error("Login Error")
+
+    }
+
+
+  }
 
 
 
@@ -136,11 +206,11 @@ function Auth() {
 
                   <h1>Login</h1>
 
-                  <input type="email" onChange={(e) => { setLoginData({ ...LoginData, email: e.target.value }) }} className='form-control' placeholder='Enter your Email' /> <br />
+                  <input type="text" onChange={(e) => { setLoginData({ ...LoginData, username: e.target.value }) }} className='form-control' placeholder='Enter your UserName' /> <br />
 
                   <input type="password" onChange={(e) => { setLoginData({ ...LoginData, password: e.target.value }) }} className='form-control' placeholder='Enter Your Password' />
 
-                  <button type='submit' className='btn-login w-100 mt-3'>Login</button>
+                  <button type='submit' className='btn-login w-100 mt-3' onClick={HandleLogin}>Login</button>
 
                   <button class="google-login-btn mt-3 w-100">
                     <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo" class="google-icon" />
@@ -148,7 +218,6 @@ function Auth() {
                   </button>
 
                   <p className='text-center mt-3'>Don't have an account ? <a className='dont' onClick={() => { setLoginStatus(false) }}>Register</a></p>
-
 
                 </form>
 
