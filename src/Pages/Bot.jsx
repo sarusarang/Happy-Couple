@@ -554,6 +554,7 @@ function Bot() {
         wellness_15: {
 
             message: "Thanks for sharing valuable health information to decide the required treatment/medication as you need immediately",
+            chatDisabled: true,
             path: ""
 
         },
@@ -783,6 +784,7 @@ function Bot() {
         ED_end: {
 
             message: "Thanks for sharing valuable health information to decide the required treatment Or medication you need immediately",
+            chatDisabled: true,
             path: ""
 
         },
