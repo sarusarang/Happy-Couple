@@ -38,7 +38,7 @@ function Bot() {
 
                 (
                     <div style={{ cursor: "pointer", display: "flex", flexDirection: "row", alignItems: "center", columnGap: 3 }}
-                        onClick={() => window.open("https://react-chatbotify.com")}
+                        
                     >
                         <span key={0}>Powered By </span>
                        
@@ -149,7 +149,7 @@ function Bot() {
 
         stress_1_height: {
 
-            message: "Enter Your Height",
+            message: "Enter Your Height In Cm",
             function: (params) => SetBotData({ ...BotData, height: params.userInput }),
             path: async (params) => {
 
@@ -164,7 +164,7 @@ function Bot() {
 
         stress_1_weight: {
 
-            message: "Enter Your Weight",
+            message: "Enter Your Weight In KG",
             function: (params) => SetBotData({ ...BotData, weight: params.userInput }),
             path: async (params) => {
 
@@ -298,7 +298,7 @@ function Bot() {
         stress_12_yes: {
 
             message: "Describe Medican and disease Or upload the Doctor Prescription",
-            // function: (params) => SetBotData({ ...BotData, Stress_13_yes: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, Stress_13_yes: params.userInput }),
             file: (params) => handleFileUpload(params),
             path: "stress_end"
 
@@ -312,9 +312,6 @@ function Bot() {
 
 
         },
-
-
-
 
     }
 
