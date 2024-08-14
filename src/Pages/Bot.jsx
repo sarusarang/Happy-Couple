@@ -19,7 +19,7 @@ function Bot() {
     const handleFileUpload = (params) => {
 
 
-        console.log(params.files)
+
 
     }
 
@@ -788,10 +788,6 @@ function Bot() {
         },
 
     }
-
-
-
-    console.log(BotData);
 
 
 
