@@ -82,8 +82,6 @@ function Auth() {
 
       }
 
-
-
     }
     catch (err) {
 
@@ -164,7 +162,6 @@ function Auth() {
 
 
 
-
   return (
 
     <>
@@ -212,7 +209,7 @@ function Auth() {
 
                   <button type='submit' className='btn-login w-100 mt-3' onClick={HandleLogin}>Login</button>
 
-                  <button class="google-login-btn mt-3 w-100">
+                  <button className="google-login-btn mt-3 w-100">
                     <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo" class="google-icon" />
                     Login with Google
                   </button>

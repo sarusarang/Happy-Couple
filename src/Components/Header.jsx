@@ -5,7 +5,8 @@ import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import NavItem from 'react-bootstrap/esm/NavItem'
 
 
 
@@ -32,13 +33,21 @@ function Header() {
 
 
 
+  const [expanded, setExpanded] = useState(false);
+
+  const handleNavClick = () => {
+    setExpanded(false); // Collapse the navbar
+  };
+
+
+
   return (
 
 
     <>
 
 
-      <Navbar expand="lg" className="header">
+      <Navbar expand="lg" className="header" collapseOnSelect expanded={expanded}>
 
         <Container className='contain'>
 
@@ -55,39 +64,38 @@ function Header() {
 
 
 
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setExpanded(expanded ? false : "expanded")} />
 
           <Navbar.Collapse id="basic-navbar-nav" className='nav-col'>
 
 
             <Nav className="me-auto navigation">
 
-
-              <Link to={'/'} >Home</Link>
-
-
-              <Link to={'/ai'} >AI Consultant</Link>
+              <Link to={'/'} onClick={handleNavClick}>Home</Link>
 
 
-              <Link to={'/doctors'} >Talk to Doctor</Link>
+              <Link to={'/ai'} onClick={handleNavClick}>AI Consultant</Link>
+
+
+              <Link to={'/doctors'} onClick={handleNavClick}>Talk to Doctor</Link>
 
 
               <div className='dropdown'>
 
-                <Nav.Link href="#link">Your Concern <i class="fa-solid fa-caret-down" style={{ color: '#ccc' }}></i></Nav.Link>
+                <Nav.Link href="#link" >Your Concern <i class="fa-solid fa-caret-down" style={{ color: '#ccc' }}></i></Nav.Link>
 
 
                 <div className='dropdown-content'>
 
-                  <Link to={'/performance'} className='drop-link d-block'>Performance</Link>
-                  <Link to={'/stress'} className='drop-link d-block'>Stress Management</Link>
+                  <Link to={'/performance'} className='drop-link d-block'onClick={handleNavClick}>Performance</Link>
+                  <Link to={'/stress'} className='drop-link d-block'onClick={handleNavClick}>Stress Management</Link>
 
                 </div>
 
               </div>
 
 
-              <Link to={'/allproducts'} >Products</Link>
+              <Link to={'/allproducts'} onClick={handleNavClick}>Products</Link>
 
 
 
@@ -98,8 +106,8 @@ function Header() {
 
                 <div className='dropdown-content'>
 
-                  <Link to={'/about'} className='drop-link d-block'>About Us</Link>
-                  <Link to={'/contact'} className='drop-link d-block'>Contact Us</Link>
+                  <Link to={'/about'} className='drop-link d-block'onClick={handleNavClick}>About Us</Link>
+                  <Link to={'/contact'} className='drop-link d-block'onClick={handleNavClick}>Contact Us</Link>
 
                 </div>
 
@@ -107,13 +115,13 @@ function Header() {
               </div>
 
 
-              <Link onClick={handleShow}><i class="fa-solid fa-magnifying-glass"></i></Link>
+              <Link onClick={()=>{handleShow(),handleNavClick()}}><i class="fa-solid fa-magnifying-glass"></i></Link>
 
               {/* <Link to={'/'} ><i class="fa-solid fa-bag-shopping"></i></Link> */}
 
-              <Link to={'/cart'} ><i class="fa-solid fa-cart-shopping"></i></Link>
+              <Link to={'/cart'} onClick={handleNavClick}><i class="fa-solid fa-cart-shopping"></i></Link>
 
-              <Link to={'/auth'} ><i class="fa-solid fa-user"></i></Link>
+              <Link to={'/auth'} onClick={handleNavClick}><i class="fa-solid fa-user"></i></Link>
 
 
             </Nav>

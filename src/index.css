@@ -44,17 +44,11 @@
 
 
 /* Chat Bot */
-.rcb-chat-footer-container {
-
-
-  display: none !important;
-
-
-}
 
 .rcb-chat-window {
 
-  width: 700px !important;
+  width: 850px !important;
+  height: 600px !important;
 
 }
 
