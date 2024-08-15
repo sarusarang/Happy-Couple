@@ -1,24 +1,84 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './HeroSecond.css'
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { GetAllProducts } from '../Services/AllApi'
 
 function HeroSecond() {
 
 
     // Modal 1
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    // Product data
+    const [Product, SetProduct] = useState([])
 
-    // Modal 2
-    const [show2, setShow2] = useState(false);
+    // Modal Product
+    const [ModalProduct, setModalProduct] = useState({})
 
-    const handleClose2 = () => setShow2(false);
-    const handleShow2 = () => setShow2(true);
+
+
+
+    useEffect(() => {
+
+
+        // Get the Product
+        const GetProduct = async () => {
+
+            try {
+
+                const res = await GetAllProducts()
+
+                if (res.status >= 200 && res.status <= 300) {
+
+                    const Result = res.data.filter((item) => item.id == 1 || item.id == 3)
+
+                    SetProduct(Result)
+
+                }
+
+            }
+            catch (err) {
+
+                console.log(err);
+
+            }
+
+        }
+
+        GetProduct()
+
+    }, []);
+
+
+
+    const HeroModalClick = (data) => {
+
+
+        if (data == "Lygin") {
+
+            handleShow()
+            const res = Product.find((item) => (item.id == 1))
+            setModalProduct(res)
+
+        }
+        else {
+
+            handleShow()
+            const res = Product.find((item) => (item.id == 3))
+            setModalProduct(res)
+
+        }
+
+    }
+
+
+   
+    
+
+
 
     return (
 
@@ -50,7 +110,7 @@ function HeroSecond() {
                         <div className='row'>
 
 
-                            <div className='col-md-6 hero2-margin' onClick={handleShow}>
+                            <div className='col-md-6 hero2-margin' onClick={HeroModalClick}>
 
                                 <div className=' hero2-logo'>
 
@@ -80,7 +140,7 @@ function HeroSecond() {
 
 
 
-                            <div className='col-md-6 mt-4 hover' onClick={handleShow}>
+                            <div className='col-md-6 mt-4 hover' onClick={()=>{HeroModalClick("Lygin")}}>
 
                                 <div className='hero2-logo'>
 
@@ -123,17 +183,14 @@ function HeroSecond() {
 
                     <Modal.Body>
 
-                        <p style={{fontSize:'14px',textAlign:'justify'}}>A revolutionary vacuum device designed to address erectile dysfunction. Combining advanced
-                            technology with ease of use, enhances blood flow safely and effectively, promoting natural and
-                            sustained erections. Discreet, non-invasive,
-                            and user-friendly, it's a game-changer in sexual health and confidence restoration.</p>
+                        <p style={{ fontSize: '14px', textAlign: 'justify' }}>{ModalProduct.description}</p>
 
 
 
                         <div className='modal-logo'>
 
 
-                            <img src="/263x263-01.jpg" className='img-fluid' alt="" />
+                            <img src={ModalProduct.image} className='img-fluid' alt="" />
 
                         </div>
 
@@ -146,7 +203,7 @@ function HeroSecond() {
 
                         <button className='btn btn-closed' onClick={handleClose}>Close</button>
 
-                       <button className='btn btn-buy'>Buy Now</button>
+                        <button className='btn btn-buy'>Buy Now</button>
 
 
                     </Modal.Footer>

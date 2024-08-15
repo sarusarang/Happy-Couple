@@ -11,17 +11,22 @@ function Bot() {
     const [BotData, SetBotData] = useState({})
 
 
-
-    const Navigate = useNavigate()
+    // Prescription file
+    const [DocsPrescription, SetDocsPrescription] = useState()
 
 
     // Handle File Uploads
     const handleFileUpload = (params) => {
 
-
-
+        DocsPrescription(params.files[0])
 
     }
+
+    const fromdata = new FormData
+
+    fromdata.append("BotData",BotData)
+
+
 
 
     // Chat Bot Settings
@@ -101,7 +106,7 @@ function Bot() {
 
             message: "What are your prior concerns about health?",
             options: ["Sexual Wellness", "Stress Management "],
-            function: (params) => SetBotData({ ...BotData, Step1: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, What_are_your_prior_concerns_about_health: params.userInput }),
             chatDisabled: true,
             path: async (params) => {
 
@@ -190,7 +195,7 @@ function Bot() {
 
             message: "How often do you feel stressed or anxious?",
             options: ["Rarely", "Sometimes", "Often", "Almost always"],
-            function: (params) => SetBotData({ ...BotData, Stress_4: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, How_often_do_you_feel_stressed_or_anxious: params.userInput }),
             chatDisabled: true,
             path: "stress_4"
 
@@ -200,7 +205,7 @@ function Bot() {
 
             message: "Do you have trouble sleeping due to stress or anxiety?",
             options: ["Yes", "No"],
-            function: (params) => SetBotData({ ...BotData, Stress_5: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, Do_you_have_trouble_sleeping_due_to_stress_or_anxiety: params.userInput }),
             chatDisabled: true,
             path: "stress_5"
 
@@ -210,7 +215,7 @@ function Bot() {
 
             message: "Have you experienced any major life chnages recently?",
             options: ["Yes", "No"],
-            function: (params) => SetBotData({ ...BotData, Stress_6: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, major_life_chnages_recently: params.userInput }),
             chatDisabled: true,
             path: "stress_6"
 
@@ -221,7 +226,7 @@ function Bot() {
 
             message: "How do you usually cope with stress?",
             options: ["Exercise", "Meditation", " Talking to friends/family", "Hobbies", "None of the above"],
-            function: (params) => SetBotData({ ...BotData, Stress_7: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, How_do_you_usually_cope_with_stress: params.userInput }),
             chatDisabled: true,
             path: "stress_7"
 
@@ -261,7 +266,7 @@ function Bot() {
 
             message: "Do you experience constipation and gas regularly?",
             options: ["Yes", "No"],
-            function: (params) => SetBotData({ ...BotData, Stress_11: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, constipation_and_gas_regularly: params.userInput }),
             chatDisabled: true,
             path: "stress_11"
 
@@ -281,7 +286,7 @@ function Bot() {
 
             message: "Do you have an existing doctor prescription for your concerns?",
             options: ["Yes", "No"],
-            function: (params) => SetBotData({ ...BotData, Stress_13: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, existing_doctor_prescription_for_your_concerns: params.userInput }),
             chatDisabled: true,
             path: async (params) => {
 
@@ -297,7 +302,7 @@ function Bot() {
         stress_12_yes: {
 
             message: "Describe Medican and disease Or upload the Doctor Prescription",
-            function: (params) => SetBotData({ ...BotData, Stress_13_yes: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, Prescription: params.userInput }),
             file: (params) => handleFileUpload(params),
             path: "stress_end"
 
@@ -319,7 +324,7 @@ function Bot() {
 
             message: "Share your Main Concern you need a complete solution",
             options: ["Erectile Dysfunction (ED)", "Premature Ejaculation (PE)", "Low sexual interest / Poor Satisfaction"],
-            function: (params) => SetBotData({ ...BotData, wellness_2: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, Share_your_Main_Concern_you_need_a_complete_solution: params.userInput }),
             chatDisabled: true,
             path: async (params) => {
 
@@ -411,7 +416,7 @@ function Bot() {
 
             message: "Which of the following do you identify with?",
             options: ["I ejaculate before penetration", "I find myself ejaculating too early during sex", "I have no issues with ejaculation"],
-            function: (params) => SetBotData({ ...BotData, wellness_5: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, Which_of_the_following_do_you_identify_with: params.userInput }),
             chatDisabled: true,
             path: "wellness_5"
 
@@ -421,7 +426,7 @@ function Bot() {
 
             message: "Have You issue with erectile dysfunction ?",
             options: ["Yes", "No"],
-            function: (params) => SetBotData({ ...BotData, wellness_6: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, Have_You_issue_with_erectile_dysfunction: params.userInput }),
             chatDisabled: true,
             path: "wellness_6"
 
@@ -431,7 +436,7 @@ function Bot() {
 
             message: "What is your Sexual Activity Frequency?",
             options: ["Daily", "Once a week", "More than once a week", "Less than once a week", "Don't keep track", "It's been a while since I have been active"],
-            function: (params) => SetBotData({ ...BotData, wellness_7: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, your_Sexual_Activity_Frequency: params.userInput }),
             chatDisabled: true,
             path: "wellness_7"
 
@@ -461,7 +466,7 @@ function Bot() {
 
             message: "Do you experience stress regularly?",
             options: ["I am under a lot of stress", "Have been more stressed lately", "The normal stress of regular life", "No Stress"],
-            function: (params) => SetBotData({ ...BotData, wellness_10: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, Do_you_experience_stress_regularly: params.userInput }),
             chatDisabled: true,
             path: "wellness_10"
 
@@ -481,7 +486,7 @@ function Bot() {
 
             message: "Do you experience constipation and gas regularly?",
             options: ["Yes", "No"],
-            function: (params) => SetBotData({ ...BotData, wellness_12: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, constipation_and_gas_regularly: params.userInput }),
             chatDisabled: true,
             path: "wellness_12"
 
@@ -501,7 +506,7 @@ function Bot() {
 
             message: "Are you taking any medicine continuously?",
             options: ["Yes", "No"],
-            function: (params) => SetBotData({ ...BotData, wellness_14: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, taking_any_medicine_continuously: params.userInput }),
             chatDisabled: true,
             path: async (params) => {
 
@@ -519,7 +524,7 @@ function Bot() {
         wellness_13_yes: {
 
             message: "Describe Medican and Disease?",
-            function: (params) => SetBotData({ ...BotData, wellness_14_yes: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, Describe_Medican_and_Disease: params.userInput }),
             path: "wellness_14"
 
         },
@@ -529,7 +534,7 @@ function Bot() {
 
             message: "If you have any existing doctor prescriptions for your concerns?",
             options: ["Yes", "No"],
-            function: (params) => SetBotData({ ...BotData, wellness_15: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, existing_doctor_prescriptions_for_your_concerns: params.userInput }),
             chatDisabled: true,
             path: async (params) => {
 
@@ -565,7 +570,7 @@ function Bot() {
 
             message: "Which of the following issues do you idented?",
             options: ["Occasionally, my erection is not hard enough to penetrate", "usually find it difficult to maintain an erection", "For some days/Months not to get an erection", "I am so crazy about having sex, but my erection level is Zero", "I have no issues in maintaining my erection"],
-            function: (params) => SetBotData({ ...BotData, ED_3: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, Which_of_the_following_issues_do_you_idented: params.userInput }),
             chatDisabled: true,
             path: "ED_2"
 
@@ -575,7 +580,7 @@ function Bot() {
 
             message: "Have You issues with Premature Ejaculation?",
             options: ["Yes", "No"],
-            function: (params) => SetBotData({ ...BotData, ED_4: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, issues_with_Premature_Ejaculation: params.userInput }),
             chatDisabled: true,
             path: "ED_3"
 
@@ -680,7 +685,7 @@ function Bot() {
 
             message: "Do you experience constipation and gas regularly?",
             options: ["Yes", "No"],
-            function: (params) => SetBotData({ ...BotData, ED_9: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, constipation_and_gas_regularly: params.userInput }),
             chatDisabled: true,
             path: "ED_8"
 
@@ -690,7 +695,7 @@ function Bot() {
 
             message: "Do you experience stress regularly?",
             options: ["I am under a lot of stress", "Have been more stressed lately", "The normal stress of regular life", "No Stress"],
-            function: (params) => SetBotData({ ...BotData, ED_10: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, experience_stress_regularly: params.userInput }),
             chatDisabled: true,
             path: "ED_9"
 
@@ -720,7 +725,7 @@ function Bot() {
 
             message: "Are you concerned about the side effects of erectile dysfunction medications, and would you prefer an alternative treatment that doesn't involve medication?",
             options: ["Yes", "No"],
-            function: (params) => SetBotData({ ...BotData, ED_13: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, concerned_about_the_side_effects_of_erectile_dysfunction_medications: params.userInput }),
             chatDisabled: true,
             path: async (params) => {
 
@@ -756,7 +761,7 @@ function Bot() {
 
             message: "Are you taking any treatments?",
             options: ["Yes", "No"],
-            function: (params) => SetBotData({ ...BotData, ED_14: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, taking_any_treatments: params.userInput }),
             chatDisabled: true,
             path: async (params) => {
 
@@ -774,7 +779,7 @@ function Bot() {
         ED_12_yes: {
 
             message: "Describe Medican and disease Or upload the Doctor Prescription",
-            function: (params) => SetBotData({ ...BotData, ED_14_yes: params.userInput }),
+            function: (params) => SetBotData({ ...BotData, Prescription: params.userInput }),
             file: (params) => handleFileUpload(params),
             path: "ED_end"
 
@@ -793,6 +798,8 @@ function Bot() {
 
 
 
+
+    console.log(BotData);
 
 
     return (

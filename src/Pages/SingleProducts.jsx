@@ -49,7 +49,7 @@ function SingleProducts() {
 
                 const res = await GetAllProducts()
 
-                if (res.status == 200) {
+                if (res.status >= 200 && res.status <= 300 ) {
 
                     const result = res.data.find((item) => (item.id == id))
 
