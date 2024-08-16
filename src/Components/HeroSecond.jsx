@@ -197,8 +197,6 @@ function HeroSecond() {
                     </Modal.Body>
 
 
-
-
                     <Modal.Footer>
 
                         <button className='btn btn-closed' onClick={handleClose}>Close</button>
@@ -210,7 +208,6 @@ function HeroSecond() {
 
 
                 </Modal>
-
 
 
             </section>

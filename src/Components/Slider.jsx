@@ -69,7 +69,9 @@ function Slider() {
                             </Carousel.Item>
 
 
+
                         </Carousel>
+
 
 
                     </div>
@@ -79,8 +81,7 @@ function Slider() {
                     <div className='col-md-6'>
 
                         <div className='row'>
-
-
+                            
 
                             <div className='col-md-6 Slide-hover slider-margin'>
 
