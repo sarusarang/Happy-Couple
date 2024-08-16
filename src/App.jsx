@@ -34,7 +34,7 @@ function App() {
 
     const hidecheck = () => {
 
-      if (location.pathname == '/auth' || location.pathname == '/ai' || location.pathname == '/terms' || location.pathname == '/refund' || location.pathname == '/pirvacy' || location.pathname == '/buy') {
+      if (location.pathname == '/auth' || location.pathname == '/ai' || location.pathname == '/terms' || location.pathname == '/refund' || location.pathname == '/pirvacy' || location.pathname == '/buy/:id') {
 
 
         sethide(true)
@@ -96,7 +96,7 @@ function App() {
 
         <Route path="/refund" element={<Refund />}> </Route>
 
-        <Route path="/buy" element={<Buy />}> </Route>
+        <Route path="/buy/:id" element={<Buy />}> </Route>
 
 
       </Routes>

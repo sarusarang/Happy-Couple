@@ -53,6 +53,25 @@
 }
 
 
+/* Single Product Nos Button */
+.btn_nos{
+  width: 90px;
+  height: 40px;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  border: 1px solid  #000 !important;
+  font-weight: 500;
+  background-color: white;
+  border-radius: 5px;
+  transition: all 0.3s ease-out;
+}
+.btn_nos.active{
+  background-color: #000;
+  color: white;
+  border: 0;
+}
+
+
 
 
 

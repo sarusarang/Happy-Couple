@@ -1,16 +1,170 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
-
+import { useNavigate, useParams } from 'react-router-dom';
+import { GetAllProducts } from '../Services/AllApi'
+import { useSelector } from 'react-redux';
+import { toast } from 'sonner'
 import './Buy.css'
+import { PostAddress } from '../Services/AllApi';
 
 function Buy() {
+
+
+    // To Get the id of the product
+    const { id } = useParams()
+
+    const Navigate = useNavigate()
+
+
+
+    // 
+    const { BuyDeatils } = useSelector((state) => state.BuyNow)
+
+    // User Token
+    const token = sessionStorage.getItem("token")
+
+
+    // add user address
+    const [UserAddress, SetUserAddress] = useState({
+
+        name: "", pincode: "", city: "", state: "", landmark: "", streetaddress: "", phone: ""
+
+    })
+
+
+
+
+    useEffect(() => {
+
+        // TO MOUNT ON THE TOP LEVEL 
+        window.scrollTo(0, 0);
+
+
+        const checkUser = ()=>{
+
+            if(!token){
+
+                toast.warning("Login First..!")
+
+
+                setTimeout(() => {
+                    
+                    Navigate('/auth')
+
+                }, 1000)
+                
+            }
+
+        }
+
+
+        const GetProduct = async () => {
+
+            try {
+
+
+                const res = await GetAllProducts()
+
+                if (res.status >= 200 && res.status <= 300) {
+
+                    const result = res.data.find((item) => (item.id == id))
+
+                }
+
+            }
+            catch (err) {
+
+                console.log(err);
+
+
+            }
+
+        }
+
+        checkUser()
+
+        GetProduct()
+
+
+    }, [])
+
+
+
+    // Add Address
+    const AddAddress = async () => {
+
+
+        try {
+
+            const { name, city, landmark, phone, pincode, state, streetaddress } = UserAddress
+
+
+            if (!name || !city || !landmark || !phone || !pincode || !state || !streetaddress) {
+
+                toast.warning("Empty Feild...!")
+
+            }
+            else {
+
+
+
+                const formdata = new FormData()
+
+                const reqheader = {
+
+                    "Content-Type": "multipart/form-data"
+                    // "Authorization": `Bearer ${token}`
+
+                }
+
+
+               
+                formdata.append("name", name)
+                formdata.append("user", sessionStorage.getItem("username"))
+                formdata.append("city", city)
+                formdata.append("landmark", landmark)
+                formdata.append("phone", phone)
+                formdata.append("pincode", pincode)
+                formdata.append("state", state)
+                formdata.append("streetaddress", streetaddress)
+
+
+
+                const res = await PostAddress(formdata, reqheader)
+
+
+                if (res.status >= 200 && res.status <= 300) {
+
+                    console.log(res);
+                    SetAddressStatus(true);
+
+
+                } else {
+
+                    console.log(res);
+
+
+                }
+
+            }
+
+        }
+
+        catch (Err) {
+
+            console.log(Err);
+
+        }
+    }
+
+
+
 
 
     // Modal State
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
 
 
     // TO SET ADD ADDRESS STATUS
@@ -37,7 +191,7 @@ function Buy() {
 
                             <h4>Address</h4>
 
-                            <div className="card" style={{padding:'1rem'}}>
+                            <div className="card" style={{ padding: '1rem' }}>
 
                                 <address >
                                     Delivery to <span className='fw-bold'>Kannur 670622</span> <br />
@@ -70,13 +224,13 @@ function Buy() {
 
                                     <tr>
                                         <td>Discount 0% <i class="fa-solid fa-tag text-success"></i></td>
-                                        <td align="right" className='text-success'>₹0</td>
+                                        <td align="right" className='text-success'>₹{BuyDeatils.price}</td>
                                     </tr>
 
 
                                     <tr>
                                         <td>Total Items</td>
-                                        <td align="right" className='text-success'>0</td>
+                                        <td align="right" className='text-success'>1</td>
                                     </tr>
 
 
@@ -85,7 +239,7 @@ function Buy() {
                                 <tfoot>
                                     <tr>
                                         <td>Total</td>
-                                        <td align="right">₹00.00</td>
+                                        <td align="right">₹{BuyDeatils.price}</td>
                                     </tr>
                                 </tfoot>
 
@@ -145,7 +299,7 @@ function Buy() {
 
                                     <div className='d-flex mb-4'>
 
-                                        <input type="radio" value={""} name='a'  className='large-radio'/>
+                                        <input type="radio" value={""} name='a' className='large-radio' />
 
                                         <div className='ms-3'>
 
@@ -155,24 +309,6 @@ function Buy() {
                                         </div>
 
                                     </div>
-
-
-
-                                    <div className='d-flex mb-4'>
- 
-                                        <input type="radio" value={""} name='a' className='large-radio' />
-
-                                        <div className='ms-3'>
-
-                                            <p className='mb-0 fw-bold'>Ajith</p>
-                                            <p className='mb-0'>Kozhikode,Kerala 630622</p>
-
-                                        </div>
-
-                                    </div>
-
-
-
 
 
                                 </div>
@@ -203,23 +339,25 @@ function Buy() {
 
                                 <form onSubmit={(e) => { e.preventDefault() }}>
 
-                                    <input type="text" placeholder='Name' className='form-control mb-3' />
+                                    <input type="text" onChange={(e) => { SetUserAddress({ ...UserAddress, name: e.target.value }) }} placeholder='Name' className='form-control mb-3' />
 
-                                    <input type="text" placeholder='Please enter a 6-digit pincode' className='form-control mb-3' maxlength="6" pattern="\d{6}" />
+                                    <input type="text" onChange={(e) => { SetUserAddress({ ...UserAddress, pincode: e.target.value }) }} placeholder='Please enter a 6-digit pincode' className='form-control mb-3' maxlength="6" pattern="\d{6}" />
 
-                                    <input type="text" placeholder='City' className='form-control mb-3' />
+                                    <input type="text" onChange={(e) => { SetUserAddress({ ...UserAddress, city: e.target.value }) }} placeholder='City' className='form-control mb-3' />
 
-                                    <input type="text" placeholder='State' className='form-control mb-3' />
+                                    <input type="text" onChange={(e) => { SetUserAddress({ ...UserAddress, state: e.target.value }) }} placeholder='State' className='form-control mb-3' />
 
-                                    <input type="text" placeholder='Landmark' className='form-control mb-3' />
+                                    <input type="text" onChange={(e) => { SetUserAddress({ ...UserAddress, landmark: e.target.value }) }} placeholder='Landmark' className='form-control mb-3' />
 
-                                    <input type="text" placeholder='Phone' className='form-control mb-3' maxlength="10" pattern="\d{6}" />
+                                    <textarea name="" onChange={(e) => { SetUserAddress({ ...UserAddress, streetaddress: e.target.value }) }} className='form-control mb-3' placeholder='Enter your Street address' id=""></textarea>
+
+                                    <input type="text" onChange={(e) => { SetUserAddress({ ...UserAddress, phone: e.target.value }) }} placeholder='Phone' className='form-control mb-3' maxlength="10" pattern="\d{10}" />
 
                                     <div className='pb-3 mt-4'>
 
                                         <button onClick={() => { SetAddressStatus(true) }} type='submit' className='btn btn-address ms-2 w-25'>Close</button>
 
-                                        <button onClick={() => { SetAddressStatus(true) }} type='submit' className='btn btn-address ms-2 w-50'>Save</button>
+                                        <button onClick={() => { AddAddress() }} type='submit' className='btn btn-address ms-2 w-50'>Save</button>
 
                                     </div>
 

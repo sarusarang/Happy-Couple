@@ -3,27 +3,44 @@ import { useState, useEffect } from 'react'
 import "mdb-react-ui-kit/dist/css/mdb.min.css"
 import { MDBTabs, MDBTabsItem, MDBTabsLink } from "mdb-react-ui-kit"
 import ProductsSlide from '../Components/ProductsSlide'
-import { GetAllProducts } from '../Services/AllApi'
-import { useParams } from 'react-router-dom'
+import { GetAllProducts, ProductQuantity } from '../Services/AllApi'
+import { useNavigate, useParams } from 'react-router-dom'
 import ProductSkelton from '../Components/ProductSkelton'
+import { AddBuyNow } from '../Redux/BuySlice'
+import { useDispatch } from 'react-redux'
+import { toast } from 'sonner'
 
 function SingleProducts() {
-
-
 
 
     // To Get the id of the product
     const { id } = useParams()
 
+    const Navigate = useNavigate()
+
+    const Dispatch = useDispatch()
+
+
+    // For NOS button
+    const [selectedQuantity, setSelectedQuantity] = useState(null);
 
 
     // Product data
     const [Product, SetProduct] = useState({})
 
+    //Product Quanity 
+    const [ProductQuanity, SetProductQuanity] = useState([])
+
+    // Product Price
+    const [PriceandQuanity, SetPriceandQuanity] = useState({
+
+        price: "", Quanity: "", stock: ""
+
+    })
+
 
     // Recommended Products
-    const [RecPro,SetRecPro] = useState([])
-
+    const [RecPro, SetRecPro] = useState([])
 
 
     // Loading State
@@ -31,7 +48,7 @@ function SingleProducts() {
 
 
     // Discription State
-    const [DisStatus,SetDisStatus] = useState(false)
+    const [DisStatus, SetDisStatus] = useState(false)
 
 
 
@@ -49,14 +66,12 @@ function SingleProducts() {
 
                 const res = await GetAllProducts()
 
-                if (res.status >= 200 && res.status <= 300 ) {
+                if (res.status >= 200 && res.status <= 300) {
 
                     const result = res.data.find((item) => (item.id == id))
 
-                    const Ligin = res.data.find((item)=>(item.id == 1))
+                    const Ligin = res.data.find((item) => (item.id == 1))
 
-                   
-                
                     SetProduct(result)
                     SetRecPro(Ligin)
                     SetLoading(false)
@@ -75,20 +90,98 @@ function SingleProducts() {
                 console.log(err);
                 SetLoading(true)
 
-
             }
 
         }
 
+
+
+        // Product Quanity 
+        const GetQuanity = async () => {
+
+
+            try {
+
+                const res = await ProductQuantity()
+
+                if (res.status >= 200 && res.status <= 300) {
+
+                    const result = res.data.filter(item => item.product == id)
+
+                    const defaultquanity = result.find((item) => (item))
+
+                    SetPriceandQuanity({ ...PriceandQuanity, price: defaultquanity.price, stock: defaultquanity.stock, Quanity: defaultquanity.quantity })
+
+                    SetProductQuanity(result)
+
+                }
+                else {
+
+                    SetLoading(true)
+                    console.log(res)
+
+                }
+
+
+            }
+
+            catch (err) {
+
+                console.log(err);
+
+            }
+
+
+        }
+
+
+
         GetProduct()
 
+        GetQuanity()
 
     }, [id]);
 
 
 
-    console.log(Product);
-    
+
+    // Handle Buy Now 
+    const HandleBuyNow = () => {
+
+
+        try {
+
+            const token = sessionStorage.getItem("token")
+
+            if (!token) {
+
+                toast.warning("Please Login First")
+
+                setTimeout(() => {
+
+                    Navigate('/auth')
+
+                }, 1000);
+
+            } else {
+
+                Dispatch(AddBuyNow(PriceandQuanity))
+                Navigate(`/buy/${id}`)
+
+            }
+
+
+        }
+
+        catch (Err) {
+
+            console.log(Err);
+
+
+        }
+    }
+
+
 
 
     // To handle Spec Tabs
@@ -107,6 +200,20 @@ function SingleProducts() {
     }
 
 
+
+    // Handle Nos Button
+    const handleButtonClick = (item) => {
+
+        setSelectedQuantity(item.quantity)
+
+        SetPriceandQuanity({
+            price: item.price,
+            Quanity: item.quantity,
+            stock: item.stock
+        });
+
+
+    }
 
 
 
@@ -193,7 +300,7 @@ function SingleProducts() {
                                                 </div>
 
 
-                                                <span className="text-muted"><i className="fas fa-shopping-basket fa-sm mx-1"></i>154 orders</span>
+                                                <span className="text-muted"><i className="fas fa-shopping-basket fa-sm mx-1"></i>{PriceandQuanity.stock}</span>
                                                 <span className="text-success ms-2">In stock</span>
 
 
@@ -202,8 +309,10 @@ function SingleProducts() {
 
                                             {/* Price */}
                                             <div className="mb-3">
-                                                <span className="h5">₹{Product.price}</span>
+
+                                                <span className="h5">₹{PriceandQuanity.price}</span>
                                                 <span className="text-muted">/per box</span>
+
                                             </div>
 
 
@@ -218,7 +327,7 @@ function SingleProducts() {
                                             </p>
 
 
-                                            <button className='bg-transparent fw-bold' onClick={()=>{SetDisStatus(!DisStatus)}}>Discription:</button>
+                                            <button className='bg-transparent fw-bold' onClick={() => { SetDisStatus(!DisStatus) }}>Discription:</button>
 
                                             {
 
@@ -226,79 +335,52 @@ function SingleProducts() {
 
                                                 <div>
 
-                                                    <p style={{textAlign:'justify'}}>{Product.description}</p>
+                                                    <p style={{ textAlign: 'justify' }}>{Product.description}</p>
 
                                                 </div>
 
                                             }
 
 
-
-
-
-                                            {/* Deatils */}
-                                            {/* <div className="row">
-                                    <dt className="col-3">Type:</dt>
-                                    <dd className="col-9">Regular</dd>
-
-                                    <dt className="col-3">Color</dt>
-                                    <dd className="col-9">Brown</dd>
-
-                                    <dt className="col-3">Material</dt>
-                                    <dd className="col-9">Cotton, Jeans</dd>
-
-                                    <dt className="col-3">Brand</dt>
-                                    <dd className="col-9">Reebook</dd>
-                                </div> */}
-
-
-
                                             <hr />
 
 
                                             {/* Quanity */}
-                                            <div className="row mb-4 mt-3">
+                                            <div className=" mb-4 mt-3">
 
 
-                                                <div className="col-md-4 col-6">
+                                                <div className="d-flex flex-column">
 
                                                     <label className="mb-2">Quantity : Nos</label>
-                                                    <select className="form-select border border-secondary" style={{ height: '35px' }}>
-                                                        <option>30</option>
-                                                        <option>60</option>
-                                                        <option>90</option>
-                                                        <option>120</option>
-                                                    </select>
 
+                                                    <div className='row'>
+
+                                                        {
+
+                                                            ProductQuanity &&
+
+                                                            ProductQuanity.map((item) => (
+
+                                                                <button key={item.quantity} className={`btn_nos me-3 mt-2 col-md-2 ${selectedQuantity === item.quantity ? 'active' : ''}`} onClick={() => { handleButtonClick(item) }}>{item.quantity}</button>
+
+                                                            ))
+
+                                                        }
+
+                                                    </div>
 
                                                 </div>
 
-                                                {/* 
-                                    <div className="col-md-4 col-6 mb-3">
-
-                                        <label className="mb-2 d-block">Quantity</label>
 
 
-                                        <div className="input-group mb-3" style={{ width: '170px' }}>
-                                            <button className="btn btn-white border border-secondary px-3" type="button" id="button-addon1" data-mdb-ripple-color="dark">
-                                                <i className="fas fa-minus"></i>
-                                            </button>
-                                            <input type="text" className="form-control text-center border border-secondary" placeholder="14" aria-label="Example text with button addon" aria-describedby="button-addon1" />
-                                            <button className="btn btn-white border border-secondary px-3" type="button" id="button-addon2" data-mdb-ripple-color="dark">
-                                                <i className="fas fa-plus"></i>
-                                            </button>
-                                        </div>
-
-
-                                    </div> */}
 
                                             </div>
 
 
 
                                             {/* Buy Now */}
-                                            <a href="#" className="btn btn-buynow shadow me-3 "> Buy now </a>
-                                            <a href="#" className="btn btn-addcart shadow"> <i className="me-1 fa fa-shopping-basket"></i> Add to cart </a>
+                                            <a className="btn btn-buynow shadow me-3" onClick={HandleBuyNow}> Buy now </a>
+                                            <a className="btn btn-addcart shadow"> <i className="me-1 fa fa-shopping-basket"></i> Add to cart </a>
 
 
 
@@ -359,7 +441,7 @@ function SingleProducts() {
 
                                                 <MDBTabsItem>
                                                     <MDBTabsLink onClick={() => handleTabClick('tab5')} active={activeItem === 'tab5'}>
-                                                    Precautions
+                                                        Precautions
                                                     </MDBTabsLink>
                                                 </MDBTabsItem>
 
@@ -592,7 +674,7 @@ function SingleProducts() {
                                                         <div className="info">
                                                             <a href="#" className="nav-link mb-1">
                                                                 {Product.name}<br />
-                                                                
+
                                                             </a>
                                                             <strong className="text-dark"> ₹{Product.price}</strong>
                                                         </div>
@@ -620,7 +702,7 @@ function SingleProducts() {
 
                                                             <a href="#" className="nav-link mb-1">
                                                                 {RecPro.name}<br />
-                                                               
+
                                                             </a>
 
                                                             <strong className="text-dark"> ₹{RecPro.price}</strong>

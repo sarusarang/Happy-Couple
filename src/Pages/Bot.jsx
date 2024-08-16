@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
-import ChatBot from "react-chatbotify";
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import ChatBot from "react-chatbotify"
+import { ChatBotApi } from '../Services/AllApi'
+import { v4 as uuidv4 } from 'uuid';    
+
 
 
 function Bot() {
-
 
 
     // Chat Bot Data
@@ -22,9 +23,58 @@ function Bot() {
 
     }
 
-    const fromdata = new FormData
 
-    fromdata.append("BotData",BotData)
+    const value = {name:"sarang",age:"20",phone:"8129"}
+    
+
+
+    // Handle Chat Bot
+    const handlebotdata = async () => {
+
+
+        try {
+
+            console.log("Hello world")
+
+            const sessionKey = uuidv4()
+            
+
+            const fromdata = new FormData()
+            fromdata.append("data" , value)
+            fromdata.append("session_key", sessionKey)
+            DocsPrescription ? fromdata.append("Prescription", DocsPrescription) : ""
+
+
+            const reqheader = {
+
+                "Content-Type": "multipart/form-data"
+
+            }
+
+            const res = await ChatBotApi(fromdata,reqheader)
+
+            if(res.status >= 200 && res.status <=300){
+
+                console.log(res);
+                
+            }
+            else{
+
+                console.log(res);
+                
+
+            }
+
+
+        }
+        catch (err) {
+
+            console.log(err);
+
+
+        }
+
+    }
 
 
 
@@ -314,9 +364,7 @@ function Bot() {
             chatDisabled: true,
             path: ""
 
-
         },
-
 
         // Sexual Wellness Flow
 
@@ -559,6 +607,7 @@ function Bot() {
         wellness_15: {
 
             message: "Thanks for sharing valuable health information to decide the required treatment/medication as you need immediately",
+            function: () => handlebotdata(),
             chatDisabled: true,
             path: ""
 
@@ -796,10 +845,10 @@ function Bot() {
 
     }
 
+    
+    
 
 
-
-    console.log(BotData);
 
 
     return (

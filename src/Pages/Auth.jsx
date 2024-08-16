@@ -131,6 +131,7 @@ function Auth() {
 
           toast.success("Login Success...!")
           sessionStorage.setItem("token", res.data.access)
+          sessionStorage.setItem("username", username)
 
           setTimeout(() => {
 

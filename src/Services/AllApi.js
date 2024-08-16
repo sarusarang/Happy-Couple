@@ -11,6 +11,14 @@ export const GetAllProducts = async()=>{
 
 }
 
+// Product Quantity
+export const ProductQuantity = async()=>{
+
+    return  CommonApi("GET",`${base_url}/productquantity/`)
+
+}
+
+
 
 // User Register
 export const Register = async(data,headers)=>{
@@ -25,5 +33,21 @@ export const Register = async(data,headers)=>{
 export const Login = async(data,headers)=>{
      
     return  CommonApi("POST",`${base_url}/api/token/`,data,headers)
+
+}
+
+
+// Chat Bot
+export const ChatBotApi = async(data,header)=>{
+    
+    return  CommonApi("POST",`${base_url}/chatbot`,data,header)
+
+}
+
+
+// Add Address
+export const PostAddress = async(data,header)=>{
+    
+    return  CommonApi("POST",`${base_url}/user_address/`,data,header)
 
 }
