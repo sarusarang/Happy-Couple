@@ -40,20 +40,39 @@ function Buy() {
         window.scrollTo(0, 0);
 
 
-        const checkUser = ()=>{
+        const checkUser = () => {
 
-            if(!token){
+            if (!token) {
 
                 toast.warning("Login First..!")
 
 
                 setTimeout(() => {
-                    
+
                     Navigate('/auth')
 
                 }, 1000)
-                
+
             }
+
+        }
+
+
+        const CheckOrder = ()=>{
+
+            if(BuyDeatils.length == 0){
+
+                toast.warning("No products Found..")
+
+                setTimeout(() => {
+
+                    Navigate('/')
+                    
+                },1000);
+              
+
+            }
+
 
         }
 
@@ -82,6 +101,8 @@ function Buy() {
         }
 
         checkUser()
+
+        CheckOrder()
 
         GetProduct()
 
@@ -118,7 +139,7 @@ function Buy() {
                 }
 
 
-               
+
                 formdata.append("name", name)
                 formdata.append("user", sessionStorage.getItem("username"))
                 formdata.append("city", city)
@@ -142,7 +163,6 @@ function Buy() {
                 } else {
 
                     console.log(res);
-
 
                 }
 
@@ -223,14 +243,35 @@ function Buy() {
 
 
                                     <tr>
+
+
                                         <td>Discount 0% <i class="fa-solid fa-tag text-success"></i></td>
-                                        <td align="right" className='text-success'>₹{BuyDeatils.price}</td>
+
+
+                                        {BuyDeatils &&
+
+
+                                            <td align="right" className='text-success'>
+
+
+                                                ₹{BuyDeatils.reduce((total, item) => total + Number(item.price), 0)}
+
+
+                                            </td>
+
+
+                                        }
+
+
+
+
+
                                     </tr>
 
 
                                     <tr>
                                         <td>Total Items</td>
-                                        <td align="right" className='text-success'>1</td>
+                                        <td align="right" className='text-success'>{BuyDeatils.length}</td>
                                     </tr>
 
 
@@ -239,8 +280,21 @@ function Buy() {
                                 <tfoot>
                                     <tr>
                                         <td>Total</td>
-                                        <td align="right">₹{BuyDeatils.price}</td>
+
+                                        {BuyDeatils &&
+
+                                            <td align="right" className='text-success'>
+
+                                                ₹{BuyDeatils.reduce((total, item) => total + Number(item.price), 0)}
+
+
+                                            </td>
+                                        }
+
+
                                     </tr>
+
+
                                 </tfoot>
 
                             </table>

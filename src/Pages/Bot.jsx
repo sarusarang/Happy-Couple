@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ChatBot from "react-chatbotify"
 import { ChatBotApi } from '../Services/AllApi'
-import { v4 as uuidv4 } from 'uuid';    
 
 
 
@@ -19,13 +18,13 @@ function Bot() {
     // Handle File Uploads
     const handleFileUpload = (params) => {
 
-        DocsPrescription(params.files[0])
+        console.log(params.files[0])
+        SetDocsPrescription(params.files[0])
+
+
 
     }
 
-
-    const value = {name:"sarang",age:"20",phone:"8129"}
-    
 
 
     // Handle Chat Bot
@@ -36,13 +35,9 @@ function Bot() {
 
             console.log("Hello world")
 
-            const sessionKey = uuidv4()
-            
-
             const fromdata = new FormData()
-            fromdata.append("data" , value)
-            fromdata.append("session_key", sessionKey)
-            DocsPrescription ? fromdata.append("Prescription", DocsPrescription) : ""
+            fromdata.append("data", JSON.stringify(BotData))
+            DocsPrescription ? fromdata.append("prescription", DocsPrescription) : ""
 
 
             const reqheader = {
@@ -51,17 +46,17 @@ function Bot() {
 
             }
 
-            const res = await ChatBotApi(fromdata,reqheader)
+            const res = await ChatBotApi(fromdata, reqheader)
 
-            if(res.status >= 200 && res.status <=300){
+            if (res.status >= 200 && res.status <= 300) {
 
                 console.log(res);
-                
+
             }
-            else{
+            else {
 
                 console.log(res);
-                
+
 
             }
 
@@ -75,6 +70,7 @@ function Bot() {
         }
 
     }
+
 
 
 
@@ -361,6 +357,16 @@ function Bot() {
         stress_end: {
 
             message: "Thanks for sharing valuable health information to decide the required treatment or medication as you need immediately",
+            function: (params) => handlebotdata(),
+            transition: { duration: 200 },
+            chatDisabled: true,
+            path: "save_data"
+
+        },
+
+        save_data: {
+
+            message: "",
             chatDisabled: true,
             path: ""
 
@@ -607,11 +613,15 @@ function Bot() {
         wellness_15: {
 
             message: "Thanks for sharing valuable health information to decide the required treatment/medication as you need immediately",
-            function: () => handlebotdata(),
+            function: (params) => handlebotdata(),
+            transition: { duration: 200 },
             chatDisabled: true,
-            path: ""
+            path: "save_data"
 
         },
+
+
+
 
 
         // Erectile Dysfunction (ED)
@@ -838,15 +848,17 @@ function Bot() {
         ED_end: {
 
             message: "Thanks for sharing valuable health information to decide the required treatment Or medication you need immediately",
+            function: (params) => handlebotdata(),
+            transition: { duration: 200 },
             chatDisabled: true,
-            path: ""
+            path: "save_data"
 
         },
 
     }
 
-    
-    
+
+
 
 
 

@@ -3,8 +3,13 @@ import { useState, useEffect } from 'react';
 import './HeroSecond.css'
 import Modal from 'react-bootstrap/Modal';
 import { GetAllProducts } from '../Services/AllApi'
+import { useNavigate } from 'react-router-dom';
 
 function HeroSecond() {
+
+
+
+    const Navigate = useNavigate()
 
 
     // Modal 1
@@ -201,7 +206,7 @@ function HeroSecond() {
 
                         <button className='btn btn-closed' onClick={handleClose}>Close</button>
 
-                        <button className='btn btn-buy'>Buy Now</button>
+                        <button className='btn btn-buy' onClick={()=>{Navigate(`/pro/${ModalProduct.id}`)}}>Buy Now</button>
 
 
                     </Modal.Footer>

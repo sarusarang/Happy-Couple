@@ -40,7 +40,7 @@ export const Login = async(data,headers)=>{
 // Chat Bot
 export const ChatBotApi = async(data,header)=>{
     
-    return  CommonApi("POST",`${base_url}/chatbot`,data,header)
+    return  CommonApi("POST",`${base_url}/chatbotview/`,data,header)
 
 }
 

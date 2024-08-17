@@ -38,6 +38,8 @@ function SingleProducts() {
 
     })
 
+    
+
 
     // Recommended Products
     const [RecPro, SetRecPro] = useState([])
@@ -87,7 +89,7 @@ function SingleProducts() {
             }
             catch (err) {
 
-                console.log(err);
+                console.log(err)
                 SetLoading(true)
 
             }
@@ -165,7 +167,7 @@ function SingleProducts() {
 
             } else {
 
-                Dispatch(AddBuyNow(PriceandQuanity))
+                Dispatch(AddBuyNow([{price:PriceandQuanity.price,Quanity:PriceandQuanity.Quanity,name:Product.name,image:Product.image}]))
                 Navigate(`/buy/${id}`)
 
             }

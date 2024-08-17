@@ -5,7 +5,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
 
 
-    BuyDeatils:{}
+    BuyDeatils:[]
 
 
 }
@@ -22,6 +22,7 @@ const Buyslice = createSlice({
         AddBuyNow:(state,action)=>{
 
             state.BuyDeatils = action.payload
+            console.log(action.payload);
             
 
         }
