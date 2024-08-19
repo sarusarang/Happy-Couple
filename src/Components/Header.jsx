@@ -87,8 +87,8 @@ function Header() {
 
                 <div className='dropdown-content'>
 
-                  <Link to={'/performance'} className='drop-link d-block'onClick={handleNavClick}>Performance</Link>
-                  <Link to={'/stress'} className='drop-link d-block'onClick={handleNavClick}>Stress Management</Link>
+                  <Link to={'/performance'} className='drop-link d-block' onClick={handleNavClick}>Performance</Link>
+                  <Link to={'/stress'} className='drop-link d-block' onClick={handleNavClick}>Stress Management</Link>
 
                 </div>
 
@@ -106,8 +106,8 @@ function Header() {
 
                 <div className='dropdown-content'>
 
-                  <Link to={'/about'} className='drop-link d-block'onClick={handleNavClick}>About Us</Link>
-                  <Link to={'/contact'} className='drop-link d-block'onClick={handleNavClick}>Contact Us</Link>
+                  <Link to={'/about'} className='drop-link d-block' onClick={handleNavClick}>About Us</Link>
+                  <Link to={'/contact'} className='drop-link d-block' onClick={handleNavClick}>Contact Us</Link>
 
                 </div>
 
@@ -115,7 +115,7 @@ function Header() {
               </div>
 
 
-              <Link onClick={()=>{handleShow(),handleNavClick()}}><i class="fa-solid fa-magnifying-glass"></i></Link>
+              <Link onClick={() => { handleShow(), handleNavClick() }}><i class="fa-solid fa-magnifying-glass"></i></Link>
 
               {/* <Link to={'/'} ><i class="fa-solid fa-bag-shopping"></i></Link> */}
 
@@ -164,20 +164,19 @@ function Header() {
 
               <ul>
 
-                {
+                <Link to={'/ai'} onClick={handleClose} className='nav-link'> <li>Find a Perfect Solution for You</li></Link>
 
-                  Suggest.length > 0 &&
+                <Link to={'/ai'} onClick={handleClose} className='nav-link'> <li>Take a FREE Performance Test</li></Link>
 
-                  Suggest.map((item) => (
+                <Link to={'/stress'} onClick={handleClose} className='nav-link'> <li>Test a Free Stress Management Test</li></Link>
 
-                    <li>{item}</li>
+                <Link to={'/doctors'} onClick={handleClose} className='nav-link'> <li>Book a Free Consultation with Doctor</li></Link>
 
+                <Link to={'/ai'} onClick={handleClose} className='nav-link'> <li>Consult with an Expert for low-drive</li></Link>
 
-                  ))
+                <Link to={'/allproducts'} onClick={handleClose} className='nav-link'> <li>Buy Products for improve performance</li></Link>
 
-                }
-
-
+                <Link to={'/allproducts'} onClick={handleClose} className='nav-link'> <li>Buy product for keeping a long drive</li></Link>
 
               </ul>
 

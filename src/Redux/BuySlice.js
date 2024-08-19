@@ -22,7 +22,7 @@ const Buyslice = createSlice({
         AddBuyNow:(state,action)=>{
 
             state.BuyDeatils = action.payload
-            console.log(action.payload);
+          
             
 
         }

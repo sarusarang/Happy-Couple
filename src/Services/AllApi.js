@@ -51,3 +51,22 @@ export const PostAddress = async(data,header)=>{
     return  CommonApi("POST",`${base_url}/user_address/`,data,header)
 
 }
+
+// Get Address
+export const GetAddress = async(data)=>{
+
+    const params = new URLSearchParams({ user: data });
+    
+    return  CommonApi("GET",`${base_url}/user_address/?${params.toString()}`,"","")
+
+}
+
+
+
+// Add Cart
+export const AddCart = async(data,header)=>{
+
+  
+    return  CommonApi("GET",`${base_url}/user_address/`,data,header)
+
+}

@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react';
-import Modal from 'react-bootstrap/Modal';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react'
+import Modal from 'react-bootstrap/Modal'
+import { useNavigate, useParams } from 'react-router-dom'
 import { GetAllProducts } from '../Services/AllApi'
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux'
 import { toast } from 'sonner'
 import './Buy.css'
-import { PostAddress } from '../Services/AllApi';
+import { PostAddress, GetAddress } from '../Services/AllApi'
+
 
 function Buy() {
 
@@ -15,10 +16,17 @@ function Buy() {
 
     const Navigate = useNavigate()
 
+    // GetAddress State
+    const [GetState, SetGetState] = useState({})
 
-
-    // 
+    // Redux state
     const { BuyDeatils } = useSelector((state) => state.BuyNow)
+
+    // User Fetch Address
+    const [FetchAddress, SetFetchAddress] = useState()
+
+    // Selected User Address
+    const [SelectedAddress, SetSelectedAddress] = useState({})
 
     // User Token
     const token = sessionStorage.getItem("token")
@@ -58,18 +66,18 @@ function Buy() {
         }
 
 
-        const CheckOrder = ()=>{
+        const CheckOrder = () => {
 
-            if(BuyDeatils.length == 0){
+            if (BuyDeatils.length == 0) {
 
                 toast.warning("No products Found..")
 
                 setTimeout(() => {
 
                     Navigate('/')
-                    
-                },1000);
-              
+
+                }, 1000);
+
 
             }
 
@@ -100,14 +108,72 @@ function Buy() {
 
         }
 
+
+        // Get User Address
+        const GetUserAddress = async () => {
+
+
+            try {
+
+
+                const data = sessionStorage.getItem("username")
+
+
+                const res = await GetAddress(data)
+
+                console.log(sessionStorage.getItem("username"));
+
+
+                if (res.status >= 200 && res.status <= 300) {
+
+                    SetFetchAddress(res.data)
+
+                    console.log(res.data);
+
+
+                    if (res.data) {
+
+                        const Result = res.data[0]
+
+                        SetSelectedAddress(Result)
+
+                    }
+
+                }
+                else {
+
+
+                    console.log(res)
+
+
+                }
+
+            }
+            catch (Err) {
+
+                console.log(Err);
+
+            }
+
+
+        }
+
         checkUser()
 
         CheckOrder()
 
+        GetUserAddress()
+
         GetProduct()
 
 
-    }, [])
+    }, [GetState])
+
+
+
+
+
+
 
 
 
@@ -134,7 +200,6 @@ function Buy() {
                 const reqheader = {
 
                     "Content-Type": "multipart/form-data"
-                    // "Authorization": `Bearer ${token}`
 
                 }
 
@@ -156,13 +221,17 @@ function Buy() {
 
                 if (res.status >= 200 && res.status <= 300) {
 
-                    console.log(res);
-                    SetAddressStatus(true);
+
+                    SetAddressStatus(true)
+                    SetGetState(res.data)
+                    toast.success("Address Added Successfully...!")
 
 
                 } else {
 
+
                     console.log(res);
+
 
                 }
 
@@ -177,6 +246,28 @@ function Buy() {
         }
     }
 
+
+
+    // Hnadle pay now
+    const handlepay = async () => {
+
+
+
+        try {
+
+
+
+        }
+        catch (Err) {
+
+
+            console.log(Err);
+
+
+        }
+
+
+    }
 
 
 
@@ -213,10 +304,25 @@ function Buy() {
 
                             <div className="card" style={{ padding: '1rem' }}>
 
-                                <address >
-                                    Delivery to <span className='fw-bold'>Kannur 670622</span> <br />
-                                    HOUSE Peralassery Vadakumbad Kerala 670622 India
-                                </address>
+
+
+                                {
+
+                                    SelectedAddress ?
+
+                                        <address >
+                                            Delivery to <span className='fw-bold'>{SelectedAddress.city}{SelectedAddress.pincode}</span><br />
+                                            {SelectedAddress.streetaddress}
+                                        </address>
+
+                                        :
+
+                                        <h4>Add Address</h4>
+
+
+                                }
+
+
 
                                 <div>
 
@@ -303,7 +409,7 @@ function Buy() {
 
                         <div className=''>
 
-                            <button className="button button--full" type="submit">Pay Now<i className="fa-solid fa-lock"></i></button>
+                            <button className="button button--full" type="submit" onClick={handlepay}>Pay Now<i className="fa-solid fa-lock"></i></button>
 
                         </div>
 
@@ -351,19 +457,30 @@ function Buy() {
 
                                 <div className='Address-scroll col-12'>
 
-                                    <div className='d-flex mb-4'>
 
-                                        <input type="radio" value={""} name='a' className='large-radio' />
+                                    {
 
-                                        <div className='ms-3'>
+                                        FetchAddress &&
 
-                                            <p className='mb-0 fw-bold'>Vijith</p>
-                                            <p className='mb-0'>Kannur,Kerala 670622</p>
+                                        FetchAddress.map((item) => (
 
-                                        </div>
 
-                                    </div>
+                                            <div className='d-flex mb-4'>
 
+                                                <input type="radio" onClick={() => { SetSelectedAddress(item), handleClose() }} value={""} name='a' className='large-radio' />
+
+                                                <div className='ms-3'>
+
+                                                    <p className='mb-0 fw-bold'>{item.name}</p>
+                                                    <p className='mb-0'>{item.city},{item.state} {item.pincode}</p>
+
+                                                </div>
+
+                                            </div>
+
+                                        ))
+
+                                    }
 
                                 </div>
 
