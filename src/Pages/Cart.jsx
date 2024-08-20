@@ -1,19 +1,130 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
+import { GetCart, DeleteCart } from '../Services/AllApi';
+import { toast } from 'sonner';
 
 
 
 function Cart() {
 
-    useEffect(() => {
 
+
+
+    // Cart Items 
+    const [CartItems, SetCartItems] = useState([])
+
+    const Navigate = useNavigate()
+
+    // Delete Status
+    const [DeleteStatus, SetDeleteStatus] = useState()
+
+
+
+    useEffect(() => {
 
         // TO MOUNT ON THE TOP LEVEL 
         window.scrollTo(0, 0);
 
 
-    }, []);
+
+        // check user 
+        const checkUser = () => {
+
+            if (!sessionStorage.getItem("username")) {
+
+                Navigate('/auth')
+
+            }
+
+        }
+
+
+
+        // get cart items
+        const handleCartItems = async () => {
+
+
+            try {
+
+                const user = sessionStorage.getItem("username")
+
+                const res = await GetCart(user)
+
+
+                if (res.status >= 200 && res.status <= 300) {
+
+
+                    const CartProducts = res.data.map(item => item.product)
+
+
+                    SetCartItems(CartProducts)
+
+
+
+                } else {
+
+                    console.log(res);
+
+
+                }
+
+            }
+            catch (err) {
+
+                console.log(err);
+
+            }
+
+        }
+
+        checkUser()
+
+        handleCartItems()
+
+
+    }, [DeleteStatus])
+
+
+
+
+    // handle Cart Delete
+    const CartDelete = async (data) => {
+
+
+        try {
+
+
+            const res = await DeleteCart(data)
+
+            if (res.status >= 200 && res.status <= 300) {
+
+
+                toast.success("Item Deleted Successfully...")
+                SetDeleteStatus(Date.now())
+                console.log(res);
+
+
+
+            } else {
+
+                console.log(res);
+
+
+            }
+
+        }
+        catch (Err) {
+
+            console.log(Err)
+
+        }
+
+
+    }
+
+
+
 
 
 
@@ -23,7 +134,7 @@ function Cart() {
         <>
 
 
-            <section className="mt-4  mb-5 Cart-paddin">
+            <section className="mt-4  mb-5 Cart-paddin pt-4">
 
 
                 <div className="container">
@@ -41,72 +152,90 @@ function Cart() {
                                 <div className="m-4 Cart-padding">
 
 
-                                    <h4 className="card-title mb-4">Your shopping cart</h4>
-
-                                    <div className="row gy-3 mb-4">
+                                    <h4 className="card-title mb-4 text-dark">Your shopping cart</h4>
 
 
 
-                                        <div className='row mb-4 gy-3'>
+                                    {
 
-                                            <div className="col-lg-5">
+                                        CartItems.length > 0 ?
 
-                                                <div className="me-lg-5">
+                                            CartItems.map((item) => (
 
-                                                    <div className="d-flex">
-                                                        <img src="/LYGIN_M.jpg" className="border rounded me-3 cart-img" style={{ width: '96px', height: '96px' }} />
-                                                        <div className="">
-                                                            <a href="#" className="nav-link">LYGIN M</a>
-                                                            <p className="text-muted">Medicine</p>
+
+                                                <div className="row gy-3 mb-4">
+
+                                                    <div className='row mb-4 gy-3'>
+
+                                                        <div className="col-lg-5">
+
+                                                            <div className="me-lg-5">
+
+                                                                <div className="d-flex">
+
+                                                                    <img src={item.image} className="border rounded me-3 cart-img" style={{ width: '96px', height: '96px' }} />
+
+                                                                    <div className="">
+
+                                                                        <a href="#" className="nav-link">{item.name}</a>
+                                                                        <p className="text-muted">Medicine</p>
+
+                                                                    </div>
+
+                                                                </div>
+
+
+                                                            </div>
+
                                                         </div>
+
+
+                                                        <div className="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
+
+                                                            <div className="">
+
+
+                                                                <select style={{ width: '100px' }} className="form-select me-4">
+                                                                    <option>1</option>
+                                                                    <option>2</option>
+                                                                    <option>3</option>
+                                                                    <option>4</option>
+                                                                </select>
+
+
+                                                            </div>
+
+
+                                                            <div className="">
+                                                                <text className="h6">₹{item.price}</text> <br />
+                                                                <small className="text-muted text-nowrap"> ₹500 / per item </small>
+                                                            </div>
+
+
+                                                        </div>
+
+
+                                                        <div className="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
+                                                            <div className="float-md-end">
+
+                                                                <a className="btn btn-light border text-danger icon-hover-danger" onClick={() => { CartDelete(item.id) }}> Remove<i class="fa-solid fa-trash-can" style={{ color: 'red' }}></i></a>
+
+                                                            </div>
+                                                        </div>
+
                                                     </div>
 
 
                                                 </div>
 
-                                            </div>
+                                            ))
 
 
-                                            <div className="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
+                                            :
 
-                                                <div className="">
+                                            <h1>No Cart Items Found</h1>
 
-
-                                                    <select style={{ width: '100px' }} className="form-select me-4">
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                    </select>
-
-
-                                                </div>
-
-
-                                                <div className="">
-                                                    <text className="h6">₹500</text> <br />
-                                                    <small className="text-muted text-nowrap"> ₹500 / per item </small>
-                                                </div>
-
-
-                                            </div>
-
-
-                                            <div className="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
-                                                <div className="float-md-end">
-
-                                                    <a className="btn btn-light border text-danger icon-hover-danger"> Remove<i class="fa-solid fa-trash-can" style={{ color: 'red' }}></i></a>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-
-
-
-
-                                    </div>
+                                    }
 
 
                                 </div>
@@ -145,14 +274,33 @@ function Cart() {
 
                                     <div className="d-flex justify-content-between">
                                         <p className="mb-2">Total Items:</p>
-                                        <p className="mb-2">1</p>
+                                        <p className="mb-2">{CartItems.length}</p>
                                     </div>
 
                                     <div className="d-flex justify-content-between">
 
                                         <p className="mb-2">Total Price:</p>
 
-                                        <p className="mb-2 text-success">₹500</p>
+
+
+                                        {
+
+                                            CartItems ?
+
+                                                <p className="mb-2 text-success">
+
+                                                    ₹{CartItems.reduce((total, item) => total + Number(item.price), 0)}
+
+                                                </p>
+
+                                                :
+
+                                                0
+
+                                        }
+
+
+
 
                                     </div>
 
@@ -169,7 +317,23 @@ function Cart() {
 
 
                                         <p className="mb-2 fw-bold">Sub Total:</p>
-                                        <p className="mb-2 fw-bold">₹500</p>
+
+                                        {
+
+                                            CartItems ?
+
+                                                <p className="mb-2 text-success">
+
+                                                    ₹{CartItems.reduce((total, item) => total + Number(item.price), 0)}
+
+                                                </p>
+
+                                                :
+
+                                                0
+
+                                        }
+
                                     </div>
 
                                     <div className="mt-3">

@@ -2,8 +2,9 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import '../Components/ProductsSlide.css'
 import { useNavigate } from 'react-router-dom';
-import { GetAllProducts } from '../Services/AllApi';
+import { GetAllProducts, AddCart } from '../Services/AllApi';
 import { Skeleton } from '@mui/material';
+import { toast } from 'sonner';
 
 function AllProducts() {
 
@@ -62,6 +63,70 @@ function AllProducts() {
 
 
     const Navigate = useNavigate()
+
+
+
+    // Handle Add to Cart
+    const HandelAddCart = async (data) => {
+
+
+        try {
+
+
+            const user = sessionStorage.getItem("username")
+
+            if (user) {
+
+                const reqheader = {
+
+                    "Content-Type": "multipart/form-data"
+
+                }
+
+                const fromdata = new FormData()
+                fromdata.append("cart", data.id)
+                fromdata.append("user", user)
+
+
+                const Res = await AddCart(fromdata, reqheader)
+
+
+                if (Res.status >= 200 && Res.status <= 300) {
+
+                    toast.success("Item Added to Cart")
+
+                }
+                else {
+
+                    console.log(Res);
+                    toast.success("Item Alredy Added to Cart")
+
+                }
+
+
+            }
+            else {
+
+                toast.warning("Login First...!")
+
+                setTimeout(() => {
+
+                    Navigate('/auth')
+
+                }, 1000);
+
+            }
+
+        }
+        catch (err) {
+
+
+            console.log(err)
+
+
+        }
+
+    }
 
 
 
@@ -155,7 +220,7 @@ function AllProducts() {
                                                                 <div className="h-bg-inner"></div>
                                                             </div>
 
-                                                            <a className="cart">
+                                                            <a className="cart" onClick={()=>{HandelAddCart(item)}}>
                                                                 <span className="price">Just ₹{item.price}</span>
 
                                                                 <span className="add-to-cart" >

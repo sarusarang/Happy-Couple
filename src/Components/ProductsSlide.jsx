@@ -3,7 +3,8 @@ import './ProductsSlide.css'
 import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css"
 import { useNavigate } from 'react-router-dom'
-import { GetAllProducts } from '../Services/AllApi'
+import { GetAllProducts, AddCart } from '../Services/AllApi'
+import { toast } from 'sonner'
 import { Skeleton } from '@mui/material'
 
 function ProductsSlide() {
@@ -60,7 +61,73 @@ function ProductsSlide() {
 
     }, [])
 
-    
+
+
+
+
+    // Handle Add to Cart
+    const HandelAddCart = async (data) => {
+
+
+        try {
+
+
+            const user = sessionStorage.getItem("username")
+
+            if (user) {
+
+                const reqheader = {
+
+                    "Content-Type": "multipart/form-data"
+
+                }
+
+                const fromdata = new FormData()
+                fromdata.append("cart", data.id)
+                fromdata.append("user", user)
+
+
+                const Res = await AddCart(fromdata, reqheader)
+
+
+                if (Res.status >= 200 && Res.status <= 300) {
+
+                    toast.success("Item Added to Cart")
+
+                }
+                else {
+
+                    console.log(Res);
+                    toast.success("Item Alredy Added to Cart")
+
+                }
+
+
+            }
+            else{
+
+                toast.warning("Login First...!")
+
+                setTimeout(() => {
+                    
+                    Navigate('/auth')
+
+                }, 1000);
+
+            }
+
+        }
+        catch (err) {
+
+
+            console.log(err)
+
+
+        }
+
+    }
+
+
 
 
     // Slider Responsive
@@ -84,7 +151,7 @@ function ProductsSlide() {
             items: 1
         }
     }
-    
+
 
 
     return (
@@ -181,13 +248,13 @@ function ProductsSlide() {
                                                                     <div className="h-bg-inner"></div>
                                                                 </div>
 
-                                                                <a className="cart">
+                                                                <a className="cart" onClick={() => { HandelAddCart(item) }}>
 
                                                                     <span className="price">Just ₹{item.price}</span>
 
                                                                     <span className="add-to-cart" >
 
-                                                                        <span className="txt">Add in cart</span>
+                                                                        <span className="txt" >Add in cart</span>
 
 
                                                                     </span>
