@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
-import { GetCart, DeleteCart } from '../Services/AllApi';
+import { GetCart, DeleteCart, ProductQuantity } from '../Services/AllApi';
 import { toast } from 'sonner';
 
 
@@ -10,9 +10,10 @@ function Cart() {
 
 
 
-
     // Cart Items 
     const [CartItems, SetCartItems] = useState([])
+
+    const [QuanityApi, SetQuanityApi] = useState([])
 
     const Navigate = useNavigate()
 
@@ -57,9 +58,9 @@ function Cart() {
 
                     const CartProducts = res.data.map(item => item.product)
 
+                    console.log(res.data);
 
                     SetCartItems(CartProducts)
-
 
 
                 } else {
@@ -78,12 +79,52 @@ function Cart() {
 
         }
 
+
+
+
+
+        // Get Product Quanity
+        const GetQuantity = async () => {
+
+            try {
+
+
+                const res = await ProductQuantity()
+
+                if (res.status >= 200 && res.status <= 300) {
+
+
+
+                    SetQuanityApi(res.data)
+
+                }
+                else {
+
+                    console.log(res)
+
+                }
+
+
+            }
+            catch (err) {
+
+
+                console.log(err);
+
+
+            }
+
+        }
+
         checkUser()
 
         handleCartItems()
 
+        GetQuantity()
+
 
     }, [DeleteStatus])
+
 
 
 
@@ -100,7 +141,7 @@ function Cart() {
             if (res.status >= 200 && res.status <= 300) {
 
 
-                toast.success("Item Deleted Successfully...")
+                // toast.success("Item Deleted Successfully...")
                 SetDeleteStatus(Date.now())
                 console.log(res);
 
@@ -192,23 +233,25 @@ function Cart() {
 
                                                         <div className="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
 
-                                                            <div className="">
+                                                            <div className="me-5">
 
-
+                                                                {/* 
                                                                 <select style={{ width: '100px' }} className="form-select me-4">
                                                                     <option>1</option>
                                                                     <option>2</option>
                                                                     <option>3</option>
                                                                     <option>4</option>
-                                                                </select>
+                                                                </select> */}
 
+                                                                <p>{item.quantity}</p>
 
                                                             </div>
 
 
                                                             <div className="">
+
                                                                 <text className="h6">₹{item.price}</text> <br />
-                                                                <small className="text-muted text-nowrap"> ₹500 / per item </small>
+
                                                             </div>
 
 
@@ -218,7 +261,7 @@ function Cart() {
                                                         <div className="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
                                                             <div className="float-md-end">
 
-                                                                <a className="btn btn-light border text-danger icon-hover-danger" onClick={() => { CartDelete(item.id) }}> Remove<i class="fa-solid fa-trash-can" style={{ color: 'red' }}></i></a>
+                                                                <a className="btn btn-success shadow-0  text-white" onClick={() => { CartDelete(item.id), Navigate(`/pro/${item.id}`) }}>Buy Now</a>
 
                                                             </div>
                                                         </div>
@@ -336,18 +379,18 @@ function Cart() {
 
                                     </div>
 
-                                    <div className="mt-3">
+                                    {/* <div className="mt-3">
 
 
 
-                                        <Link to={'/buy'}>
+                                            <Link to={'/buy'}>
 
-                                            <a href="#" className="btn btn-success w-100 shadow-0  mt-2"> Check Out </a>
+                                                <a href="#" className="btn btn-success w-100 shadow-0  mt-2"> Check Out </a>
 
-                                        </Link>
+                                            </Link>
 
 
-                                    </div>
+                                        </div> */}
 
 
                                 </div>
