@@ -58,8 +58,6 @@ function Cart() {
 
                     const CartProducts = res.data.map(item => item.product)
 
-                    console.log(res.data);
-
                     SetCartItems(CartProducts)
 
 
@@ -143,7 +141,7 @@ function Cart() {
 
                 // toast.success("Item Deleted Successfully...")
                 SetDeleteStatus(Date.now())
-                console.log(res);
+               
 
 
 

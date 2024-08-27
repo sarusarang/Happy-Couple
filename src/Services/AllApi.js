@@ -79,10 +79,20 @@ export const GetCart = async (data) => {
 
 }
 
+
+// Delete Cart
 export const DeleteCart = async (data) => {
 
     const params = new URLSearchParams({ id: data })
 
     return CommonApi("DELETE", `${base_url}/cart/?${params.toString()}`, "", "")
+
+}
+
+
+// Get Doctor
+export const GetDoctor = async () => {
+
+    return CommonApi("GET", `${base_url}/doc_info/`, "", "")
 
 }

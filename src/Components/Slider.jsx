@@ -1,6 +1,7 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import './Slider.css'
+import { Link } from 'react-router-dom';
 
 function Slider() {
 
@@ -81,44 +82,58 @@ function Slider() {
                     <div className='col-md-6'>
 
                         <div className='row'>
-                            
+
 
                             <div className='col-md-6 Slide-hover slider-margin'>
 
-                                <img src="/Side_Baner_(385x330)-01.jpg" className='img-fluid' alt=""/>
+                                <Link className='nav-link' to={'/doctors'}>
 
-                                <div className='text-over'>
+                                    <img src="/Side_Baner_(385x330)-01.jpg" className='img-fluid' alt="" />
 
-                                    <h4>Find Your Doctor</h4>
+                                    <div className='text-over'>
 
-                                </div>
+                                        <h4>Find Your Doctor</h4>
+
+                                    </div>
+
+
+                                </Link>
+
+
 
                             </div>
 
 
                             <div className='col-md-6 Slide-hover slider-margin'>
 
-                                <img src="/li-2.jpeg" className='img-fluid' alt="" />
+                                <Link className='nav-link' to={'/ai'}>
 
-                                <div className='text-over'>
+                                    <img src="/li-2.jpeg" className='img-fluid' alt="" />
 
-                                    <h4>Self Assessment</h4>
+                                    <div className='text-over'>
 
-                                </div>
+                                        <h4>Self Assessment</h4>
+
+                                    </div>
+
+                                </Link>
 
                             </div>
 
 
                             <div className='col-md-6 Slide-hover' style={{ marginTop: '1.3rem' }} >
 
-                                <img src="/li-3.jpeg" className='img-fluid' alt="" />
+                                <Link className='nav-link' to={'/doctors'}>
 
+                                    <img src="/li-3.jpeg" className='img-fluid' alt="" />
 
-                                <div className='text-over'>
+                                    <div className='text-over'>
 
-                                    <h4>Consult Now</h4>
+                                        <h4>Consult Now</h4>
 
-                                </div>
+                                    </div>
+
+                                </Link>
 
 
                             </div>
@@ -126,14 +141,18 @@ function Slider() {
 
                             <div className='col-md-6 Slide-hover' style={{ marginTop: '1.3rem' }}>
 
-                                <img src="/li-4.jpeg" className='img-fluid' alt="" />
+                                <Link className='nav-link' to={'/stress'}>
+
+                                    <img src="/li-4.jpeg" className='img-fluid' alt="" />
 
 
-                                <div className='text-over'>
+                                    <div className='text-over'>
 
-                                    <h4>Manage Stress</h4>
+                                        <h4>Manage Stress</h4>
 
-                                </div>
+                                    </div>
+
+                                </Link>
 
                             </div>
 

@@ -32,22 +32,26 @@ function Hero() {
 
                         <div className='col-md-6 card-display'>
 
-                            <Card style={{ width: '18rem' }} className='shadow'>
+                            <Link to={'/doctors'} className='nav-link'>
 
-                                <Card.Img variant="top" src="/Doctor2.png" />
+                                <Card style={{ width: '18rem' }} className='shadow'>
 
-                                <Card.Body>
+                                    <Card.Img variant="top" src="/Doctor2.png" />
 
-                                    <Link to={'/doctors'} className='nav-link'>
+                                    <Card.Body>
+
+
 
                                         <Card.Title>Now You Can Talk With Doctor <i class="fa-solid fa-circle-arrow-right"></i></Card.Title>
 
-                                    </Link>
 
 
-                                </Card.Body>
 
-                            </Card>
+                                    </Card.Body>
+
+                                </Card>
+
+                            </Link>
 
 
                         </div>
@@ -56,24 +60,28 @@ function Hero() {
                         <div className='col-md-6 card-display2'>
 
 
-                            <Card style={{ width: '18rem' }} className='shadow'>
+                            <Link to={'/ai'} className='nav-link'>
 
-                                <Card.Img variant="top" src="/assess_myself2.png" />
+                                <Card style={{ width: '18rem' }} className='shadow'>
+
+                                    <Card.Img variant="top" src="/assess_myself2.png" />
 
 
-                                <Card.Body className='text-center' style={{ paddingBottom: '2.5rem' }}>
+                                    <Card.Body className='text-center' style={{ paddingBottom: '2.5rem' }}>
 
-                                    <Link to={'/ai'} className='nav-link'>
+
 
                                         <Card.Title>Assess Myself <i class="fa-solid fa-circle-arrow-right"></i></Card.Title>
 
-                                    </Link>
 
 
 
-                                </Card.Body>
 
-                            </Card>
+                                    </Card.Body>
+
+                                </Card>
+
+                            </Link>
 
 
                         </div>

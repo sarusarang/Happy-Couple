@@ -128,8 +128,6 @@ function Buy() {
 
                     SetFetchAddress(res.data)
 
-                    console.log(res.data);
-
 
                     if (res.data) {
 
@@ -367,9 +365,6 @@ function Buy() {
 
 
                                         }
-
-
-
 
 
                                     </tr>

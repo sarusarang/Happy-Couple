@@ -95,6 +95,13 @@ function Footer() {
 
                 </p>
 
+                <p className='w-100'>
+
+                  <a  className='foot-link' target='_blank' style={{ fontSize: '15px' }} > <i class="fa-brands fa-whatsapp me-3 fa-xl"></i>+91 9072399100, +91 9072377100</a>
+
+                </p>
+
+                
 
               </div>
 

@@ -129,7 +129,7 @@ function HeroSecond() {
 
 
 
-                            <div className='col-md-6' >
+                            <div className='col-md-6' onClick={()=>{Navigate('/pro/3')}} style={{cursor:'pointer'}}>
 
                                 <img src="/263x263-01.jpg" className='img-fluid' alt="img" />
 
@@ -137,7 +137,7 @@ function HeroSecond() {
 
 
 
-                            <div className='col-md-6 mt-4'>
+                            <div className='col-md-6 mt-4' onClick={()=>{Navigate('/pro/1')}} style={{cursor:'pointer'}}>
 
                                 <img src="/263x263-02.jpg" className='img-fluid' alt="img" />
 
@@ -145,7 +145,7 @@ function HeroSecond() {
 
 
 
-                            <div className='col-md-6 mt-4 hover' onClick={()=>{HeroModalClick("Lygin")}}>
+                            <div className='col-md-6 mt-4 hover' onClick={()=>{HeroModalClick("Lygin")}} >
 
                                 <div className='hero2-logo'>
 

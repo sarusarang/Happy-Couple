@@ -49,8 +49,6 @@ function Landing() {
 
 
 
-
-
         {/* Products Slide */}
         <div className=''>
 
