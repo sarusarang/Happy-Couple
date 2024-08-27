@@ -141,7 +141,7 @@ function Cart() {
 
                 // toast.success("Item Deleted Successfully...")
                 SetDeleteStatus(Date.now())
-               
+
 
 
 
@@ -274,7 +274,19 @@ function Cart() {
 
                                             :
 
-                                            <h1>No Cart Items Found</h1>
+                                            <div className='d-flex flex-column justify-content-center align-items-center mt-5'>
+
+                                                <h1 className='text-center'>No Cart Items Found</h1>
+
+                                                <Link to={'/allproducts'} className='nav-link w-100 text-center'>
+
+                                                    <button className='btn btn-success w-25 shadow-0'>Shop Now <i class="fa-solid fa-basket-shopping"></i></button>
+
+                                                </Link>
+
+                                            </div>
+
+
 
                                     }
 

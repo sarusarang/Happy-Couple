@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import "mdb-react-ui-kit/dist/css/mdb.min.css"
 import { MDBTabs, MDBTabsItem, MDBTabsLink } from "mdb-react-ui-kit"
 import ProductsSlide from '../Components/ProductsSlide'
-import { GetAllProducts, ProductQuantity } from '../Services/AllApi'
+import { GetAllProducts, ProductQuantity, AddCart } from '../Services/AllApi'
 import { useNavigate, useParams } from 'react-router-dom'
 import ProductSkelton from '../Components/ProductSkelton'
 import { AddBuyNow } from '../Redux/BuySlice'
@@ -38,7 +38,7 @@ function SingleProducts() {
 
     })
 
-    
+
 
 
     // Recommended Products
@@ -147,6 +147,79 @@ function SingleProducts() {
 
 
 
+
+
+    // Handle Add to Cart
+    const HandelAddCart = async () => {
+
+
+        try {
+
+            console.log("cart");
+            
+
+            const user = sessionStorage.getItem("username")
+
+            if (user) {
+
+                const reqheader = {
+
+                    "Content-Type": "multipart/form-data"
+
+                }
+
+                const fromdata = new FormData()
+                fromdata.append("cart", id)
+                fromdata.append("user", user)
+
+
+                const Res = await AddCart(fromdata, reqheader)
+
+
+                if (Res.status >= 200 && Res.status <= 300) {
+
+                    toast.success("Item Added to Cart")
+
+                }
+                else {
+
+                    console.log(Res);
+                    toast.success("Item Alredy Added to Cart")
+
+                }
+
+
+            }
+            else {
+
+                toast.warning("Login First...!")
+
+                setTimeout(() => {
+
+                    Navigate('/auth')
+
+                }, 1000);
+
+            }
+
+        }
+        catch (err) {
+
+
+            console.log(err)
+
+
+        }
+
+    }
+
+
+
+
+
+
+
+
     // Handle Buy Now 
     const HandleBuyNow = () => {
 
@@ -167,7 +240,7 @@ function SingleProducts() {
 
             } else {
 
-                Dispatch(AddBuyNow([{price:PriceandQuanity.price,Quanity:PriceandQuanity.Quanity,name:Product.name,image:Product.image}]))
+                Dispatch(AddBuyNow([{ price: PriceandQuanity.price, Quanity: PriceandQuanity.Quanity, name: Product.name, image: Product.image }]))
                 Navigate(`/buy/${id}`)
 
             }
@@ -380,7 +453,7 @@ function SingleProducts() {
 
                                             {/* Buy Now */}
                                             <a className="btn btn-buynow shadow me-3" onClick={HandleBuyNow}> Buy now </a>
-                                            <a className="btn btn-addcart shadow"> <i className="me-1 fa fa-shopping-basket"></i> Add to cart </a>
+                                            <a className="btn btn-addcart shadow" onClick={HandelAddCart}> <i className="me-1 fa fa-shopping-basket" ></i> Add to cart </a>
 
 
 
