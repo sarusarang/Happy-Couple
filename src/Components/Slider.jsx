@@ -28,7 +28,7 @@ function Slider() {
 
                                 <img
                                     className="d-block w-100"
-                                    src="https://www.happycouplesolution.com/slide-1.jpeg"
+                                    src="/slide-1.jpeg"
                                     alt="First slide"
                                     loading='lazy'
                                 />
@@ -41,7 +41,7 @@ function Slider() {
 
                                 <img
                                     className="d-block w-100"
-                                    src="https://www.happycouplesolution.com/slide-2.jpeg"
+                                    src="/slide-2.jpeg"
                                     alt="Second slide"
                                     loading='lazy'
                                 />
@@ -54,7 +54,7 @@ function Slider() {
 
                                 <img
                                     className="d-block w-100"
-                                    src="https://www.happycouplesolution.com/slide-3.jpeg"
+                                    src="/slide-3.jpeg"
                                     alt="Third slide"
                                     loading='lazy'
                                 />
@@ -66,7 +66,7 @@ function Slider() {
 
                                 <img
                                     className="d-block w-100"
-                                    src="https://www.happycouplesolution.com/slide-4.jpeg"
+                                    src="/slide-4.jpeg"
                                     alt="Third slide"
                                     loading='lazy'
                                 />
@@ -92,7 +92,7 @@ function Slider() {
 
                                 <Link className='nav-link' to={'/doctors'}>
 
-                                    <img src="https://www.happycouplesolution.com/Side_Baner_(385x330)-01.jpg" loading='lazy' className='img-fluid' alt="" />
+                                    <img src="/Side_Baner_(385x330)-01.jpg" loading='lazy' className='img-fluid' alt="" />
 
                                     <div className='text-over'>
 
@@ -112,7 +112,7 @@ function Slider() {
 
                                 <Link className='nav-link' to={'/ai'}>
 
-                                    <img src="https://www.happycouplesolution.com/li-2.jpeg" loading='lazy' className='img-fluid' alt="" />
+                                    <img src="/li-2.jpeg" loading='lazy' className='img-fluid' alt="" />
 
                                     <div className='text-over'>
 
@@ -129,7 +129,7 @@ function Slider() {
 
                                 <Link className='nav-link' to={'/doctors'}>
 
-                                    <img src="https://www.happycouplesolution.com/li-3.jpeg" loading='lazy' className='img-fluid' alt="" />
+                                    <img src="/li-3.jpeg" loading='lazy' className='img-fluid' alt="" />
 
                                     <div className='text-over'>
 
@@ -147,7 +147,7 @@ function Slider() {
 
                                 <Link className='nav-link' to={'/stress'}>
 
-                                    <img src="https://www.happycouplesolution.com/li-4.jpeg" loading='lazy' className='img-fluid' alt="" />
+                                    <img src="/li-4.jpeg" loading='lazy' className='img-fluid' alt="" />
 
 
                                     <div className='text-over'>

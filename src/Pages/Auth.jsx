@@ -174,7 +174,7 @@ function Auth() {
 
           <div className='login-logo'>
 
-            <img src="/NAV-LOGO.png" className='img-fluid' alt="" />
+            <img src="/NAV-LOGO.png" loading='lazy' className='img-fluid' alt="img" />
 
           </div>
 

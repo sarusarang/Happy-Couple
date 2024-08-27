@@ -31,7 +31,7 @@ function AboutUs() {
 
                     <div className='col-md-6'>
 
-                        <img src="https://st4.depositphotos.com/26272580/31072/v/450/depositphotos_310724682-stock-illustration-contact-us-woman-with-headphones.jpg" className='img-fluid' alt="about" />
+                        <img loading='lazy' src="https://st4.depositphotos.com/26272580/31072/v/450/depositphotos_310724682-stock-illustration-contact-us-woman-with-headphones.jpg" className='img-fluid' alt="about" />
 
 
                     </div>

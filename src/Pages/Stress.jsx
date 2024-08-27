@@ -268,7 +268,7 @@ function Stress() {
 
                                 <div className='stress3-img'>
 
-                                    <img loading='lazy' src="https://www.happycouplesolution.com/Erect_Well-01.jpg" className='img-fluid' alt="" />
+                                    <img loading='lazy' src="/Erect_Well-01.jpg" className='img-fluid' alt="" />
 
                                     <p>Manage Stress</p>
 
@@ -280,7 +280,7 @@ function Stress() {
 
                                 <div className='stress3-img'>
 
-                                    <img loading='lazy' src="https://www.happycouplesolution.com/Erect_Well-02.jpg" className='img-fluid' alt="" />
+                                    <img loading='lazy' src="/Erect_Well-02.jpg" className='img-fluid' alt="" />
 
                                     <p>Control ride Failure</p>
 
@@ -293,7 +293,7 @@ function Stress() {
 
                                 <div className='stress3-img'>
 
-                                    <img loading='lazy' src="https://www.happycouplesolution.com/Erect_Well-03.jpg" className='img-fluid' alt="" />
+                                    <img loading='lazy' src="/Erect_Well-03.jpg" className='img-fluid' alt="" />
 
                                     <p>Erect Well</p>
 
@@ -306,7 +306,7 @@ function Stress() {
 
                                 <div className='stress3-img'>
 
-                                    <img loading='lazy' src="https://www.happycouplesolution.com/Erect_Well-04.jpg" className='img-fluid' alt="" />
+                                    <img loading='lazy' src="/Erect_Well-04.jpg" className='img-fluid' alt="" />
 
                                     <p>Improve Performance</p>
 
@@ -357,7 +357,7 @@ function Stress() {
 
                                         <Card style={{ width: '13rem' }} >
 
-                                            <Card.Img variant="top" loading='lazy' src="https://www.happycouplesolution.com/Doctor2.png" />
+                                            <Card.Img variant="top" loading='lazy' src="/Doctor2.png" />
 
                                             <Card.Body className='bg-info'>
 
@@ -385,7 +385,7 @@ function Stress() {
                                         <Card style={{ width: '13rem' }} >
 
 
-                                            <Card.Img variant="top" loading='lazy' src="https://www.happycouplesolution.com/doctor3.jpeg" />
+                                            <Card.Img variant="top" loading='lazy' src="/doctor3.jpeg" />
 
 
                                             <Card.Body className='bg-info'>
