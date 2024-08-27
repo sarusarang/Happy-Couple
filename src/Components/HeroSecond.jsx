@@ -120,7 +120,7 @@ function HeroSecond() {
                                 <div className=' hero2-logo'>
 
 
-                                    <img src="/ErectaidLog-01.png" className='img-fluid' alt="img" />
+                                    <img src="https://www.happycouplesolution.com/ErectaidLog-01.png" loading='lazy' className='img-fluid' alt="img" />
 
 
                                 </div>
@@ -131,7 +131,7 @@ function HeroSecond() {
 
                             <div className='col-md-6' onClick={()=>{Navigate('/pro/3')}} style={{cursor:'pointer'}}>
 
-                                <img src="/263x263-01.jpg" className='img-fluid' alt="img" />
+                                <img src="https://www.happycouplesolution.com/263x263-01.jpg" loading='lazy' className='img-fluid' alt="img" />
 
                             </div>
 
@@ -139,7 +139,7 @@ function HeroSecond() {
 
                             <div className='col-md-6 mt-4' onClick={()=>{Navigate('/pro/1')}} style={{cursor:'pointer'}}>
 
-                                <img src="/263x263-02.jpg" className='img-fluid' alt="img" />
+                                <img src="https://www.happycouplesolution.com/263x263-02.jpg" loading='lazy' className='img-fluid' alt="img" />
 
                             </div>
 
@@ -149,7 +149,7 @@ function HeroSecond() {
 
                                 <div className='hero2-logo'>
 
-                                    <img src="/Lygin-01.png" className='img-fluid' alt="img" />
+                                    <img src="https://www.happycouplesolution.com/Lygin-01.png" loading='lazy' className='img-fluid' alt="img" />
 
                                 </div>
 
@@ -177,7 +177,7 @@ function HeroSecond() {
 
                         <div className='modal-logo'>
 
-                            <img src="/ErectaidLog-01.png" className='img-fluid' alt="" />
+                            <img src="https://www.happycouplesolution.com/ErectaidLog-01.png" loading='lazy' className='img-fluid' alt="" />
 
                         </div>
 

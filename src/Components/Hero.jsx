@@ -36,7 +36,7 @@ function Hero() {
 
                                 <Card style={{ width: '18rem' }} className='shadow'>
 
-                                    <Card.Img variant="top" src="/Doctor2.png" />
+                                    <Card.Img variant="top" loading='lazy' src="https://www.happycouplesolution.com/Doctor2.png" />
 
                                     <Card.Body>
 
@@ -64,7 +64,7 @@ function Hero() {
 
                                 <Card style={{ width: '18rem' }} className='shadow'>
 
-                                    <Card.Img variant="top" src="/assess_myself2.png" />
+                                    <Card.Img variant="top" loading='lazy' src="https://www.happycouplesolution.com/assess_myself2.png" />
 
 
                                     <Card.Body className='text-center' style={{ paddingBottom: '2.5rem' }}>

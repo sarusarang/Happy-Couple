@@ -332,7 +332,7 @@ function SingleProducts() {
                                         <div className="border rounded-4 mb-3 d-flex justify-content-center">
 
                                             <a data-fslightbox="mygalley" className="rounded-4" target="_blank" data-type="image">
-                                                <img style={{ maxWidth: '100%', maxHeight: '100vh', margin: 'auto' }} className="rounded-4 fit" src={Product.image} />
+                                                <img loading='lazy' style={{ maxWidth: '100%', maxHeight: '100vh', margin: 'auto' }} className="rounded-4 fit" src={Product.image} />
                                             </a>
 
                                         </div>

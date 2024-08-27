@@ -61,7 +61,7 @@ function Stress() {
 
                             <img
                                 className="d-block w-100"
-                                src="/Baner 1080x250 A.jpg"
+                                src="https://www.happycouplesolution.com/Baner 1080x250 A.jpg"
                                 alt="First slide"
                             />
 
@@ -73,7 +73,7 @@ function Stress() {
 
                             <img
                                 className="d-block w-100"
-                                src="/Baner 1080x250 B.jpg"
+                                src="https://www.happycouplesolution.com/Baner 1080x250 B.jpg"
                                 alt="Second slide"
                             />
 
@@ -85,7 +85,7 @@ function Stress() {
 
                             <img
                                 className="d-block w-100"
-                                src="/Baner 1080x250 C.jpg"
+                                src="https://www.happycouplesolution.com/Baner 1080x250 C.jpg"
                                 alt="Third slide"
                             />
 
@@ -122,7 +122,7 @@ function Stress() {
 
                                 <Card style={{ width: '18rem' }} className='shadow'>
 
-                                    <Card.Img variant="top" src="/Doctor2.png" />
+                                    <Card.Img variant="top" src="https://www.happycouplesolution.com/Doctor2.png" />
 
                                     <Card.Body>
 
@@ -147,7 +147,7 @@ function Stress() {
 
                                 <Card style={{ width: '18rem' }} className='shadow'>
 
-                                    <Card.Img variant="top" src="/assess_myself2.png" />
+                                    <Card.Img variant="top" src="https://www.happycouplesolution.com/assess_myself2.png" />
 
 
                                     <Card.Body className='text-center' style={{ paddingBottom: '2.5rem' }}>
@@ -197,7 +197,7 @@ function Stress() {
 
                                 <div className='stress2-img'>
 
-                                    <img src="/Perfomence-01.jpg" className='img-fluid' alt="" />
+                                    <img src="https://www.happycouplesolution.com/Perfomence-01.jpg" className='img-fluid' alt="" />
 
                                 </div>
 
@@ -214,7 +214,7 @@ function Stress() {
 
                                 <div className='stress2-img'>
 
-                                    <img src="/Perfomence-02.jpg" className='img-fluid' alt="" />
+                                    <img src="https://www.happycouplesolution.com/Perfomence-02.jpg" className='img-fluid' alt="" />
 
                                 </div>
 
@@ -230,7 +230,7 @@ function Stress() {
 
                                 <div className='stress2-img'>
 
-                                    <img src="/Perfomence-03.jpg" className='img-fluid' alt="" />
+                                    <img src="https://www.happycouplesolution.com/Perfomence-03.jpg" className='img-fluid' alt="" />
 
                                 </div>
 
@@ -268,7 +268,7 @@ function Stress() {
 
                                 <div className='stress3-img'>
 
-                                    <img src="/Erect_Well-01.jpg" className='img-fluid' alt="" />
+                                    <img loading='lazy' src="https://www.happycouplesolution.com/Erect_Well-01.jpg" className='img-fluid' alt="" />
 
                                     <p>Manage Stress</p>
 
@@ -280,7 +280,7 @@ function Stress() {
 
                                 <div className='stress3-img'>
 
-                                    <img src="/Erect_Well-02.jpg" className='img-fluid' alt="" />
+                                    <img loading='lazy' src="https://www.happycouplesolution.com/Erect_Well-02.jpg" className='img-fluid' alt="" />
 
                                     <p>Control ride Failure</p>
 
@@ -293,7 +293,7 @@ function Stress() {
 
                                 <div className='stress3-img'>
 
-                                    <img src="/Erect_Well-03.jpg" className='img-fluid' alt="" />
+                                    <img loading='lazy' src="https://www.happycouplesolution.com/Erect_Well-03.jpg" className='img-fluid' alt="" />
 
                                     <p>Erect Well</p>
 
@@ -306,7 +306,7 @@ function Stress() {
 
                                 <div className='stress3-img'>
 
-                                    <img src="/Erect_Well-04.jpg" className='img-fluid' alt="" />
+                                    <img loading='lazy' src="https://www.happycouplesolution.com/Erect_Well-04.jpg" className='img-fluid' alt="" />
 
                                     <p>Improve Performance</p>
 
@@ -357,7 +357,7 @@ function Stress() {
 
                                         <Card style={{ width: '13rem' }} >
 
-                                            <Card.Img variant="top" src="/Doctor2.png" />
+                                            <Card.Img variant="top" loading='lazy' src="https://www.happycouplesolution.com/Doctor2.png" />
 
                                             <Card.Body className='bg-info'>
 
@@ -382,21 +382,21 @@ function Stress() {
                                     <div className='col-md-6 d-flex justify-content-center mt-3'>
 
 
-
                                         <Card style={{ width: '13rem' }} >
 
 
-
-                                            <Card.Img variant="top" src="/doctor3.jpeg" />
+                                            <Card.Img variant="top" loading='lazy' src="https://www.happycouplesolution.com/doctor3.jpeg" />
 
 
                                             <Card.Body className='bg-info'>
 
                                                 <Card.Text >
 
-                                                    <div className='text-card pb-2'>
+                                                    <div className='text-card'>
 
                                                         <p>Dr.Sujeesh MBBS, BAMS</p>
+                                                       <br />
+                                                       <br />
 
                                                     </div>
 
@@ -407,7 +407,6 @@ function Stress() {
 
 
                                         </Card>
-
 
 
                                     </div>

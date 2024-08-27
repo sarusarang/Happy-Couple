@@ -212,7 +212,7 @@ function Cart() {
 
                                                                 <div className="d-flex">
 
-                                                                    <img src={item.image} className="border rounded me-3 cart-img" style={{ width: '96px', height: '96px' }} />
+                                                                    <img src={item.image} loading='lazy' className="border rounded me-3 cart-img" style={{ width: '96px', height: '96px' }} />
 
                                                                     <div className="">
 

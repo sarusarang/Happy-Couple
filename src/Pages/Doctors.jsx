@@ -107,7 +107,7 @@ function Doctors() {
 
                         <div className='spec-logo'>
 
-                            <img src="/Erect_Well-04.jpg" className='img-fluid' alt="" />
+                            <img loading='lazy' src="https://www.happycouplesolution.com/Erect_Well-04.jpg" className='img-fluid' alt="" />
 
                             <p className='text-center'>Performance</p>
 
@@ -115,7 +115,7 @@ function Doctors() {
 
                         <div className='spec-logo ms-3'>
 
-                            <img src="/Erect_Well-01.jpg" className='img-fluid' alt="" />
+                            <img loading='lazy' src="https://www.happycouplesolution.com/Erect_Well-01.jpg" className='img-fluid' alt="" />
 
                             <p className='text-center'>Stress</p>
 

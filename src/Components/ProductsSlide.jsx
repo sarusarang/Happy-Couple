@@ -215,7 +215,7 @@ function ProductsSlide() {
 
                                                             <div className="box-up" onClick={() => { Navigate(`/pro/${item.id}`) }} >
 
-                                                                <img className="img-fluid img" src={item.image} alt="img" style={{ height: '100%' }} />
+                                                                <img className="img-fluid img" loading='lazy' src={item.image} alt="img" style={{ height: '100%' }} />
 
                                                                 <div className="img-info">
 

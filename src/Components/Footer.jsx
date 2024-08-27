@@ -69,7 +69,7 @@ function Footer() {
 
                 <div className='foot-logo'>
 
-                  <img src="/Foot-Logo.png" className='img-fluid' alt="" />
+                  <img src="https://www.happycouplesolution.com/Foot-Logo.png" loading='lazy' className='img-fluid' alt="" />
 
                 </div>
 
