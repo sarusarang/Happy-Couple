@@ -56,7 +56,7 @@ function Header() {
 
             <a href="/">
 
-              <img src="https://www.happycouplesolution.com/NAV-LOGO.png" loading='lazy' className='img-fluid' alt="" />
+              <img src="https://www.happycouplesolution.com/NAV-LOGO.png" loading='lazy' className='img-fluid' alt="img" />
 
             </a>
 
