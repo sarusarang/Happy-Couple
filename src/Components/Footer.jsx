@@ -29,33 +29,32 @@ function Footer() {
 
                 <p>
 
-                  <Link className='text-reset foot-link'>Home</Link>
+                  <Link to={'/'} className='text-reset foot-link'>Home</Link>
 
                 </p>
 
                 <p>
 
-                  <Link className='text-reset foot-link'>AI Consultant</Link>
+                  <Link to={'/ai'} className='text-reset foot-link'>AI Consultant</Link>
 
                 </p>
 
 
                 <p>
 
-                  <Link className='text-reset foot-link'>Talk to Doctor</Link>
+                  <Link to={'/doctors'} className='text-reset foot-link'>Talk to Doctor</Link>
 
                 </p>
 
                 <p>
 
-                  <Link className='text-reset foot-link'>Your Concern</Link>
+                  <Link to={'/performance'} className='text-reset foot-link'>Your Concern</Link>
 
                 </p>
 
                 <p>
 
-                  <Link className='text-reset foot-link'>Your Products</Link>
-
+                  <Link to={'/allproducts'} className='text-reset foot-link'>Your Products</Link>
 
                 </p>
 
@@ -116,16 +115,18 @@ function Footer() {
 
                 <p>
 
-                  <Link className='text-reset foot-link'>About Us</Link>
+                  <Link to={'about'} className='text-reset foot-link'>About Us</Link>
 
                 </p>
 
 
                 <p>
 
-                  <Link className='text-reset foot-link'>Contact Us</Link>
+                  <Link to={'/contact'} className='text-reset foot-link'>Contact Us</Link>
 
                 </p>
+
+                
 
               </div>
 

@@ -38,7 +38,7 @@ function HeroSecond() {
 
                 if (res.status >= 200 && res.status <= 300) {
 
-                    const Result = res.data.filter((item) => item.id == 1 || item.id == 3)
+                    const Result = res.data.filter((item) => item.id == 1 || item.id == 2)
 
                     SetProduct(Result)
 
@@ -58,6 +58,8 @@ function HeroSecond() {
     }, []);
 
 
+   
+    
 
     const HeroModalClick = (data) => {
 
@@ -72,7 +74,7 @@ function HeroSecond() {
         else {
 
             handleShow()
-            const res = Product.find((item) => (item.id == 3))
+            const res = Product.find((item) => (item.id == 2))
             setModalProduct(res)
 
         }
@@ -129,7 +131,7 @@ function HeroSecond() {
 
 
 
-                            <div className='col-md-6' onClick={()=>{Navigate('/pro/3')}} style={{cursor:'pointer'}}>
+                            <div className='col-md-6' onClick={()=>{Navigate('/pro/2')}} style={{cursor:'pointer'}}>
 
                                 <img src="/263x263-01.jpg" loading='lazy' className='img-fluid' alt="img" />
 

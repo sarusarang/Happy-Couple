@@ -139,6 +139,42 @@
 
 
 
+.btn-shimmer-green {
+    background: linear-gradient(120deg, #28a745, #80f93f, #0db334); /* Green gradient */
+    background-size: 200% auto;
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    transition: transform 0.4s ease;
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.5); /* Soft green glow */
+    animation: shimmer 2s linear infinite; /* Shimmer animation */
+  }
+  
+  /* Shimmer effect animation */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+  
+  /* Hover effect: slight scale */
+  .btn-shimmer-green:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(40, 167, 69, 0.7); /* Enhance glow on hover */
+  }
+
+
+
 
 
 /* Responsive */
@@ -385,7 +421,7 @@
     }
 
 
-    .doctor-info{
+    .doctor-info {
 
         margin-top: 2rem !important;
 

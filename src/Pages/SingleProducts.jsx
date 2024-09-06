@@ -155,7 +155,7 @@ function SingleProducts() {
 
         try {
 
-            console.log("cart");
+            
             
 
             const user = sessionStorage.getItem("username")

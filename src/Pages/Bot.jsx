@@ -135,7 +135,7 @@ function Bot() {
 
         ask_phone: {
 
-            message: "Please Kindly Enter your Phone Number",
+            message: "Kindly Enter your Phone Number",
             function: (params) => SetBotData({ ...BotData, phone: params.userInput }),
             path: async (params) => {
 
@@ -356,7 +356,7 @@ function Bot() {
 
         stress_end: {
 
-            message: "Thanks for sharing valuable health information to decide the required treatment or medication as you need immediately",
+            message: "Thank you for sharing valuable health information to help decide on the right treatment.",
             function: (params) => handlebotdata(),
             transition: { duration: 200 },
             chatDisabled: true,
@@ -612,7 +612,7 @@ function Bot() {
 
         wellness_15: {
 
-            message: "Thanks for sharing valuable health information to decide the required treatment/medication as you need immediately",
+            message: "Thank you for sharing valuable health information to help decide on the right treatment.",
             function: (params) => handlebotdata(),
             transition: { duration: 200 },
             chatDisabled: true,
@@ -847,7 +847,7 @@ function Bot() {
 
         ED_end: {
 
-            message: "Thanks for sharing valuable health information to decide the required treatment Or medication you need immediately",
+            message: "Thank you for sharing valuable health information to help decide on the right treatment.",
             function: (params) => handlebotdata(),
             transition: { duration: 200 },
             chatDisabled: true,

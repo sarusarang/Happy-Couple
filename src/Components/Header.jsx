@@ -1,12 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
 import Container from 'react-bootstrap/Container'
-import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
-import { Link, NavLink } from 'react-router-dom'
-import NavItem from 'react-bootstrap/esm/NavItem'
+import { Link } from 'react-router-dom'
+import { toast } from 'sonner'
+
 
 
 
@@ -39,6 +39,24 @@ function Header() {
     setExpanded(false); // Collapse the navbar
   };
 
+
+
+  const handlelogout = () => {
+
+    if (sessionStorage.getItem("token")) {
+
+      sessionStorage.removeItem("token")
+      sessionStorage.removeItem("username")
+
+
+    }
+    else{
+
+      toast.warning("No User Found Please Login...!")
+      
+    }
+
+  }
 
 
   return (
@@ -117,11 +135,26 @@ function Header() {
 
               <Link onClick={() => { handleShow(), handleNavClick() }}><i class="fa-solid fa-magnifying-glass"></i></Link>
 
-              {/* <Link to={'/'} ><i class="fa-solid fa-bag-shopping"></i></Link> */}
+
 
               <Link to={'/cart'} onClick={handleNavClick}><i class="fa-solid fa-cart-shopping"></i></Link>
 
-              <Link to={'/auth'} onClick={handleNavClick}><i class="fa-solid fa-user"></i></Link>
+
+              <div className='dropdown d-flex'>
+
+                <Nav.Link ><i class="fa-solid fa-user"></i></Nav.Link>
+
+
+                <div className='dropdown-content'>
+
+                  <Link to={'/auth'} className='drop-link d-block' onClick={handleNavClick}>Login</Link>
+                  <Link className='drop-link d-block' onClick={handlelogout}>Logout</Link>
+
+                </div>
+
+              </div>
+
+
 
 
             </Nav>

@@ -1,7 +1,7 @@
 import { CommonApi } from "./CommonApi";
 
 
-const base_url = "https://happycouplesolutions.com"
+const base_url = "https://server.happycouplesolution.com"
 
 
 // Get All products
@@ -10,6 +10,8 @@ export const GetAllProducts = async () => {
     return CommonApi("GET", `${base_url}/products/`)
 
 }
+
+
 
 // Product Quantity
 export const ProductQuantity = async () => {
@@ -81,9 +83,9 @@ export const GetCart = async (data) => {
 
 
 // Delete Cart
-export const DeleteCart = async (data) => {
+export const DeleteCart = async (data,user) => {
 
-    const params = new URLSearchParams({ id: data })
+    const params = new URLSearchParams({ id: data,user:user })
 
     return CommonApi("DELETE", `${base_url}/cart/?${params.toString()}`, "", "")
 

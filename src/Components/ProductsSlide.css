@@ -161,7 +161,7 @@ body {
 .h-bg .h-bg-inner {
     width: 50%;
     height: 100%;
-    background-color: #3f96cd;
+    background: linear-gradient(to left, #b9b8b8 60%, #3f96cd 40%);
 }
 
 .info-inner {

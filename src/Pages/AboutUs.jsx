@@ -42,10 +42,10 @@ function AboutUs() {
 
                         <h2>About Us</h2>
 
-                        <p>Medicapharma, with 15 years of experience in the pharmaceutical industry, specializes in providing effective
+                        <p>Medicarepharma, with 15 years of experience in the pharmaceutical industry, specializes in providing effective
                             solutions for sexual health issues. Our mission is to support individuals and couples in overcoming these challenges
                             and enhancing their quality of life and relationships. Our dedicated team of experts ensures that our products are safe,
-                            reliable, and tailored to meet the unique needs of our customers. Medicapharma believes in
+                            reliable, and tailored to meet the unique needs of our customers. Medicarepharma believes in
                             fostering happiness and intimacy in relationships, helping couples rediscover their joy and connection. <br /> <br />
 
                             Offers innovative solutions for sexual health issues through happycouplesolution.com. Our goal is to enhance relationships

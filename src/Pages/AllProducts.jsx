@@ -220,7 +220,7 @@ function AllProducts() {
                                                                 <div className="h-bg-inner"></div>
                                                             </div>
 
-                                                            <a className="cart" onClick={()=>{HandelAddCart(item)}}>
+                                                            <a className="cart" onClick={() => { HandelAddCart(item) }}>
                                                                 <span className="price">Just ₹{item.price}</span>
 
                                                                 <span className="add-to-cart" >
@@ -242,7 +242,13 @@ function AllProducts() {
 
                                 :
 
-                                <h3 className='text-center'>No Products</h3>
+
+                                <div className='d-flex justify-content-center'>
+
+                                    <img src="https://www.fruitomans.com/themes/home/images/no-product-found.png" className='img-fluid' alt="img" />
+
+
+                                </div>
 
                     }
 

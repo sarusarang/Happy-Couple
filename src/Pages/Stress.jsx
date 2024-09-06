@@ -268,7 +268,13 @@ function Stress() {
 
                                 <div className='stress3-img'>
 
-                                    <img loading='lazy' src="/Erect_Well-01.jpg" className='img-fluid' alt="" />
+                                    <Link to={'/stress'}>
+
+                                        <img loading='lazy' src="/Erect_Well-01.jpg" className='img-fluid' alt="img" />
+
+                                    </Link>
+
+
 
                                     <p>Manage Stress</p>
 
@@ -280,7 +286,12 @@ function Stress() {
 
                                 <div className='stress3-img'>
 
-                                    <img loading='lazy' src="/Erect_Well-02.jpg" className='img-fluid' alt="" />
+
+                                    <Link to={'/doctors'}>
+
+                                        <img loading='lazy' src="/Erect_Well-02.jpg" className='img-fluid' alt="img" />
+
+                                    </Link>
 
                                     <p>Control ride Failure</p>
 
@@ -293,7 +304,14 @@ function Stress() {
 
                                 <div className='stress3-img'>
 
-                                    <img loading='lazy' src="/Erect_Well-03.jpg" className='img-fluid' alt="" />
+
+
+                                    <Link to={'/ai'}>
+
+                                        <img loading='lazy' src="/Erect_Well-03.jpg" className='img-fluid' alt="" />
+
+                                    </Link>
+
 
                                     <p>Erect Well</p>
 
@@ -306,7 +324,13 @@ function Stress() {
 
                                 <div className='stress3-img'>
 
-                                    <img loading='lazy' src="/Erect_Well-04.jpg" className='img-fluid' alt="" />
+                                    <Link to={'/ai'}>
+
+                                        <img loading='lazy' src="/Erect_Well-04.jpg" className='img-fluid' alt="" />
+
+                                    </Link>
+
+
 
                                     <p>Improve Performance</p>
 
@@ -395,8 +419,8 @@ function Stress() {
                                                     <div className='text-card'>
 
                                                         <p>Dr.Sujeesh MBBS, BAMS</p>
-                                                       <br />
-                                                       <br />
+                                                        <br />
+                                                        <br />
 
                                                     </div>
 

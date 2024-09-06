@@ -60,6 +60,9 @@ function Cart() {
 
                     SetCartItems(CartProducts)
 
+                    console.log(res.data);
+                    
+
 
                 } else {
 
@@ -134,7 +137,9 @@ function Cart() {
         try {
 
 
-            const res = await DeleteCart(data)
+            const user = sessionStorage.getItem("username")
+
+            const res = await DeleteCart(data,user)
 
             if (res.status >= 200 && res.status <= 300) {
 

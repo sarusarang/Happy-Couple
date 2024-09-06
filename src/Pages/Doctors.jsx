@@ -3,6 +3,7 @@ import './Doctors.css'
 import { useEffect } from 'react';
 import { GetDoctor } from '../Services/AllApi';
 import Modal from 'react-bootstrap/Modal';
+import { Link } from 'react-router-dom';
 
 function Doctors() {
 
@@ -107,7 +108,13 @@ function Doctors() {
 
                         <div className='spec-logo'>
 
-                            <img loading='lazy' src="/Erect_Well-04.jpg" className='img-fluid' alt="" />
+
+                            <Link to={'/ai'}>
+
+                                <img loading='lazy' src="/Erect_Well-04.jpg" className='img-fluid' alt="img" />
+
+                            </Link>
+
 
                             <p className='text-center'>Performance</p>
 
@@ -115,7 +122,11 @@ function Doctors() {
 
                         <div className='spec-logo ms-3'>
 
-                            <img loading='lazy' src="/Erect_Well-01.jpg" className='img-fluid' alt="" />
+                            <Link to={'/stress'}>
+
+                                <img loading='lazy' src="/Erect_Well-01.jpg" className='img-fluid' alt="img" />
+
+                            </Link>
 
                             <p className='text-center'>Stress</p>
 
@@ -149,7 +160,13 @@ function Doctors() {
                                         <div className="d-c-top ">
 
                                             <div className="doctor-image p-0 col-4 col-md-3">
+
+
+
                                                 <img src={item.image} alt="img" loading='lazy' />
+
+
+
                                             </div>
 
 
@@ -163,7 +180,7 @@ function Doctors() {
 
 
                                             <div className="col-2 p-0 online-btn col-md-2">
-                                                <button className="btn">Online</button>
+                                                <button className="btn-shimmer-green">Online</button>
                                             </div>
 
                                         </div>
@@ -213,7 +230,7 @@ function Doctors() {
                 onHide={handleClose}
                 backdrop="static"
                 keyboard={false}
-                centered = {true}
+                centered={true}
             >
 
 
@@ -238,7 +255,7 @@ function Doctors() {
 
                     <button className='btn btn-closed' onClick={handleClose}>Close</button>
 
-            
+
                 </Modal.Footer>
 
 
