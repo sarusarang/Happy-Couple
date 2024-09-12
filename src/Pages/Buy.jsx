@@ -39,9 +39,6 @@ function Buy() {
 
     })
 
-
-
-
     useEffect(() => {
 
         // TO MOUNT ON THE TOP LEVEL 
@@ -457,7 +454,7 @@ function Buy() {
 
                                             <div className='d-flex mb-4'>
 
-                                                <input type="radio" onClick={() => { SetSelectedAddress(item), handleClose() }} value={""} name='a' className='large-radio' />
+                                                <input type="radio" onClick={() => { SetSelectedAddress(item), handleClose() }} value={""} name='a' className='large-radio'  style={{cursor:'pointer'}}/>
 
                                                 <div className='ms-3'>
 

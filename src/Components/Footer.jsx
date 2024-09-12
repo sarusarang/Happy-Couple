@@ -90,13 +90,14 @@ function Footer() {
 
                 <p className='w-100'>
 
-                  <a href={`https://wa.me/+919020200100?text=Hi`} className='foot-link' target='_blank' style={{ fontSize: '15px' }} > <i className="fas fa-phone me-3"></i>+91 9020200100</a>
+                  <a  href={`tel:+919020200100`} className='foot-link' target='_blank' style={{ fontSize: '15px' }} > <i className="fas fa-phone me-3"></i>+91 9020200100</a>
 
                 </p>
 
-                <p className='w-100'>
+                <p className='w-100'> 
 
-                  <a  className='foot-link' target='_blank' style={{ fontSize: '15px' }} > <i class="fa-brands fa-whatsapp me-3 fa-xl"></i>+91 9072399100, +91 9072377100</a>
+                  <a href={`https://wa.me/+919072399100?text=Hi`}  className='foot-link me-2' target='_blank' style={{ fontSize: '15px' }} > <i class="fa-brands fa-whatsapp me-3 fa-xl"></i>+91 9072399100,</a>
+                  <a href={`https://wa.me/+919072377100?text=Hi`}  className='foot-link' target='_blank' style={{ fontSize: '15px' }} >+91 9072377100</a>
 
                 </p>
 

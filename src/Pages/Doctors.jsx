@@ -77,13 +77,15 @@ function Doctors() {
 
 
 
+    console.log(DocData);
+    
 
     return (
 
         <>
 
 
-            <section className='container p-5'>
+            <section className='container '>
 
 
                 <div className='doc-head p-4'>
@@ -151,9 +153,9 @@ function Doctors() {
                         DocData.map((item) => (
 
 
-                            <div className="col-md-8  p-0 mb-5">
+                            <main  class="mb-5 d-flex flex-column justify-content-center align-items-center">
 
-                                <div className="">
+                                {/* <div className="">
 
                                     <div className="doctor-container bg-white shadow">
 
@@ -207,9 +209,51 @@ function Doctors() {
 
 
                                     </div>
+                                </div> */}
+
+
+
+
+
+                                <div class="card1">
+
+                                    <div class="card-header">
+
+                                        <img src={item.image} alt="Dr. Ajayan Varughes" class="doctor-image" />
+                                        <div class="doctor-info">
+                                            <h2>{item.name}</h2>
+                                            <p>{item.specialization}</p>
+                                            
+                                        </div>
+                                        <div class="status">
+                                            <span class="online-status">Online</span>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="card-body bg-white">
+                                        <div class="details">
+                                            <p><strong>{item.experience}</strong></p>
+                                            {/* <p><strong>999 consultations</strong></p> */}
+                                            <p>Can speak in English, हिंदी, தமிழ், മലയാളം</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-footer">
+                                        <button class="talk-now-btn">Talk now</button>
+                                        <button class="view-profile-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">View Profile</button>
+                                    </div>
+
+
+
+
                                 </div>
 
-                            </div>
+
+
+
+
+                            </main>
 
 
                         ))

@@ -70,12 +70,7 @@ function Landing() {
         </div>
 
 
-        {/* WhatsApp Logo */}
-        <div className='Whats-app'>
-
-          <WhatsApp />
-
-        </div>
+        
 
 
 

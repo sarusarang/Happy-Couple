@@ -381,7 +381,7 @@ function Stress() {
 
                                         <Card style={{ width: '13rem' }} >
 
-                                            <Card.Img variant="top" loading='lazy' src="/Doctor2.png" />
+                                            <Card.Img variant="top" loading='lazy' src="/Chat-Doc2.jpg" />
 
                                             <Card.Body className='bg-info'>
 
@@ -409,7 +409,7 @@ function Stress() {
                                         <Card style={{ width: '13rem' }} >
 
 
-                                            <Card.Img variant="top" loading='lazy' src="/doctor3.jpeg" />
+                                            <Card.Img variant="top" loading='lazy' src="/Chat-Doc1.jpg" />
 
 
                                             <Card.Body className='bg-info'>

@@ -18,6 +18,7 @@ import Terms from './Pages/Terms'
 import Refund from "./Pages/Refund"
 import Buy from "./Pages/Buy"
 import Bot from "./Pages/Bot"
+import WhatsApp from "./Components/WhatsApp"
 
 function App() {
 
@@ -69,7 +70,7 @@ function App() {
 
       <Routes>
 
-        
+
 
         <Route path="/" element={<Landing />}> </Route>
 
@@ -105,7 +106,15 @@ function App() {
       </Routes>
 
 
-      <Toaster richColors position="top-center"/>
+      <Toaster richColors position="top-center" />
+
+
+      {/* WhatsApp Logo */}
+      <div className='Whats-app'>
+
+        <WhatsApp />
+
+      </div>
 
 
       {!Hide && <Footer />}

@@ -206,7 +206,7 @@ function HeroSecond() {
 
                     <Modal.Footer>
 
-                        <button className='btn btn-closed' onClick={handleClose}>Close</button>
+                        {/* <button className='btn btn-closed' onClick={handleClose}>Close</button> */}
 
                         <button className='btn btn-buy' onClick={()=>{Navigate(`/pro/${ModalProduct.id}`)}}>Buy Now</button>
 
