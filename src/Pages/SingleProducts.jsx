@@ -402,7 +402,7 @@ function SingleProducts() {
                                             </p>
 
 
-                                            <button className='bg-transparent fw-bold' onClick={() => { SetDisStatus(!DisStatus) }}>Discription:</button>
+                                            <button className='bg-transparent border-0 fw-bold' onClick={() => { SetDisStatus(!DisStatus) }}>Discription:</button>
 
                                             {
 

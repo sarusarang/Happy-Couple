@@ -1,24 +1,28 @@
 import React from "react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense, lazy } from "react"
 import { Routes, Route, useLocation } from "react-router-dom"
 import { Toaster } from 'sonner'
-import Landing from "./Pages/Landing"
-import Header from "./Components/Header"
-import Footer from "./Components/Footer"
-import Auth from './Pages/Auth'
-import AllProducts from "./Pages/AllProducts"
-import Doctors from "./Pages/Doctors"
-import Cart from "./Pages/Cart"
-import SingleProducts from "./Pages/SingleProducts"
-import AboutUs from "./Pages/AboutUs"
-import ContactUs from "./Pages/ContactUs"
-import Stress from "./Pages/Stress"
-import PrivacyPolicy from "./Pages/PrivacyPolicy"
-import Terms from './Pages/Terms'
-import Refund from "./Pages/Refund"
-import Buy from "./Pages/Buy"
-import Bot from "./Pages/Bot"
-import WhatsApp from "./Components/WhatsApp"
+
+const Landing = lazy(() => import('./Pages/Landing'))
+const Header = lazy(() => import('./Components/Header'))
+const Footer = lazy(() => import('./Components/Footer'))
+const Auth = lazy(() => import('./Pages/Auth'))
+const AllProducts = lazy(() => import('./Pages/AllProducts'))
+const Doctors = lazy(() => import('./Pages/Doctors'))
+const Cart = lazy(() => import('./Pages/Cart'))
+const SingleProducts = lazy(() => import('./Pages/SingleProducts'))
+const AboutUs = lazy(() => import('./Pages/AboutUs'))
+const ContactUs = lazy(() => import('./Pages/ContactUs'))
+const Stress = lazy(() => import('./Pages/Stress'))
+const PrivacyPolicy = lazy(() => import('./Pages/PrivacyPolicy'))
+const Terms = lazy(() => import('./Pages/Terms'))
+const Refund = lazy(() => import('./Pages/Refund'))
+const Buy = lazy(() => import('./Pages/Buy'))
+const Bot = lazy(() => import('./Pages/Bot'))
+const WhatsApp = lazy(() => import('./Components/WhatsApp'))
+
+
+
 
 function App() {
 
@@ -60,64 +64,81 @@ function App() {
 
     <>
 
-      <div className="position-sticky sticky-top  z-5 w-100">
 
-        {!Hide && <Header />}
+      <Suspense fallback={<div></div>}>
 
-      </div>
+        <div className="position-sticky sticky-top  z-5 w-100">
 
+          {!Hide && <Header />}
 
+        </div>
 
-      <Routes>
-
-
-
-        <Route path="/" element={<Landing />}> </Route>
-
-        <Route path="/auth" element={<Auth />}> </Route>
-
-        <Route path="/allproducts" element={<AllProducts />}> </Route>
-
-        <Route path="/doctors" element={<Doctors />}> </Route>
-
-        <Route path="/ai" element={<Bot />}> </Route>
-
-        <Route path="/cart" element={<Cart />}> </Route>
-
-        <Route path="/pro/:id" element={<SingleProducts />}> </Route>
-
-        <Route path="/about" element={<AboutUs />}> </Route>
-
-        <Route path="/contact" element={<ContactUs />}> </Route>
-
-        <Route path="/stress" element={<Stress />}> </Route>
-
-        <Route path="/performance" element={<Stress />}> </Route>
-
-        <Route path="/pirvacy" element={<PrivacyPolicy />}> </Route>
-
-        <Route path="/terms" element={<Terms />}> </Route>
-
-        <Route path="/refund" element={<Refund />}> </Route>
-
-        <Route path="/buy/:id" element={<Buy />}> </Route>
+      </Suspense>
 
 
-      </Routes>
 
+
+      <Suspense fallback={<div></div>}>
+
+        <Routes>
+
+
+
+          <Route path="/" element={<Landing />}> </Route>
+
+          <Route path="/auth" element={<Auth />}> </Route>
+
+          <Route path="/allproducts" element={<AllProducts />}> </Route>
+
+          <Route path="/doctors" element={<Doctors />}> </Route>
+
+          <Route path="/ai" element={<Bot />}> </Route>
+
+          <Route path="/cart" element={<Cart />}> </Route>
+
+          <Route path="/pro/:id" element={<SingleProducts />}> </Route>
+
+          <Route path="/about" element={<AboutUs />}> </Route>
+
+          <Route path="/contact" element={<ContactUs />}> </Route>
+
+          <Route path="/stress" element={<Stress />}> </Route>
+
+          <Route path="/performance" element={<Stress />}> </Route>
+
+          <Route path="/pirvacy" element={<PrivacyPolicy />}> </Route>
+
+          <Route path="/terms" element={<Terms />}> </Route>
+
+          <Route path="/refund" element={<Refund />}> </Route>
+
+          <Route path="/buy/:id" element={<Buy />}> </Route>
+
+
+        </Routes>
+
+      </Suspense>
 
       <Toaster richColors position="top-center" />
 
 
-      {/* WhatsApp Logo */}
-      <div className='Whats-app'>
-
-        <WhatsApp />
-
-      </div>
 
 
-      {!Hide && <Footer />}
+      <Suspense fallback={<div></div>}>
+
+        {/* WhatsApp Logo */}
+        <div className='Whats-app'>
+
+          <WhatsApp />
+
+        </div>
+
+
+        {!Hide && <Footer />}
+
+      </Suspense>
+
+
 
     </>
 

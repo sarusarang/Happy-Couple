@@ -13,7 +13,7 @@ function Footer() {
 
       <footer className="text-center text-lg-start text-white py-1 px-5">
 
-        <section className="p-5 pt-0" style={{ borderBottom: '1px solid #414141' }}>
+        <section className="p-5 pb-0 pt-0" style={{ borderBottom: '1px solid #414141' }}>
 
           <div className="container text-center text-md-start mt-5">
 
@@ -76,7 +76,7 @@ function Footer() {
                 <p style={{ fontSize: '15px' }}><i className="fas fa-home me-3"></i>RKP,3/569G,Parammal Road,Ramanatukara,Kozhikode <br />- 673 634</p>
 
 
-                <p className='text-center'>
+                <p className='text-start'>
 
                   <a href='mailto:info@happycouplesolution.in.com' className='foot-link' style={{ fontSize: '15px' }} target='_blank'>
 
@@ -90,18 +90,18 @@ function Footer() {
 
                 <p className='w-100'>
 
-                  <a  href={`tel:+919020200100`} className='foot-link' target='_blank' style={{ fontSize: '15px' }} > <i className="fas fa-phone me-3"></i>+91 9020200100</a>
+                  <a href={`tel:+919020200100`} className='foot-link' target='_blank' style={{ fontSize: '15px' }} > <i className="fas fa-phone me-3"></i>+91 9020200100</a>
 
                 </p>
 
-                <p className='w-100'> 
+                <p className='w-100'>
 
-                  <a href={`https://wa.me/+919072399100?text=Hi`}  className='foot-link me-2' target='_blank' style={{ fontSize: '15px' }} > <i class="fa-brands fa-whatsapp me-3 fa-xl"></i>+91 9072399100,</a>
-                  <a href={`https://wa.me/+919072377100?text=Hi`}  className='foot-link' target='_blank' style={{ fontSize: '15px' }} >+91 9072377100</a>
+                  <a href={`https://wa.me/+919072399100?text=Hi`} className='foot-link me-2' target='_blank' style={{ fontSize: '15px' }} > <i class="fa-brands fa-whatsapp me-3 fa-xl"></i>+91 9072399100,</a>
+                  <a href={`https://wa.me/+919072377100?text=Hi`} className='foot-link' target='_blank' style={{ fontSize: '15px' }} >+91 9072377100</a>
 
                 </p>
 
-                
+
 
               </div>
 
@@ -127,7 +127,7 @@ function Footer() {
 
                 </p>
 
-                
+
 
               </div>
 
@@ -143,14 +143,18 @@ function Footer() {
 
           <p> Copyright © 2024 happycouplesolution. All Rights Reserved. </p>
 
-          <p>Powered by <a href="" className='foot-link'>exmedia.in</a></p>
+          <p>Powered by <a href="https://exmedia.in" target='_blank' className='foot-link'>exmedia.in</a></p>
 
 
           <div className='d-flex justify-content-center'>
 
-            <p><Link className='nav-link foot-link me-3' to={'/pirvacy'}> Privacy & Policy</Link></p>
+            <p><Link className='nav-link foot-link' to={'/pirvacy'}> Privacy & Policy</Link></p>
 
-            <p><Link className='nav-link foot-link me-3' to={'/terms'}>Terms & Conditions</Link></p>
+            <span className='me-3 ms-3 policy-none'>|</span>
+
+            <p><Link className='nav-link foot-link' to={'/terms'}>Terms & Conditions</Link></p>
+
+            <span className='me-3 ms-3 policy-none'>|</span>
 
             <p><Link className='nav-link foot-link me-3' to={'/refund'}>Refund Policy</Link></p>
 

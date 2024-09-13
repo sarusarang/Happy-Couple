@@ -182,6 +182,198 @@
 
 
 
+
+
+.card1 {
+    width: 60%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card1 .card-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #eee;
+    align-items: center;
+    padding: 1rem;
+}
+
+.doctor-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.doctor-info {
+    flex: 1;
+    margin-left: 15px;
+}
+
+.doctor-info h2 {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.doctor-info p {
+    margin: 10px 0;
+    font-size: 12px;
+}
+
+.status .online-status {
+    background: linear-gradient(270deg, #00cc66, #00ff99, #00cc66);
+    background-size: 400% 400%;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    animation: gradient-glow 5s ease infinite;
+    margin-left: 10px;
+}
+
+@keyframes gradient-glow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.card-body {}
+
+.details {
+    margin-top: 1rem;
+}
+
+.details p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.talk-now-btn,
+.view-profile-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.talk-now-btn {
+    background: linear-gradient(to right, #007bff, #0044cc);
+    background-size: 400% 400%;
+    color: white;
+    width: 70%;
+    animation: gradient-glow2 5s ease infinite;
+}
+
+@keyframes gradient-glow2 {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.view-profile-btn {
+    background-color: white;
+    border: 1px solid #ddd;
+    color: #333;
+    width: 30%;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+    }
+
+    .card-header {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .card-footer {
+        flex-direction: column;
+        margin-top: 0 !important;
+        grid-area: 5px;
+    }
+
+    .talk-now-btn,
+    .view-profile-btn {
+        width: 100% !important;
+    }
+
+    .status .online-status {
+        margin-left: 10px;
+    }
+
+    .details {
+        margin-top: 16px;
+    }
+
+    .doctor-info {
+        margin-block: 1rem;
+    }
+}
+
+.profile-header {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.qualifications,
+.experience,
+.languages {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.key-contributions ul {
+    margin-left: 40px;
+}
+
+.key-contributions li {
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
 /* Responsive */
 @media only screen and (min-width: 991px) and (max-width: 1200px) {
 
@@ -472,195 +664,10 @@
     }
 
 
-}
-
-
-
-
-
-
-
-
-
-
-.card1 {
-    width: 60% ;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.card1 .card-header {
-    display: flex;
-    justify-content: space-between;
-    background-color: #eee;
-    align-items: center;
-    padding: 1rem;
-}
-
-.doctor-image {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.doctor-info {
-    flex: 1;
-    margin-left: 15px;
-}
-
-.doctor-info h2 {
-    font-size: 18px;
-    margin: 0;
-    font-weight: 600;
-}
-
-.doctor-info p {
-    margin: 10px 0;
-    font-size: 12px;
-}
-
-.status .online-status {
-    background: linear-gradient(270deg, #00cc66, #00ff99, #00cc66);
-    background-size: 400% 400%;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    animation: gradient-glow 5s ease infinite;
-    margin-left: 10px;
-}
-
-@keyframes gradient-glow {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-.card-body {}
-
-.details {
-    margin-top: 1rem;
-}
-
-.details p {
-    margin: 5px 0;
-    font-size: 14px;
-}
-
-.card-footer {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.talk-now-btn,
-.view-profile-btn {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-}
-
-.talk-now-btn {
-    background: linear-gradient(to right, #007bff, #0044cc);
-    background-size: 400% 400%;
-    color: white;
-    width: 70%;
-    animation: gradient-glow2 5s ease infinite;
-}
-
-@keyframes gradient-glow2 {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-.view-profile-btn {
-    background-color: white;
-    border: 1px solid #ddd;
-    color: #333;
-    width: 30%;
-}
-
-@media (max-width: 768px) {
-    .card {
+    .card1 {
         width: 90%;
+
     }
 
-    .card-header {
-        flex-direction: column;
-        align-items: start;
-    }
 
-    .card-footer {
-        flex-direction: column;
-        margin-top: 0 !important;
-        grid-area: 5px;
-    }
-
-    .talk-now-btn,
-    .view-profile-btn {
-        width: 100% !important;
-    }
-
-    .status .online-status {
-        margin-left: 10px;
-    }
-
-    .details {
-        margin-top: 16px;
-    }
-
-    .doctor-info {
-        margin-block: 1rem;
-    }
-}
-
-.profile-header {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.section-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-.qualifications,
-.experience,
-.languages {
-    margin-top: 10px;
-    margin-left: 20px;
-}
-
-.key-contributions ul {
-    margin-left: 40px;
-}
-
-.key-contributions li {
-    margin-bottom: 10px;
 }
