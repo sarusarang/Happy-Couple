@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import ChatBot from "react-chatbotify"
 import { ChatBotApi } from '../Services/AllApi'
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -9,6 +12,9 @@ function Bot() {
 
     // Chat Bot Data
     const [BotData, SetBotData] = useState({})
+
+
+    const Navigate = useNavigate()
 
 
     // Prescription file
@@ -360,6 +366,24 @@ function Bot() {
             function: (params) => handlebotdata(),
             transition: { duration: 200 },
             chatDisabled: true,
+            path: "AI_assement"
+
+        },
+
+        AI_assement: {
+
+            message: "According to Your AI Assessment, to Resolve your sexual haeath issue We recommend",
+            transition: { duration: 200 },
+            chatDisabled: true,
+            component: (
+
+                <div className='p-5 pt-0'>
+
+                    <button className='btn btn-info mt-3'>Confirm Your Free Doctor Consultation</button>
+
+                </div>
+
+            ),
             path: "save_data"
 
         },
@@ -372,7 +396,7 @@ function Bot() {
 
         },
 
-        
+
         // Sexual Wellness Flow
         wellness_1: {
 
@@ -616,10 +640,41 @@ function Bot() {
             function: (params) => handlebotdata(),
             transition: { duration: 200 },
             chatDisabled: true,
-            path: "save_data"
+            path: "AI_assement2"
 
         },
 
+        AI_assement2: {
+
+            message: "According to Your AI Assessment, to Resolve your sexual haeath issue We recommend",
+            transition: { duration: 200 },
+            chatDisabled: true,
+            component: (
+
+                <div className='d-flex flex-column p-5'>
+
+                    <Card style={{ width: '18rem' }}>
+
+                        <Card.Img variant="top" src="/LYGIN_M.jpg" />
+
+                        <Card.Body>
+
+                            <Card.Title>LYGIN_M</Card.Title>
+
+                            <Button variant="dark" onClick={() => { Navigate('/pro/1') }}>Buy Now</Button>
+
+                        </Card.Body>
+
+                    </Card>
+
+                    <button className='btn btn-info mt-3'>Confirm Your Free Doctor Consultation</button>
+
+                </div>
+
+            ),
+            path: "save_data"
+
+        },
 
 
 
@@ -851,9 +906,72 @@ function Bot() {
             function: (params) => handlebotdata(),
             transition: { duration: 200 },
             chatDisabled: true,
+            path: "AI_assement3"
+
+        },
+
+        AI_assement3: {
+
+            message: "According to Your AI Assessment, to Resolve your sexual haeath issue We recommend",
+            transition: { duration: 200 },
+            chatDisabled: true,
+            component: (
+
+                <div className='d-flex flex-column p-5'>
+
+
+                    <div className='row'>
+
+
+                        <div className='col-md-6'>
+
+                            <Card style={{ width: '18rem' }}>
+
+                                <Card.Img variant="top" src="/263x263-02.jpg" />
+
+                                <Card.Body>
+
+                                    <Card.Title>LYGIN_M</Card.Title>
+
+                                    <Button variant="dark" onClick={() => { Navigate('/pro/1') }}>Buy Now</Button>
+
+                                </Card.Body>
+
+                            </Card>
+
+
+                        </div>
+
+                        <div className='col-md-6'>
+
+                            <Card style={{ width: '18rem' }}>
+
+                                <Card.Img variant="top" src="/263x263-01.jpg" />
+
+                                <Card.Body>
+
+                                    <Card.Title>Vaccum Therapy Device</Card.Title>
+
+                                    <Button variant="dark" onClick={() => { Navigate('/pro/2') }}>Buy Now</Button>
+
+                                </Card.Body>
+
+                            </Card>
+
+                        </div>
+
+
+                    </div>
+
+                    <button className='btn btn-info mt-3'>Confirm Your Free Doctor Consultation</button>
+
+                </div>
+
+            ),
             path: "save_data"
 
         },
+
 
     }
 
