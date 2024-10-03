@@ -148,15 +148,23 @@ function Footer() {
 
           <div className='d-flex justify-content-center'>
 
-            <p><Link className='nav-link foot-link' to={'/pirvacy'}> Privacy & Policy</Link></p>
+            <p><Link className='nav-link foot-link' to={'/pirvacyPolicy'}> Privacy Policy</Link></p>
 
             <span className='me-3 ms-3 policy-none'>|</span>
 
-            <p><Link className='nav-link foot-link' to={'/terms'}>Terms & Conditions</Link></p>
+            <p><Link className='nav-link foot-link' to={'/termsandConditions'}>Terms & Conditions</Link></p>
 
             <span className='me-3 ms-3 policy-none'>|</span>
 
-            <p><Link className='nav-link foot-link me-3' to={'/refund'}>Refund Policy</Link></p>
+            <p><Link className='nav-link foot-link me-3' to={'/CancellationandRefundPolicy'}>Cancellation and Refund Policy</Link></p>
+
+            <span className='me-3  policy-none'>|</span>
+
+            <p><Link className='nav-link foot-link me-3' to={'/ShippingPolicy'}>Shipping Policy</Link></p>
+
+            <span className='me-3  policy-none'>|</span>
+
+            <p><Link className='nav-link foot-link me-3' to={'/contact'}>Contact Us</Link></p>
 
           </div>
 
@@ -189,8 +197,6 @@ function Footer() {
 
           <a data-mdb-ripple-init class="btn m-1" href="https://www.youtube.com/@happycouplesolution" role="button" target='_blank' style={{ borderRadius: '5rem' }}
           ><i class="fa-brands fa-youtube text-white"></i></a>
-
-
 
 
           <a data-mdb-ripple-init class="btn  m-1" href="https://in.pinterest.com/happycouplesolution/" role="button" target='_blank' style={{ borderRadius: '5rem' }}

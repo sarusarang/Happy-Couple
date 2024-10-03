@@ -3,6 +3,9 @@ import React from 'react'
 function Terms() {
 
 
+    window.scrollTo(0, 0);
+
+
     return (
 
 

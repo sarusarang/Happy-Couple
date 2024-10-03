@@ -20,6 +20,8 @@ const Refund = lazy(() => import('./Pages/Refund'))
 const Buy = lazy(() => import('./Pages/Buy'))
 const Bot = lazy(() => import('./Pages/Bot'))
 const WhatsApp = lazy(() => import('./Components/WhatsApp'))
+const Shipping = lazy(() => import('./Pages/ShippingPolicy'))
+
 
 
 
@@ -106,11 +108,13 @@ function App() {
 
           <Route path="/performance" element={<Stress />}> </Route>
 
-          <Route path="/pirvacy" element={<PrivacyPolicy />}> </Route>
+          <Route path="/pirvacyPolicy" element={<PrivacyPolicy />}> </Route>
 
-          <Route path="/terms" element={<Terms />}> </Route>
+          <Route path="/termsandConditions" element={<Terms />}> </Route>
 
-          <Route path="/refund" element={<Refund />}> </Route>
+          <Route path="/CancellationandRefundPolicy" element={<Refund />}> </Route>
+
+          <Route path="/ShippingPolicy" element={<Shipping />}> </Route>
 
           <Route path="/buy/:id" element={<Buy />}> </Route>
 
