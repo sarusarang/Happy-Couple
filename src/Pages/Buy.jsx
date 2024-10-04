@@ -289,7 +289,7 @@ function Buy() {
 
                                                     :
 
-                                                    <h4 className='text-dark'>Add Address</h4>
+                                                    <h4 className='text-dark' onClick={handleShow} style={{cursor:'pointer'}}>Add Address</h4>
 
 
                                             }
