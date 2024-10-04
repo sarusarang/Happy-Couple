@@ -116,7 +116,7 @@ function App() {
 
           <Route path="/ShippingPolicy" element={<Shipping />}> </Route>
 
-          <Route path="/buy/:id" element={<Buy />}> </Route>
+          <Route path="/buy" element={<Buy />}> </Route>
 
 
         </Routes>

@@ -223,7 +223,7 @@ function SingleProducts() {
     // Handle Buy Now 
     const HandleBuyNow = () => {
 
-
+        
         try {
 
             const token = sessionStorage.getItem("token")
@@ -240,8 +240,8 @@ function SingleProducts() {
 
             } else {
 
-                Dispatch(AddBuyNow([{ price: PriceandQuanity.price, Quanity: PriceandQuanity.Quanity, name: Product.name, image: Product.image }]))
-                Navigate(`/buy/${id}`)
+                Dispatch(AddBuyNow([{ price: PriceandQuanity.price, quantity: PriceandQuanity.Quanity, name: Product.name, image: Product.image }]))
+                Navigate(`/buy`)
 
             }
 
@@ -285,12 +285,10 @@ function SingleProducts() {
             price: item.price,
             Quanity: item.quantity,
             stock: item.stock
-        });
-
-
+        })
+        
     }
-
-
+    
 
 
 

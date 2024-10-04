@@ -1,20 +1,19 @@
 import { useState, useEffect } from 'react'
 import Modal from 'react-bootstrap/Modal'
-import { useNavigate, useParams } from 'react-router-dom'
-import { GetAllProducts } from '../Services/AllApi'
-import { useSelector } from 'react-redux'
+import { useNavigate} from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'sonner'
 import './Buy.css'
 import { PostAddress, GetAddress } from '../Services/AllApi'
+import { AddBuyNow } from '../Redux/BuySlice'
 
 
 function Buy() {
 
 
-    // To Get the id of the product
-    const { id } = useParams()
-
     const Navigate = useNavigate()
+
+    const Dispatch = useDispatch()
 
     // GetAddress State
     const [GetState, SetGetState] = useState({})
@@ -82,28 +81,7 @@ function Buy() {
         }
 
 
-        const GetProduct = async () => {
 
-            try {
-
-
-                const res = await GetAllProducts()
-
-                if (res.status >= 200 && res.status <= 300) {
-
-                    const result = res.data.find((item) => (item.id == id))
-
-                }
-
-            }
-            catch (err) {
-
-                console.log(err);
-
-
-            }
-
-        }
 
 
         // Get User Address
@@ -118,7 +96,6 @@ function Buy() {
 
                 const res = await GetAddress(data)
 
-                console.log(sessionStorage.getItem("username"));
 
 
                 if (res.status >= 200 && res.status <= 300) {
@@ -159,10 +136,8 @@ function Buy() {
 
         GetUserAddress()
 
-        GetProduct()
 
-
-    }, [GetState])
+    }, [GetState,BuyDeatils])
 
 
 
@@ -238,28 +213,16 @@ function Buy() {
 
 
 
-    // Hnadle pay now
-    const handlepay = async () => {
+   
 
+    // Remove item
+    const Remove = (item_id)=>{
 
+        const NewArray = BuyDeatils.filter((item) => item.id !== item_id)
 
-        try {
-
-
-
-        }
-        catch (Err) {
-
-
-            console.log(Err);
-
-
-        }
-
+        Dispatch(AddBuyNow(NewArray))       
 
     }
-
-
 
 
     // Modal State
@@ -273,139 +236,223 @@ function Buy() {
 
 
 
+
+
     return (
 
 
 
         <>
 
-            <section className='d-flex justify-content-center bg-light pb-5 pt-2' >
-
-                <div className="iphone">
+            <section className="bg-light py-5">
 
 
-                    <h3 className='text-center'>Checkout</h3>
-
-                    <form className="form mt-5" onSubmit={(e) => { e.preventDefault() }}>
-
-                        <div>
-
-                            <h4>Address</h4>
-
-                            <div className="card" style={{ padding: '1rem' }}>
+                <div className="container">
 
 
 
-                                {
+                    <div className="row">
 
-                                    SelectedAddress ?
+                        <h5 className='fw-bold h3 text-dark'>CheckOut</h5>
 
-                                        <address >
-                                            Delivery to <span className='fw-bold'>{SelectedAddress.city}{SelectedAddress.pincode}</span><br />
-                                            {SelectedAddress.streetaddress}
-                                        </address>
-
-                                        :
-
-                                        <h4>Add Address</h4>
+                        <div className="col-xl-8 col-lg-8 mb-4">
 
 
-                                }
+                            <div className="card shadow-0 border">
+
+                                <div className="p-4">
+
+
+                                    <div>
+
+                                        <h4 className='text-dark h4 order-head'>SHIPPING INFO <i class="fa-solid fa-truck-fast"></i></h4>
+
+                                        <div className="car" style={{ padding: '1rem' }}>
+
+
+                                            {
+
+                                                SelectedAddress ?
 
 
 
-                                <div>
+                                                    <address className='text-dark mb-1' style={{ fontWeight: '500' }}>
 
-                                    <i class="fa-solid fa-pen-to-square fa-lg" onClick={handleShow} style={{ cursor: 'pointer' }}></i>
+                                                        <p className='fw-bold mb-0'>{SelectedAddress.name}</p>
+
+                                                        Delivery to <span className='me-2'> {SelectedAddress.streetaddress}</span>
+                                                        {SelectedAddress.state} {SelectedAddress.city} {SelectedAddress.pincode} <span>{ }</span> <br />
+
+                                                        <span>phone: {SelectedAddress.phone}</span>
+
+                                                    </address>
+
+                                                    :
+
+                                                    <h4 className='text-dark'>Add Address</h4>
+
+
+                                            }
+
+
+                                            <div className='text-dark'>
+
+                                                <i className="fa-solid fa-pen-to-square fa-lg" onClick={handleShow} style={{ cursor: 'pointer' }}></i>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+                                   
+
+
+                                    <div class="payment-section">
+
+                                        <h3 className='h4 order-head text-dark'>PAYMENT OPTION💰</h3>
+
+
+                                        <div class="payment-option">
+                                            <label class="option-card">
+                                                <input type="radio" name="payment" checked value="cod" class="radio-input" />
+                                                    <div class="option-content">
+                                                        <span class="option-icon">💵</span>
+                                                        <span class="option-text">Cash on Delivery</span>
+                                                    </div>
+                                            </label>
+
+                                            
+                                        </div>
+
+                                        <p className=' mt-3 payment-p'>Currently, only Cash on Delivery (COD) is available for this order due to limited payment options in your area.Ensure you have the exact amount ready at the time of delivery* </p>
+
+                                        
+                                    </div>
+
+
+
+
+
+
+                                    <div className="float-end">
+                                        <button className="btn btn-light border me-3">Cancel</button>
+                                        <button className="btn btn-success shadow-0 border">Order</button>
+                                    </div>
+
 
                                 </div>
+
 
                             </div>
 
                         </div>
 
 
-                        <div className='mt-3'>
 
-                            <h4>Shopping Bill</h4>
-
-                            <table>
-                                <tbody>
-
-                                    <tr>
-                                        <td>Shipping fee <i class="fa-solid fa-truck-fast text-success"></i></td>
-                                        <td align="right" className='text-success'>Free</td>
-                                    </tr>
+                        <div className="col-xl-4 col-lg-4 d-flex justify-content-center justify-content-lg-end">
 
 
-                                    <tr>
+                            <div className="ms-lg-4 mt-4 mt-lg-0" style={{ maxWidth: '320px' }}>
 
 
-                                        <td>Discount 0% <i class="fa-solid fa-tag text-success"></i></td>
+                                <h6 className="mb-3 fw-bold">Order Summary</h6>
 
 
-                                        {BuyDeatils &&
 
 
-                                            <td align="right" className='text-success'>
+                                <div className="d-flex justify-content-between">
+
+                                    <p className="mb-2">Price({BuyDeatils.length} item):</p>
+
+                                    {BuyDeatils &&
+
+                                        <p className="mb-2 fw-bold">
+
+                                            ₹{BuyDeatils.reduce((total, item) => total + Number(item.price), 0)}
+
+                                        </p>
+                                    }
 
 
-                                                ₹{BuyDeatils.reduce((total, item) => total + Number(item.price), 0)}
+                                </div>
 
 
-                                            </td>
+                                <div className="d-flex justify-content-between">
+                                    <p className="mb-2">Discount:</p>
+                                    <p className="mb-2 text-success">0%</p>
+                                </div>
 
 
-                                        }
+                                <div className="d-flex justify-content-between">
+                                    <p className="mb-2">Shipping cost:</p>
+                                    <p className="mb-2 text-success fw-bold">Free</p>
+                                </div>
 
 
-                                    </tr>
+                                <hr />
+                                <div className="d-flex justify-content-between">
+                                    <p className="mb-2 fw-bold">Total Amount:</p>
+                                    {BuyDeatils &&
+
+                                        <p className="mb-2 fw-bold">
+
+                                            ₹{BuyDeatils.reduce((total, item) => total + Number(item.price), 0)}
+
+                                        </p>
+                                    }
+                                </div>
 
 
-                                    <tr>
-                                        <td>Total Items</td>
-                                        <td align="right" className='text-success'>{BuyDeatils.length}</td>
-                                    </tr>
+                                <hr />
+                                <h6 className="text-dark my-4">Items in cart</h6>
+
+                                {
+
+                                    BuyDeatils.length &&
+
+                                    BuyDeatils.map((item, index) => (
+
+                                        <div className="d-flex align-items-center mb-4" key={index}>
+
+                                            <div className="me-3">
+
+                                                <img src={item.image} style={{ height: '96px', width: '96px' }} className="img-sm rounded border" />
+                                            </div>
+
+                                            <div className="">
+                                                <a className="nav-link fw-bold">
+                                                    {item.name}<br />
+
+                                                </a>
+                                                <div className="price text-dark">Total: ₹{item.price}</div>
+                                            </div>
+
+                                            <div className='ms-2'>
+
+                                                <button className='btn btn-danger' onClick={()=>{Remove(item.id)}}>Remove</button>
+
+                                            </div>
+
+                                        </div>
+
+                                    ))
+
+                                }
 
 
-                                </tbody>
+                            </div>
 
-                                <tfoot>
-                                    <tr>
-                                        <td>Total</td>
-
-                                        {BuyDeatils &&
-
-                                            <td align="right" className='text-success'>
-
-                                                ₹{BuyDeatils.reduce((total, item) => total + Number(item.price), 0)}
-
-
-                                            </td>
-                                        }
-
-
-                                    </tr>
-
-
-                                </tfoot>
-
-                            </table>
 
                         </div>
 
-                        <div className=''>
 
-                            <button className="button button--full" type="submit" onClick={handlepay}>Pay Now<i className="fa-solid fa-lock"></i></button>
-
-                        </div>
-
-
-
-                    </form>
+                    </div>
 
 
                 </div>
+
 
 
             </section>
@@ -413,9 +460,20 @@ function Buy() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
             {/* Address Modal */}
-
-
             <Modal
                 show={show}
                 onHide={handleClose}
@@ -454,7 +512,7 @@ function Buy() {
 
                                             <div className='d-flex mb-4'>
 
-                                                <input type="radio" onClick={() => { SetSelectedAddress(item), handleClose() }} value={""} name='a' className='large-radio'  style={{cursor:'pointer'}}/>
+                                                <input type="radio" onClick={() => { SetSelectedAddress(item), handleClose() }} value={""} name='a' className='large-radio' style={{ cursor: 'pointer' }} />
 
                                                 <div className='ms-3'>
 
@@ -474,7 +532,7 @@ function Buy() {
 
                                 <div className='col-12 p-2 text-center'>
 
-                                    <button onClick={(e) => { SetAddressStatus(false) }} className='btn btn-address w-75'>Add New Address <i class="fa-solid fa-plus"></i></button>
+                                    <button onClick={(e) => { SetAddressStatus(false) }} className='btn btn-address w-75'>Add New Address <i className="fa-solid fa-plus"></i></button>
 
                                 </div>
 

@@ -23,36 +23,36 @@ function Footer() {
               {/* Navigation */}
               <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
-                <h6 className="text-uppercase fw-bold mb-4">
+                <h6 className="text-uppercase fw-bold mb-2">
                   Navigation
                 </h6>
 
-                <p>
+                <p className='mb-2'>
 
                   <Link to={'/'} className='text-reset foot-link'>Home</Link>
 
                 </p>
 
-                <p>
+                <p className='mb-2'>
 
                   <Link to={'/ai'} className='text-reset foot-link'>AI Consultant</Link>
 
                 </p>
 
 
-                <p>
+                <p className='mb-2'>
 
                   <Link to={'/doctors'} className='text-reset foot-link'>Talk to Doctor</Link>
 
                 </p>
 
-                <p>
+                <p className='mb-2'>
 
                   <Link to={'/performance'} className='text-reset foot-link'>Your Concern</Link>
 
                 </p>
 
-                <p>
+                <p className='mb-2'>
 
                   <Link to={'/allproducts'} className='text-reset foot-link'>Your Products</Link>
 
@@ -71,6 +71,11 @@ function Footer() {
                   <img src="/Foot-Logo.png" loading='lazy' className='img-fluid' alt="" />
 
                 </div>
+
+                <p>Happy Couple Solutions <br />
+                  MEDICARE PHARMA <br />
+                  An initiative of <br />
+                  Medresearch India Pvt. Ltd.</p>
 
 
                 <p style={{ fontSize: '15px' }}><i className="fas fa-home me-3"></i>RKP,3/569G,Parammal Road,Ramanatukara,Kozhikode <br />- 673 634</p>
@@ -109,12 +114,12 @@ function Footer() {
               {/* Pages */}
               <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
-                <h6 className="text-uppercase fw-bold mb-4">
+                <h6 className="text-uppercase fw-bold mb-2">
                   Pages
                 </h6>
 
 
-                <p>
+                <p className='mb-2'>
 
                   <Link to={'about'} className='text-reset foot-link'>About Us</Link>
 

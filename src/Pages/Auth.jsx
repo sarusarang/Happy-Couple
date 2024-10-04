@@ -176,7 +176,7 @@ function Auth() {
 
         <nav className='w-100 p-4'>
 
-          <div className='login-logo'>
+          <div className='login-logo' onClick={()=>{Navigate('/')}} style={{cursor:'pointer'}}>
 
             <img src="/NAV-LOGO.png" loading='lazy' className='img-fluid' alt="img" />
 

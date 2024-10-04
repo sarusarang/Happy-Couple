@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ChatBot from "react-chatbotify"
-import { ChatBotApi } from '../Services/AllApi'
+import { ChatBotApi, GetAllProducts } from '../Services/AllApi'
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { AddBuyNow } from '../Redux/BuySlice';
 
 
 
@@ -17,8 +19,52 @@ function Bot() {
     const Navigate = useNavigate()
 
 
+    const Dispatch = useDispatch()
+
+
+
     // Prescription file
     const [DocsPrescription, SetDocsPrescription] = useState()
+
+
+    // Product data
+    const [Product, SetProduct] = useState([])
+
+
+    useEffect(() => {
+
+        // Get the Product
+        const GetProduct = async () => {
+
+
+            try {
+
+                const res = await GetAllProducts()
+
+                if (res.status >= 200 && res.status <= 300) {
+
+                    const devices = res.data.filter((item) => item.id === 1 || item.id === 2)
+
+                    SetProduct(devices)
+
+                }
+
+            }
+            catch (err) {
+
+                console.log(err)
+
+            }
+
+        }
+
+        GetProduct()
+
+
+    }, [])
+
+
+
 
 
     // Handle File Uploads
@@ -26,8 +72,6 @@ function Bot() {
 
         console.log(params.files[0])
         SetDocsPrescription(params.files[0])
-
-
 
     }
 
@@ -77,6 +121,24 @@ function Bot() {
 
     }
 
+
+
+    const Buy = (data)=>{
+
+        if(data == "both"){
+
+            Dispatch(AddBuyNow(Product))
+            Navigate('/buy')
+
+        }
+        else{
+
+            Dispatch(AddBuyNow([Product[0]]))
+            Navigate('/buy')
+
+        }
+
+    }
 
 
 
@@ -661,7 +723,7 @@ function Bot() {
 
                             <Card.Title>LYGIN_M</Card.Title>
 
-                            <Button variant="dark" onClick={() => { Navigate('/pro/1') }}>Buy Now</Button>
+                            <Button variant="dark" onClick={() => { Buy("one")}}>Buy Now</Button>
 
                         </Card.Body>
 
@@ -933,8 +995,6 @@ function Bot() {
 
                                     <Card.Title>LYGIN_M</Card.Title>
 
-                                    <Button variant="dark" onClick={() => { Navigate('/pro/1') }}>Buy Now</Button>
-
                                 </Card.Body>
 
                             </Card>
@@ -952,8 +1012,6 @@ function Bot() {
 
                                     <Card.Title>Vaccum Therapy Device</Card.Title>
 
-                                    <Button variant="dark" onClick={() => { Navigate('/pro/2') }}>Buy Now</Button>
-
                                 </Card.Body>
 
                             </Card>
@@ -962,6 +1020,8 @@ function Bot() {
 
 
                     </div>
+
+                    <button className='btn btn-dark mt-3' onClick={()=>{Buy("both")}}>Buy Both Now</button>
 
                     <button className='btn btn-info mt-3'>Confirm Your Free Doctor Consultation</button>
 
