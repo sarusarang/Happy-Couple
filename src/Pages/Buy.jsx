@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import Modal from 'react-bootstrap/Modal'
-import { useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'sonner'
 import './Buy.css'
-import { PostAddress, GetAddress } from '../Services/AllApi'
+import { PostAddress, GetAddress, PostOrder } from '../Services/AllApi'
 import { AddBuyNow } from '../Redux/BuySlice'
 
 
@@ -37,6 +37,20 @@ function Buy() {
         name: "", pincode: "", city: "", state: "", landmark: "", streetaddress: "", phone: ""
 
     })
+
+
+
+    // Modal State
+    const [show, setShow] = useState(false)
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true)
+
+
+    // TO SET ADD ADDRESS STATUS
+    const [AddressStatus, SetAddressStatus] = useState(true)
+
+
+
 
     useEffect(() => {
 
@@ -137,7 +151,7 @@ function Buy() {
         GetUserAddress()
 
 
-    }, [GetState,BuyDeatils])
+    }, [GetState, BuyDeatils])
 
 
 
@@ -158,16 +172,14 @@ function Buy() {
             }
             else {
 
-
-
                 const formdata = new FormData()
+
 
                 const reqheader = {
 
                     "Content-Type": "multipart/form-data"
 
                 }
-
 
 
                 formdata.append("name", name)
@@ -194,9 +206,7 @@ function Buy() {
 
                 } else {
 
-
-                    console.log(res);
-
+                    console.log(res)
 
                 }
 
@@ -209,30 +219,84 @@ function Buy() {
             console.log(Err);
 
         }
+
     }
 
 
 
-   
-
     // Remove item
-    const Remove = (item_id)=>{
+    const Remove = (item_id) => {
 
         const NewArray = BuyDeatils.filter((item) => item.id !== item_id)
 
-        Dispatch(AddBuyNow(NewArray))       
+        Dispatch(AddBuyNow(NewArray))
 
     }
 
 
-    // Modal State
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
 
-    // TO SET ADD ADDRESS STATUS
-    const [AddressStatus, SetAddressStatus] = useState(true)
+
+
+    // Order
+    const Order = async () => {
+
+
+        try {
+
+            if (BuyDeatils.length > 0) {
+
+
+                console.log(BuyDeatils)
+
+                const formdata = new FormData()
+
+                const reqheader = {
+
+                    "Content-Type": "multipart/form-data"
+
+                }
+
+                formdata.append("user", sessionStorage.getItem("username"))
+                formdata.append("address", SelectedAddress.id)
+                formdata.append("order_items", BuyDeatils)
+
+                const Response = await PostOrder(formdata, reqheader)
+
+                if (Response.status >= 200 && Response.status <= 300) {
+
+                    alert("Ordered")
+                    console.log(Response);
+
+
+                }
+                else {
+
+                    console.log(Response)
+                    alert("Not orderd")
+
+
+                }
+
+            } else {
+
+                Navigate('/')
+                toast.warning("No Products Found...!")
+
+            }
+
+        }
+        catch (err) {
+
+            console.log(err);
+
+
+        }
+
+
+    }
+
+
 
 
 
@@ -289,7 +353,7 @@ function Buy() {
 
                                                     :
 
-                                                    <h4 className='text-dark' onClick={handleShow} style={{cursor:'pointer'}}>Add Address</h4>
+                                                    <h4 className='text-dark' onClick={handleShow} style={{ cursor: 'pointer' }}>Add Address</h4>
 
 
                                             }
@@ -306,7 +370,7 @@ function Buy() {
                                     </div>
 
 
-                                   
+
 
 
                                     <div class="payment-section">
@@ -317,18 +381,18 @@ function Buy() {
                                         <div class="payment-option">
                                             <label class="option-card">
                                                 <input type="radio" name="payment" checked value="cod" class="radio-input" />
-                                                    <div class="option-content">
-                                                        <span class="option-icon">💵</span>
-                                                        <span class="option-text">Cash on Delivery</span>
-                                                    </div>
+                                                <div class="option-content">
+                                                    <span class="option-icon">💵</span>
+                                                    <span class="option-text">Cash on Delivery</span>
+                                                </div>
                                             </label>
 
-                                            
+
                                         </div>
 
                                         <p className=' mt-3 payment-p'>Currently, only Cash on Delivery (COD) is available for this order due to limited payment options in your area.Ensure you have the exact amount ready at the time of delivery* </p>
 
-                                        
+
                                     </div>
 
 
@@ -338,7 +402,7 @@ function Buy() {
 
                                     <div className="float-end">
                                         <button className="btn btn-light border me-3">Cancel</button>
-                                        <button className="btn btn-success shadow-0 border">Order</button>
+                                        <button className="btn btn-success shadow-0 border" onClick={Order}>Order</button>
                                     </div>
 
 
@@ -431,7 +495,7 @@ function Buy() {
 
                                             <div className='ms-2'>
 
-                                                <button className='btn btn-danger' onClick={()=>{Remove(item.id)}}>Remove</button>
+                                                <button className='btn btn-danger' onClick={() => { Remove(item.id) }}>Remove</button>
 
                                             </div>
 

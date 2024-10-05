@@ -98,3 +98,11 @@ export const GetDoctor = async () => {
     return CommonApi("GET", `${base_url}/doc_info/`, "", "")
 
 }
+
+
+// Order
+export const PostOrder = async (data, header) => {
+
+    return CommonApi("POST", `${base_url}/orders/`, data, header)
+
+}

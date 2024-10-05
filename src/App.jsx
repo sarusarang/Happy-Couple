@@ -21,6 +21,7 @@ const Buy = lazy(() => import('./Pages/Buy'))
 const Bot = lazy(() => import('./Pages/Bot'))
 const WhatsApp = lazy(() => import('./Components/WhatsApp'))
 const Shipping = lazy(() => import('./Pages/ShippingPolicy'))
+const OrderSuccess = lazy(() => import('./Pages/OrderSuccess'))
 
 
 
@@ -117,6 +118,8 @@ function App() {
           <Route path="/ShippingPolicy" element={<Shipping />}> </Route>
 
           <Route path="/buy" element={<Buy />}> </Route>
+
+          <Route path="/Success" element={<OrderSuccess />}> </Route>
 
 
         </Routes>
